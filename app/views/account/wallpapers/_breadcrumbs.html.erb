@@ -1,0 +1,8 @@
+<% wallpaper ||= @wallpaper %>
+<% site ||= @site || wallpaper&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :wallpapers] %>
+<% if wallpaper&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: wallpaper.label_string, url: [:account, wallpaper] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'wallpapers' %>

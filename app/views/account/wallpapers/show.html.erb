@@ -5,24 +5,23 @@
       <% p.content_for :title, t('.header') %>
       <% p.content_for :description do %>
         <%= t('.description') %>
-        <%= t('.manage_description') if can? :manage, @site %>
+        <%= t('.manage_description') if can? :manage, @wallpaper %>
       <% end %>
 
       <% p.content_for :body do %>
-        <% with_attribute_settings object: @site, strategy: :label do %>
+        <% with_attribute_settings object: @wallpaper, strategy: :label do %>
           <%= render 'shared/attributes/text', attribute: :name %>
           <%# 🚅 super scaffolding will insert new fields above this line. %>
         <% end %>
       <% end %>
 
       <% p.content_for :actions do %>
-        <%= link_to t('.buttons.edit'), [:edit, :account, @site], class: first_button_primary if can? :edit, @site %>
-        <%= button_to t('.buttons.destroy'), [:account, @site], method: :delete, class: first_button_primary, data: { confirm: t('.buttons.confirmations.destroy', model_locales(@site)) } if can? :destroy, @site %>
-        <%= link_to t('global.buttons.back'), [:account, @team, :sites], class: first_button_primary %>
+        <%= link_to t('.buttons.edit'), [:edit, :account, @wallpaper], class: first_button_primary if can? :edit, @wallpaper %>
+        <%= button_to t('.buttons.destroy'), [:account, @wallpaper], method: :delete, class: first_button_primary, data: { confirm: t('.buttons.confirmations.destroy', model_locales(@wallpaper)) } if can? :destroy, @wallpaper %>
+        <%= link_to t('global.buttons.back'), [:account, @site, :wallpapers], class: first_button_primary %>
       <% end %>
     <% end %>
 
-    <%= render 'account/wallpapers/index', wallpapers: @site.wallpapers, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
   <% end %>
 <% end %>

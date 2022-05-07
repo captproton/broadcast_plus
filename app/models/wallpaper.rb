@@ -1,12 +1,12 @@
-class Site < ApplicationRecord
+class Wallpaper < ApplicationRecord
   # 🚅 add concerns above.
 
-  belongs_to :team
+  belongs_to :site
   # 🚅 add belongs_to associations above.
 
-  has_many :wallpapers, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
+  has_one :team, through: :site
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.

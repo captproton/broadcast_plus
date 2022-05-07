@@ -66,7 +66,9 @@ Rails.application.routes.draw do
           resources :applications
         end
 
-        resources :sites
+        resources :sites do
+          resources :wallpapers
+        end
       end
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_07_173353) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -276,6 +276,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wallpapers", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_wallpapers_on_site_id"
+  end
+
   create_table "webhooks_incoming_bullet_train_webhooks", force: :cascade do |t|
     t.jsonb "data"
     t.datetime "processed_at", precision: nil
@@ -362,6 +370,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
   add_foreign_key "sites", "teams"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
+  add_foreign_key "wallpapers", "sites"
   add_foreign_key "webhooks_outgoing_endpoints", "teams"
   add_foreign_key "webhooks_outgoing_events", "teams"
 end
