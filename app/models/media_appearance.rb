@@ -1,4 +1,4 @@
-class Wallpaper < ApplicationRecord
+class MediaAppearance < ApplicationRecord
   # 🚅 add concerns above.
 
   belongs_to :site
@@ -11,7 +11,6 @@ class Wallpaper < ApplicationRecord
 
   # 🚅 add scopes above.
 
-  validates :name, presence: true
   validates :title, presence: true
   # 🚅 add validations above.
 

@@ -70,6 +70,7 @@ Rails.application.routes.draw do
           resources :wallpapers
           resources :books
           resources :events
+          resources :media_appearances
         end
       end
     end

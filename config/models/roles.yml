@@ -1,5 +1,8 @@
 default:
   models:
+    MediaAppearance: read
+    Wallpaper: read
+    Wallpaper: read
     Event: read
     Book: read
     Wallpaper: read
@@ -32,6 +35,9 @@ admin:
     - admin
     - editor
   models:
+    MediaAppearance: manage
+    Wallpaper: manage
+    Wallpaper: manage
     Event: manage
     Book: manage
     Wallpaper: manage
