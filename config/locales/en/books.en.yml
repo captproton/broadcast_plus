@@ -1,0 +1,104 @@
+en:
+  books: &books
+    label: &label Books
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Book
+      create: Create Book
+      edit: Edit Book
+      update: Update Book
+      destroy: Remove Book
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{book_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Book ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      byline:
+        _: &byline Byline
+        label: *byline
+        heading: *byline
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+      jacket_url:
+        _: &jacket_url Jacket Url
+        label: *jacket_url
+        heading: *jacket_url
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Books"
+      index: "List Books"
+      create: "Add a New Book"
+      member_actions: "Actions for an Individual Book"
+      show: "Retrieve a Book"
+      update: "Update a Book"
+      destroy: "Delete a Book"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Books"
+      contexts:
+        site:
+          header: Books
+          description: Below is a list of Books that have been added for %{site_name}.
+          description_empty: No Books have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{book_name}"
+      header: Book Details
+      description: Below are the details we have for %{book_name}.
+      manage_description: You'll also find options for updating these details or removing %{book_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Book for %{site_name}"
+      header: New Book Details
+      description: Please provide the details of the new Book you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{book_name}"
+      header: Edit Book Details
+      description: You can update the details or settings for %{book_name} below.
+      form: *form
+    notifications:
+      created: Book was successfully created.
+      updated: Book was successfully updated.
+      destroyed: Book was successfully destroyed.
+  account:
+    books: *books
+  activerecord:
+    attributes:
+      book:
+        title: *title
+        byline: *byline
+        description: *description
+        jacket_url: *jacket_url
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

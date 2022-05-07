@@ -1,0 +1,8 @@
+<% book ||= @book %>
+<% site ||= @site || book&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :books] %>
+<% if book&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: book.label_string, url: [:account, book] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'books' %>

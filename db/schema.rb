@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_173353) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_07_203643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_173353) do
     t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "title"
+    t.string "byline"
+    t.text "description"
+    t.text "jacket_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_books_on_site_id"
   end
 
   create_table "integrations_stripe_installations", force: :cascade do |t|
@@ -347,6 +358,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_173353) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "sites"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "teams"
