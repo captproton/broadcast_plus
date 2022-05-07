@@ -69,6 +69,7 @@ Rails.application.routes.draw do
         resources :sites do
           resources :wallpapers
           resources :books
+          resources :events
         end
       end
     end

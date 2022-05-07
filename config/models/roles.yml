@@ -1,5 +1,6 @@
 default:
   models:
+    Event: read
     Book: read
     Wallpaper: read
     Site: read
@@ -31,6 +32,7 @@ admin:
     - admin
     - editor
   models:
+    Event: manage
     Book: manage
     Wallpaper: manage
     Site: manage
