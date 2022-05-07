@@ -1,5 +1,6 @@
 default:
   models:
+    Site: read
     Team: read
     Membership:
       - read
@@ -28,6 +29,7 @@ admin:
     - admin
     - editor
   models:
+    Site: manage
     Team: manage
     Membership: manage
     Scaffolding::AbsolutelyAbstract::CreativeConcept: manage
