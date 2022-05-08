@@ -1,18 +1,18 @@
-class Book < ApplicationRecord
+class MerchandiseLink < ApplicationRecord
   # 🚅 add concerns above.
 
+  belongs_to :book
   belongs_to :site
   # 🚅 add belongs_to associations above.
 
-  has_many :merchandise_links, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
-  has_one :team, through: :site
+  has_one :team, through: :book
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
-  validates :title, presence: true
+  validates :seller_name, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.

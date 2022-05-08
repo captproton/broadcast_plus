@@ -1,5 +1,6 @@
 default:
   models:
+    MerchandiseLink: read
     MediaAppearance: read
     Wallpaper: read
     Wallpaper: read
@@ -35,6 +36,7 @@ admin:
     - admin
     - editor
   models:
+    MerchandiseLink: manage
     MediaAppearance: manage
     Wallpaper: manage
     Wallpaper: manage

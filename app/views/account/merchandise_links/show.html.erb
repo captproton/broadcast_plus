@@ -1,0 +1,28 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'account/shared/box', divider: true do |p| %>
+      <% p.content_for :title, t('.header') %>
+      <% p.content_for :description do %>
+        <%= t('.description') %>
+        <%= t('.manage_description') if can? :manage, @merchandise_link %>
+      <% end %>
+
+      <% p.content_for :body do %>
+        <% with_attribute_settings object: @merchandise_link, strategy: :label do %>
+          <%= render 'shared/attributes/text', attribute: :seller_name %>
+          <%= render 'shared/attributes/text', attribute: :item_url %>
+          <%# 🚅 super scaffolding will insert new fields above this line. %>
+        <% end %>
+      <% end %>
+
+      <% p.content_for :actions do %>
+        <%= link_to t('.buttons.edit'), [:edit, :account, @merchandise_link], class: first_button_primary if can? :edit, @merchandise_link %>
+        <%= button_to t('.buttons.destroy'), [:account, @merchandise_link], method: :delete, class: first_button_primary, data: { confirm: t('.buttons.confirmations.destroy', model_locales(@merchandise_link)) } if can? :destroy, @merchandise_link %>
+        <%= link_to t('global.buttons.back'), [:account, @book, :merchandise_links], class: first_button_primary %>
+      <% end %>
+    <% end %>
+
+    <%# 🚅 super scaffolding will insert new children above this line. %>
+  <% end %>
+<% end %>

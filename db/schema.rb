@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_213526) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_214200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -147,6 +147,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_213526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["membership_id"], name: "index_tangible_things_reassignments_on_membership_id"
+  end
+
+  create_table "merchandise_links", force: :cascade do |t|
+    t.string "seller_name"
+    t.string "item_url"
+    t.bigint "book_id", null: false
+    t.bigint "site_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_merchandise_links_on_book_id"
+    t.index ["site_id"], name: "index_merchandise_links_on_site_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -393,6 +404,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_213526) do
   add_foreign_key "memberships_reassignments_assignments", "memberships"
   add_foreign_key "memberships_reassignments_assignments", "memberships_reassignments_scaffolding_completely_concrete_tangi", column: "scaffolding_completely_concrete_tangible_things_reassignments_i"
   add_foreign_key "memberships_reassignments_scaffolding_completely_concrete_tangi", "memberships"
+  add_foreign_key "merchandise_links", "books"
+  add_foreign_key "merchandise_links", "sites"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"

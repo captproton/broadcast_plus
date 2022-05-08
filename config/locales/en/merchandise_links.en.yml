@@ -1,0 +1,94 @@
+en:
+  merchandise_links: &merchandise_links
+    label: &label Merchandise Links
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Merchandise Link
+      create: Create Merchandise Link
+      edit: Edit Merchandise Link
+      update: Update Merchandise Link
+      destroy: Remove Merchandise Link
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{merchandise_link_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Merchandise Link ID
+      book_id:
+        heading: Book ID
+      seller_name:
+        _: &seller_name Seller Name
+        label: *seller_name
+        heading: *seller_name
+      item_url:
+        _: &item_url Item Url
+        label: *item_url
+        heading: *item_url
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Merchandise Links"
+      index: "List Merchandise Links"
+      create: "Add a New Merchandise Link"
+      member_actions: "Actions for an Individual Merchandise Link"
+      show: "Retrieve a Merchandise Link"
+      update: "Update a Merchandise Link"
+      destroy: "Delete a Merchandise Link"
+      fields: *fields
+    index:
+      section: "%{books_possessive} Merchandise Links"
+      contexts:
+        book:
+          header: Merchandise Links
+          description: Below is a list of Merchandise Links that have been added for %{book_name}.
+          description_empty: No Merchandise Links have been added for %{book_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{merchandise_link_name}"
+      header: Merchandise Link Details
+      description: Below are the details we have for %{merchandise_link_name}.
+      manage_description: You'll also find options for updating these details or removing %{merchandise_link_name} from %{book_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Merchandise Link for %{book_name}"
+      header: New Merchandise Link Details
+      description: Please provide the details of the new Merchandise Link you'd like to add to %{book_name}.
+      form: *form
+    edit:
+      section: "%{merchandise_link_name}"
+      header: Edit Merchandise Link Details
+      description: You can update the details or settings for %{merchandise_link_name} below.
+      form: *form
+    notifications:
+      created: Merchandise Link was successfully created.
+      updated: Merchandise Link was successfully updated.
+      destroyed: Merchandise Link was successfully destroyed.
+  account:
+    merchandise_links: *merchandise_links
+  activerecord:
+    attributes:
+      merchandise_link:
+        seller_name: *seller_name
+        item_url: *item_url
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
