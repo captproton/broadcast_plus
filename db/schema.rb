@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_08_232858) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_09_182802) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_232858) do
     t.index ["site_id"], name: "index_events_on_site_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_images_on_site_id"
+  end
+
   create_table "integrations_stripe_installations", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.bigint "oauth_stripe_account_id", null: false
@@ -153,11 +161,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_232858) do
     t.string "seller_name"
     t.string "item_url"
     t.bigint "book_id", null: false
-    t.bigint "site_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_merchandise_links_on_book_id"
-    t.index ["site_id"], name: "index_merchandise_links_on_site_id"
   end
 
   create_table "names", force: :cascade do |t|
@@ -425,6 +431,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_232858) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "books", "sites"
   add_foreign_key "events", "sites"
+  add_foreign_key "images", "sites"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "teams"
@@ -438,7 +445,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_232858) do
   add_foreign_key "memberships_reassignments_assignments", "memberships_reassignments_scaffolding_completely_concrete_tangi", column: "scaffolding_completely_concrete_tangible_things_reassignments_i"
   add_foreign_key "memberships_reassignments_scaffolding_completely_concrete_tangi", "memberships"
   add_foreign_key "merchandise_links", "books"
-  add_foreign_key "merchandise_links", "sites"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"

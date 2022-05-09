@@ -1,0 +1,62 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :images %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless images.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if images.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th>title</th>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% images.each do |image| %>
+            <% with_attribute_settings object: image do %>
+              <tr data-id="<%= image.id %>">
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= image.title %></td>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, image %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, image], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, image %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, image], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(image)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, Image.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :image], class: "#{first_button_primary(:image)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:image)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
