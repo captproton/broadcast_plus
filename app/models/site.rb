@@ -7,7 +7,8 @@ class Site < ApplicationRecord
   has_many :wallpapers, dependent: :destroy, enable_updates: true
   has_many :books, dependent: :destroy, enable_updates: true
   has_many :events, dependent: :destroy, enable_updates: true
-  has_many :media_appearances, dependent: :destroy
+  has_many :media_appearances, dependent: :destroy, enable_updates: true
+  has_many :publisher_accounts, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

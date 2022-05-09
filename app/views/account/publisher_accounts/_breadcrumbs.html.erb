@@ -1,0 +1,8 @@
+<% publisher_account ||= @publisher_account %>
+<% site ||= @site || publisher_account&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :publisher_accounts] %>
+<% if publisher_account&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: publisher_account.label_string, url: [:account, publisher_account] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'publisher_accounts' %>

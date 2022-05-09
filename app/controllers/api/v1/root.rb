@@ -7,6 +7,7 @@ class Api::V1::Root < Api::Base
   mount Api::V1::EventsEndpoint
   mount Api::V1::MediaAppearancesEndpoint
   mount Api::V1::MerchandiseLinksEndpoint
+  mount Api::V1::PublisherAccountsEndpoint
   # 🚅 super scaffolding will mount new endpoints above this line.
 
   handle_not_found
