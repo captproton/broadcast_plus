@@ -1,0 +1,8 @@
+<% biography ||= @biography %>
+<% site ||= @site || biography&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :biographies] %>
+<% if biography&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: biography.label_string, url: [:account, biography] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'biographies' %>
