@@ -65,6 +65,7 @@ class Account::WallpapersController < Account::ApplicationController
   def wallpaper_params
     strong_params = params.require(:wallpaper).permit(
       :name,
+      :title,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

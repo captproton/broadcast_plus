@@ -20,6 +20,7 @@ class Api::V1::WallpapersEndpointTest < Api::Test
       wallpaper = Wallpaper.find(wallpaper_data["id"])
 
       assert_equal wallpaper_data['name'], wallpaper.name
+      assert_equal wallpaper_data['title'], wallpaper.title
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal wallpaper_data["site_id"], wallpaper.site_id
@@ -79,6 +80,7 @@ class Api::V1::WallpapersEndpointTest < Api::Test
       put "/api/v1/wallpapers/#{@wallpaper.id}", params: {
         access_token: access_token,
         name: 'Alternative String Value',
+        title: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
 
@@ -90,6 +92,7 @@ class Api::V1::WallpapersEndpointTest < Api::Test
       # But we have to manually assert the value was properly updated.
       @wallpaper.reload
       assert_equal @wallpaper.name, 'Alternative String Value'
+      assert_equal @wallpaper.title, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 
       # Also ensure we can't do that same action as another user.
