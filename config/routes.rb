@@ -74,6 +74,7 @@ Rails.application.routes.draw do
           resources :events
           resources :media_appearances
           resources :publisher_accounts
+          resources :images
         end
       end
     end

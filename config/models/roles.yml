@@ -1,5 +1,7 @@
 default:
   models:
+    MerchandiseLink: read
+    Image: read
     PublisherAccount: read
     MerchandiseLink: read
     MediaAppearance: read
@@ -37,6 +39,8 @@ admin:
     - admin
     - editor
   models:
+    MerchandiseLink: manage
+    Image: manage
     PublisherAccount: manage
     MerchandiseLink: manage
     MediaAppearance: manage
