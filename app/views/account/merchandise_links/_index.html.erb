@@ -1,0 +1,60 @@
+<% book = @book || @book %>
+<% context ||= book %>
+<% collection ||= :merchandise_links %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless merchandise_links.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if merchandise_links.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% merchandise_links.each do |merchandise_link| %>
+            <% with_attribute_settings object: merchandise_link do %>
+              <tr data-id="<%= merchandise_link.id %>">
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, merchandise_link %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, merchandise_link], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, merchandise_link %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, merchandise_link], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(merchandise_link)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == book %>
+        <% if can? :create, MerchandiseLink.new(book: book) %>
+          <%= link_to t('.buttons.new'), [:new, :account, book, :merchandise_link], class: "#{first_button_primary(:merchandise_link)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:merchandise_link)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

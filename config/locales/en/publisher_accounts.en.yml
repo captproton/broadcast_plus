@@ -1,0 +1,139 @@
+en:
+  publisher_accounts: &publisher_accounts
+    label: &label Publisher Accounts
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Publisher Account
+      create: Create Publisher Account
+      edit: Edit Publisher Account
+      update: Update Publisher Account
+      destroy: Remove Publisher Account
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{publisher_account_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Publisher Account ID
+      site_id:
+        heading: Site ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+      url:
+        _: &url Url
+        label: *url
+        heading: *url
+      font_awesome_class:
+        _: &font_awesome_class Font Awesome Class
+        label: *font_awesome_class
+        heading: *font_awesome_class
+      network_kind:
+        _: &network_kind Network Kind
+        label: *network_kind
+        heading: *network_kind
+      blurb:
+        _: &blurb Blurb
+        label: *blurb
+        heading: *blurb
+      svg_logo:
+        _: &svg_logo Svg Logo
+        label: *svg_logo
+        heading: *svg_logo
+      svg_logo_style:
+        _: &svg_logo_style Svg Logo Style
+        label: *svg_logo_style
+        heading: *svg_logo_style
+      frontpage_ranking:
+        _: &frontpage_ranking Frontpage Ranking
+        label: *frontpage_ranking
+        heading: *frontpage_ranking
+      sidebar_ranking:
+        _: &sidebar_ranking Sidebar Ranking
+        label: *sidebar_ranking
+        heading: *sidebar_ranking
+      footer_ranking:
+        _: &footer_ranking Footer Ranking
+        label: *footer_ranking
+        heading: *footer_ranking
+      podcast_ranking:
+        _: &podcast_ranking Podcast Ranking
+        label: *podcast_ranking
+        heading: *podcast_ranking
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Publisher Accounts"
+      index: "List Publisher Accounts"
+      create: "Add a New Publisher Account"
+      member_actions: "Actions for an Individual Publisher Account"
+      show: "Retrieve a Publisher Account"
+      update: "Update a Publisher Account"
+      destroy: "Delete a Publisher Account"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Publisher Accounts"
+      contexts:
+        site:
+          header: Publisher Accounts
+          description: Below is a list of Publisher Accounts that have been added for %{site_name}.
+          description_empty: No Publisher Accounts have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{publisher_account_name}"
+      header: Publisher Account Details
+      description: Below are the details we have for %{publisher_account_name}.
+      manage_description: You'll also find options for updating these details or removing %{publisher_account_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Publisher Account for %{site_name}"
+      header: New Publisher Account Details
+      description: Please provide the details of the new Publisher Account you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{publisher_account_name}"
+      header: Edit Publisher Account Details
+      description: You can update the details or settings for %{publisher_account_name} below.
+      form: *form
+    notifications:
+      created: Publisher Account was successfully created.
+      updated: Publisher Account was successfully updated.
+      destroyed: Publisher Account was successfully destroyed.
+  account:
+    publisher_accounts: *publisher_accounts
+  activerecord:
+    attributes:
+      publisher_account:
+        name: *name
+        url: *url
+        font_awesome_class: *font_awesome_class
+        network_kind: *network_kind
+        blurb: *blurb
+        svg_logo: *svg_logo
+        svg_logo_style: *svg_logo_style
+        frontpage_ranking: *frontpage_ranking
+        sidebar_ranking: *sidebar_ranking
+        footer_ranking: *footer_ranking
+        podcast_ranking: *podcast_ranking
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

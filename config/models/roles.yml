@@ -1,5 +1,13 @@
 default:
   models:
+    PublisherAccount: read
+    MerchandiseLink: read
+    MediaAppearance: read
+    Wallpaper: read
+    Wallpaper: read
+    Event: read
+    Book: read
+    Wallpaper: read
     Site: read
     Team: read
     Membership:
@@ -29,6 +37,14 @@ admin:
     - admin
     - editor
   models:
+    PublisherAccount: manage
+    MerchandiseLink: manage
+    MediaAppearance: manage
+    Wallpaper: manage
+    Wallpaper: manage
+    Event: manage
+    Book: manage
+    Wallpaper: manage
     Site: manage
     Team: manage
     Membership: manage

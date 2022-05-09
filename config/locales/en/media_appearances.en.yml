@@ -1,0 +1,94 @@
+en:
+  media_appearances: &media_appearances
+    label: &label Media Appearances
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Media Appearance
+      create: Create Media Appearance
+      edit: Edit Media Appearance
+      update: Update Media Appearance
+      destroy: Remove Media Appearance
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{media_appearance_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Media Appearance ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      published_on:
+        _: &published_on Published On
+        label: *published_on
+        heading: *published_on
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Media Appearances"
+      index: "List Media Appearances"
+      create: "Add a New Media Appearance"
+      member_actions: "Actions for an Individual Media Appearance"
+      show: "Retrieve a Media Appearance"
+      update: "Update a Media Appearance"
+      destroy: "Delete a Media Appearance"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Media Appearances"
+      contexts:
+        site:
+          header: Media Appearances
+          description: Below is a list of Media Appearances that have been added for %{site_name}.
+          description_empty: No Media Appearances have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{media_appearance_name}"
+      header: Media Appearance Details
+      description: Below are the details we have for %{media_appearance_name}.
+      manage_description: You'll also find options for updating these details or removing %{media_appearance_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Media Appearance for %{site_name}"
+      header: New Media Appearance Details
+      description: Please provide the details of the new Media Appearance you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{media_appearance_name}"
+      header: Edit Media Appearance Details
+      description: You can update the details or settings for %{media_appearance_name} below.
+      form: *form
+    notifications:
+      created: Media Appearance was successfully created.
+      updated: Media Appearance was successfully updated.
+      destroyed: Media Appearance was successfully destroyed.
+  account:
+    media_appearances: *media_appearances
+  activerecord:
+    attributes:
+      media_appearance:
+        title: *title
+        published_on: *published_on
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

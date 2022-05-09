@@ -1,0 +1,60 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :wallpapers %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless wallpapers.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if wallpapers.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% wallpapers.each do |wallpaper| %>
+            <% with_attribute_settings object: wallpaper do %>
+              <tr data-id="<%= wallpaper.id %>">
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, wallpaper %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, wallpaper], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, wallpaper %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, wallpaper], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(wallpaper)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, Wallpaper.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :wallpaper], class: "#{first_button_primary(:wallpaper)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:wallpaper)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<% merchandise_link ||= @merchandise_link %>
+<% book ||= @book || merchandise_link&.book %>
+<%= render 'account/books/breadcrumbs', book: book %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, book, :merchandise_links] %>
+<% if merchandise_link&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: merchandise_link.label_string, url: [:account, merchandise_link] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'merchandise_links' %>

@@ -1,0 +1,89 @@
+en:
+  wallpapers: &wallpapers
+    label: &label Wallpapers
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Wallpaper
+      create: Create Wallpaper
+      edit: Edit Wallpaper
+      update: Update Wallpaper
+      destroy: Remove Wallpaper
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{wallpaper_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Wallpaper ID
+      site_id:
+        heading: Site ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Wallpapers"
+      index: "List Wallpapers"
+      create: "Add a New Wallpaper"
+      member_actions: "Actions for an Individual Wallpaper"
+      show: "Retrieve a Wallpaper"
+      update: "Update a Wallpaper"
+      destroy: "Delete a Wallpaper"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Wallpapers"
+      contexts:
+        site:
+          header: Wallpapers
+          description: Below is a list of Wallpapers that have been added for %{site_name}.
+          description_empty: No Wallpapers have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{wallpaper_name}"
+      header: Wallpaper Details
+      description: Below are the details we have for %{wallpaper_name}.
+      manage_description: You'll also find options for updating these details or removing %{wallpaper_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Wallpaper for %{site_name}"
+      header: New Wallpaper Details
+      description: Please provide the details of the new Wallpaper you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{wallpaper_name}"
+      header: Edit Wallpaper Details
+      description: You can update the details or settings for %{wallpaper_name} below.
+      form: *form
+    notifications:
+      created: Wallpaper was successfully created.
+      updated: Wallpaper was successfully updated.
+      destroyed: Wallpaper was successfully destroyed.
+  account:
+    wallpapers: *wallpapers
+  activerecord:
+    attributes:
+      wallpaper:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

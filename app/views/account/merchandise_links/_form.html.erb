@@ -1,0 +1,19 @@
+<%= form_with model: merchandise_link, url: (merchandise_link.persisted? ? [:account, merchandise_link] : [:account, @book, :merchandise_links]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_area', method: :seller_name, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_area', method: :item_url %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, merchandise_link], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @book, :merchandise_links], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

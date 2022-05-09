@@ -1,0 +1,28 @@
+<%= form_with model: publisher_account, url: (publisher_account.persisted? ? [:account, publisher_account] : [:account, @site, :publisher_accounts]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_area', method: :name, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_area', method: :url %>
+    <%= render 'shared/fields/text_area', method: :font_awesome_class %>
+    <%= render 'shared/fields/text_area', method: :network_kind %>
+    <%= render 'shared/fields/text_area', method: :blurb %>
+    <%= render 'shared/fields/text_area', method: :svg_logo %>
+    <%= render 'shared/fields/text_area', method: :svg_logo_style %>
+    <%= render 'shared/fields/text_field', method: :frontpage_ranking %>
+    <%= render 'shared/fields/text_field', method: :sidebar_ranking %>
+    <%= render 'shared/fields/text_field', method: :footer_ranking %>
+    <%= render 'shared/fields/text_field', method: :podcast_ranking %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, publisher_account], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :publisher_accounts], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

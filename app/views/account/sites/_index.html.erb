@@ -16,6 +16,7 @@
         <thead>
           <tr>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= "name" %></th>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
           </tr>
@@ -25,6 +26,13 @@
             <% with_attribute_settings object: site do %>
               <tr data-id="<%= site.id %>">
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td>
+                  <% unless hide_actions %>
+                    <% if can? :edit, site %>
+                      <%= link_to site.name, [:account, site] %>
+                    <% end %>
+                  <% end %>
+                </td>
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">
                   <% unless hide_actions %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_232858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "books", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "title"
+    t.string "byline"
+    t.text "description"
+    t.text "jacket_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_books_on_site_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "title"
+    t.date "start_date"
+    t.date "finish_date"
+    t.text "more_info_url"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_events_on_site_id"
+  end
+
   create_table "integrations_stripe_installations", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.bigint "oauth_stripe_account_id", null: false
@@ -79,6 +102,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "team_id"
     t.index ["team_id"], name: "index_invitations_on_team_id"
+  end
+
+  create_table "media_appearances", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "title"
+    t.date "published_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_media_appearances_on_site_id"
   end
 
   create_table "memberships", id: :serial, force: :cascade do |t|
@@ -115,6 +147,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["membership_id"], name: "index_tangible_things_reassignments_on_membership_id"
+  end
+
+  create_table "merchandise_links", force: :cascade do |t|
+    t.string "seller_name"
+    t.string "item_url"
+    t.bigint "book_id", null: false
+    t.bigint "site_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_merchandise_links_on_book_id"
+    t.index ["site_id"], name: "index_merchandise_links_on_site_id"
+  end
+
+  create_table "names", force: :cascade do |t|
+    t.text "url"
+    t.string "font_awesome_class"
+    t.string "network_kind"
+    t.string "blurb"
+    t.text "svg_logo"
+    t.text "svg_logo_style"
+    t.integer "frontpage_ranking", default: 0, null: false
+    t.integer "sidebar_ranking", default: 0, null: false
+    t.integer "footer_ranking", default: 0, null: false
+    t.integer "podcast_ranking", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -169,6 +227,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
     t.datetime "updated_at", precision: nil, null: false
     t.index ["uid"], name: "index_oauth_stripe_accounts_on_uid", unique: true
     t.index ["user_id"], name: "index_oauth_stripe_accounts_on_user_id"
+  end
+
+  create_table "publisher_accounts", force: :cascade do |t|
+    t.string "name"
+    t.text "url"
+    t.string "font_awesome_class"
+    t.string "network_kind"
+    t.string "blurb"
+    t.text "svg_logo"
+    t.text "svg_logo_style"
+    t.integer "frontpage_ranking", default: 0, null: false
+    t.integer "sidebar_ranking", default: 0, null: false
+    t.integer "footer_ranking", default: 0, null: false
+    t.integer "podcast_ranking", default: 0, null: false
+    t.bigint "site_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_publisher_accounts_on_site_id"
   end
 
   create_table "scaffolding_absolutely_abstract_creative_concepts", force: :cascade do |t|
@@ -276,6 +352,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wallpapers", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_wallpapers_on_site_id"
+  end
+
   create_table "webhooks_incoming_bullet_train_webhooks", force: :cascade do |t|
     t.jsonb "data"
     t.datetime "processed_at", precision: nil
@@ -339,9 +423,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "sites"
+  add_foreign_key "events", "sites"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "teams"
+  add_foreign_key "media_appearances", "sites"
   add_foreign_key "memberships", "invitations"
   add_foreign_key "memberships", "memberships", column: "added_by_id"
   add_foreign_key "memberships", "oauth_applications", column: "platform_agent_of_id"
@@ -350,10 +437,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
   add_foreign_key "memberships_reassignments_assignments", "memberships"
   add_foreign_key "memberships_reassignments_assignments", "memberships_reassignments_scaffolding_completely_concrete_tangi", column: "scaffolding_completely_concrete_tangible_things_reassignments_i"
   add_foreign_key "memberships_reassignments_scaffolding_completely_concrete_tangi", "memberships"
+  add_foreign_key "merchandise_links", "books"
+  add_foreign_key "merchandise_links", "sites"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"
   add_foreign_key "oauth_stripe_accounts", "users"
+  add_foreign_key "publisher_accounts", "sites"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts", "teams"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts_collaborators", "memberships"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts_collaborators", "scaffolding_absolutely_abstract_creative_concepts", column: "creative_concept_id"
@@ -362,6 +452,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_014913) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
   add_foreign_key "sites", "teams"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
+  add_foreign_key "wallpapers", "sites"
   add_foreign_key "webhooks_outgoing_endpoints", "teams"
   add_foreign_key "webhooks_outgoing_events", "teams"
 end

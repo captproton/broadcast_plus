@@ -1,0 +1,8 @@
+<% media_appearance ||= @media_appearance %>
+<% site ||= @site || media_appearance&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :media_appearances] %>
+<% if media_appearance&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: media_appearance.label_string, url: [:account, media_appearance] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'media_appearances' %>

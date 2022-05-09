@@ -1,0 +1,62 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :media_appearances %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless media_appearances.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if media_appearances.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= "title" %></th>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% media_appearances.each do |media_appearance| %>
+            <% with_attribute_settings object: media_appearance do %>
+              <tr data-id="<%= media_appearance.id %>">
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= media_appearance.title %> </td>                
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, media_appearance %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, media_appearance], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, media_appearance %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, media_appearance], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(media_appearance)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, MediaAppearance.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :media_appearance], class: "#{first_button_primary(:media_appearance)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:media_appearance)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
