@@ -76,7 +76,9 @@ Rails.application.routes.draw do
           resources :publisher_accounts
           resources :images
           resources :biographies
-          resources :blog_entries
+          resources :blog_entries do
+            resources :blog_articles
+          end
         end
       end
     end

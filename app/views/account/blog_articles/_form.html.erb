@@ -1,0 +1,19 @@
+<%= form_with model: blog_article, url: (blog_article.persisted? ? [:account, blog_article] : [:account, @blog_entry, :blog_articles]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :pinned_value, options: {autofocus: true} %>
+    <%= render 'shared/fields/trix_editor', method: :body %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, blog_article], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @blog_entry, :blog_articles], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

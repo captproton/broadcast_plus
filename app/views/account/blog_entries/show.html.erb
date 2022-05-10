@@ -26,6 +26,7 @@
       <% end %>
     <% end %>
 
+    <%= render 'account/blog_articles/index', blog_articles: @blog_entry.blog_articles, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
   <% end %>
 <% end %>
