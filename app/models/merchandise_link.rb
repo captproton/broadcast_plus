@@ -2,7 +2,6 @@ class MerchandiseLink < ApplicationRecord
   # 🚅 add concerns above.
 
   belongs_to :book
-  belongs_to :site
   # 🚅 add belongs_to associations above.
 
   # 🚅 add has_many associations above.
