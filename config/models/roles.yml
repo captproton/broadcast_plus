@@ -1,5 +1,11 @@
 default:
   models:
+    Wallpaper: read
+    Wallpaper: read
+    Wallpaper: read
+    Wallpaper: read
+    Wallpaper: read
+    Wallpaper: read
     Biography: read
     MerchandiseLink: read
     Image: read
@@ -40,6 +46,12 @@ admin:
     - admin
     - editor
   models:
+    Wallpaper: manage
+    Wallpaper: manage
+    Wallpaper: manage
+    Wallpaper: manage
+    Wallpaper: manage
+    Wallpaper: manage
     Biography: manage
     MerchandiseLink: manage
     Image: manage
