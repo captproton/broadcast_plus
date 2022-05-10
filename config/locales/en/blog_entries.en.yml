@@ -1,0 +1,109 @@
+en:
+  blog_entries: &blog_entries
+    label: &label Blog Entries
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Blog Entry
+      create: Create Blog Entry
+      edit: Edit Blog Entry
+      update: Update Blog Entry
+      destroy: Remove Blog Entry
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{blog_entry_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Blog Entry ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      pinned_value:
+        _: &pinned_value Pinned Value
+        label: *pinned_value
+        heading: *pinned_value
+      publish_at:
+        _: &publish_at Publish At
+        label: *publish_at
+        heading: *publish_at
+      seo_title:
+        _: &seo_title Seo Title
+        label: *seo_title
+        heading: *seo_title
+      seo_description:
+        _: &seo_description Seo Description
+        label: *seo_description
+        heading: *seo_description
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Blog Entries"
+      index: "List Blog Entries"
+      create: "Add a New Blog Entry"
+      member_actions: "Actions for an Individual Blog Entry"
+      show: "Retrieve a Blog Entry"
+      update: "Update a Blog Entry"
+      destroy: "Delete a Blog Entry"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Blog Entries"
+      contexts:
+        site:
+          header: Blog Entries
+          description: Below is a list of Blog Entries that have been added for %{site_name}.
+          description_empty: No Blog Entries have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{blog_entry_name}"
+      header: Blog Entry Details
+      description: Below are the details we have for %{blog_entry_name}.
+      manage_description: You'll also find options for updating these details or removing %{blog_entry_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Blog Entry for %{site_name}"
+      header: New Blog Entry Details
+      description: Please provide the details of the new Blog Entry you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{blog_entry_name}"
+      header: Edit Blog Entry Details
+      description: You can update the details or settings for %{blog_entry_name} below.
+      form: *form
+    notifications:
+      created: Blog Entry was successfully created.
+      updated: Blog Entry was successfully updated.
+      destroyed: Blog Entry was successfully destroyed.
+  account:
+    blog_entries: *blog_entries
+  activerecord:
+    attributes:
+      blog_entry:
+        title: *title
+        pinned_value: *pinned_value
+        publish_at: *publish_at
+        seo_title: *seo_title
+        seo_description: *seo_description
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

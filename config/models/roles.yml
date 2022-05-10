@@ -1,5 +1,6 @@
 default:
   models:
+    BlogEntry: read
     Wallpaper: read
     Image: read
     Image: read
@@ -49,6 +50,7 @@ admin:
     - admin
     - editor
   models:
+    BlogEntry: manage
     Wallpaper: manage
     Image: manage
     Image: manage
