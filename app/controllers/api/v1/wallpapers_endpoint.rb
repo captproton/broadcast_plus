@@ -10,6 +10,7 @@ class Api::V1::WallpapersEndpoint < Api::V1::Root
 
     params :wallpaper do
       optional :name, type: String, desc: Api.heading(:name)
+      optional :image, type: File, desc: Api.heading(:image)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

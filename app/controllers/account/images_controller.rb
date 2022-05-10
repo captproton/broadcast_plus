@@ -65,6 +65,7 @@ class Account::ImagesController < Account::ApplicationController
   def image_params
     strong_params = params.require(:image).permit(
       :title,
+      :graphic,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

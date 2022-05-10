@@ -7,7 +7,7 @@ class Image < ApplicationRecord
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site
-  has_one_attached :image
+  has_one_attached :graphic
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
