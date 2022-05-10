@@ -1,5 +1,6 @@
 default:
   models:
+    Image: read
     Wallpaper: read
     Wallpaper: read
     Wallpaper: read
@@ -46,6 +47,7 @@ admin:
     - admin
     - editor
   models:
+    Image: manage
     Wallpaper: manage
     Wallpaper: manage
     Wallpaper: manage

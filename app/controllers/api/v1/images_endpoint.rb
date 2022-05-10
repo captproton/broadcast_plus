@@ -10,6 +10,7 @@ class Api::V1::ImagesEndpoint < Api::V1::Root
 
     params :image do
       optional :title, type: String, desc: Api.heading(:title)
+      optional :image, type: File, desc: Api.heading(:image)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

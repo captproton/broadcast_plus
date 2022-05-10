@@ -20,6 +20,7 @@ class Api::V1::ImagesEndpointTest < Api::Test
       image = Image.find(image_data["id"])
 
       assert_equal image_data['title'], image.title
+      assert_equal image_data['image'], image.image
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal image_data["site_id"], image.site_id
