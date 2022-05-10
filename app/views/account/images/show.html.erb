@@ -11,6 +11,7 @@
       <% p.content_for :body do %>
         <% with_attribute_settings object: @image, strategy: :label do %>
           <%= render 'shared/attributes/text', attribute: :title %>
+          <%= render 'shared/attributes/text', attribute: :image %>
           <%# 🚅 super scaffolding will insert new fields above this line. %>
         <% end %>
       <% end %>
