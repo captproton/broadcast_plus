@@ -27,10 +27,6 @@ en:
         _: &name Name
         label: *name
         heading: *name
-      title:
-        _: &title Title
-        label: *title
-        heading: *title
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -88,7 +84,6 @@ en:
     attributes:
       wallpaper:
         name: *name
-        title: *title
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

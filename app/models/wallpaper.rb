@@ -12,12 +12,12 @@ class Wallpaper < ApplicationRecord
   # 🚅 add scopes above.
 
   validates :name, presence: true
-  validates :title, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
 
-  # 🚅 add methods above.
+  # 🚅 add methods above.]
+  
 end
