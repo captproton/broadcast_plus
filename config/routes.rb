@@ -79,6 +79,8 @@ Rails.application.routes.draw do
           resources :blog_entries do
             resources :blog_articles
           end
+
+          resources :blog_lists
         end
       end
     end

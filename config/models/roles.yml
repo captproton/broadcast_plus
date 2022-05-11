@@ -1,5 +1,8 @@
 default:
   models:
+    BlogList: read
+    BlogList: read
+    BlogList: read
     BlogArticle: read
     BlogEntry: read
     BlogArticle: read
@@ -53,6 +56,9 @@ admin:
     - admin
     - editor
   models:
+    BlogList: manage
+    BlogList: manage
+    BlogList: manage
     BlogArticle: manage
     BlogEntry: manage
     BlogArticle: manage
