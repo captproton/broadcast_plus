@@ -1,25 +1,26 @@
-class BlogEntry < ApplicationRecord
+class BlogCard < ApplicationRecord
   # 🚅 add concerns above.
 
-  belongs_to :site
+  belongs_to :blog_list
+  belongs_to :blog_entry
   # 🚅 add belongs_to associations above.
 
-  has_many :blog_articles, dependent: :destroy
-  has_many :blog_cards, dependent: :destroy
-  has_many :blog_lists, through: :blog_cards
   # 🚅 add has_many associations above.
 
-  has_one :team, through: :site
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
-  validates :title, presence: true
+  validates :blog_entry, scope: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
+
+  def valid_blog_entries
+    blog_list.valid_blog_entries
+  end
 
   # 🚅 add methods above.
 end

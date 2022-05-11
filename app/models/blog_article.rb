@@ -1,20 +1,18 @@
-class BlogEntry < ApplicationRecord
+class BlogArticle < ApplicationRecord
   # 🚅 add concerns above.
 
-  belongs_to :site
+  belongs_to :blog_entry
   # 🚅 add belongs_to associations above.
 
-  has_many :blog_articles, dependent: :destroy
-  has_many :blog_cards, dependent: :destroy
-  has_many :blog_lists, through: :blog_cards
   # 🚅 add has_many associations above.
 
-  has_one :team, through: :site
+  has_one :team, through: :blog_entry
+  has_rich_text :body
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
-  validates :title, presence: true
+  validates :pinned_value, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.

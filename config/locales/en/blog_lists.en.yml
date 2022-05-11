@@ -1,0 +1,108 @@
+en:
+  blog_lists: &blog_lists
+    label: &label Blog Lists
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Blog List
+      create: Create Blog List
+      edit: Edit Blog List
+      update: Update Blog List
+      destroy: Remove Blog List
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{blog_list_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Blog List ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+      tag_ids: &tags
+        _: &tag_ids Tags
+        label: *tag_ids
+        heading: *tag_ids
+        placeholder: None
+      tags: *tags
+      blog_entry_ids: &blog_entries
+        _: &blog_entry_ids Blog Entries
+        label: *blog_entry_ids
+        heading: *blog_entry_ids
+        placeholder: None
+      blog_entries: *blog_entries
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Blog Lists"
+      index: "List Blog Lists"
+      create: "Add a New Blog List"
+      member_actions: "Actions for an Individual Blog List"
+      show: "Retrieve a Blog List"
+      update: "Update a Blog List"
+      destroy: "Delete a Blog List"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Blog Lists"
+      contexts:
+        site:
+          header: Blog Lists
+          description: Below is a list of Blog Lists that have been added for %{site_name}.
+          description_empty: No Blog Lists have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{blog_list_name}"
+      header: Blog List Details
+      description: Below are the details we have for %{blog_list_name}.
+      manage_description: You'll also find options for updating these details or removing %{blog_list_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Blog List for %{site_name}"
+      header: New Blog List Details
+      description: Please provide the details of the new Blog List you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{blog_list_name}"
+      header: Edit Blog List Details
+      description: You can update the details or settings for %{blog_list_name} below.
+      form: *form
+    notifications:
+      created: Blog List was successfully created.
+      updated: Blog List was successfully updated.
+      destroyed: Blog List was successfully destroyed.
+  account:
+    blog_lists: *blog_lists
+  activerecord:
+    attributes:
+      blog_list:
+        title: *title
+        description: *description
+        tag_ids: *tag_ids
+        blog_entry_ids: *blog_entry_ids
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
