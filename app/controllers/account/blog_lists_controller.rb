@@ -67,9 +67,13 @@ class Account::BlogListsController < Account::ApplicationController
       :title,
       :description,
       # 🚅 super scaffolding will insert new fields above this line.
+      tag_ids: [],
+      blog_entry_ids: [],
       # 🚅 super scaffolding will insert new arrays above this line.
     )
 
+    assign_select_options(strong_params, :tag_ids)
+    assign_select_options(strong_params, :blog_entry_ids)
     # 🚅 super scaffolding will insert processing for new fields above this line.
 
     strong_params

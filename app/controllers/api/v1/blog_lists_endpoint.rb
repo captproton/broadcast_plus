@@ -12,6 +12,8 @@ class Api::V1::BlogListsEndpoint < Api::V1::Root
       optional :title, type: String, desc: Api.heading(:title)
       optional :description, type: String, desc: Api.heading(:description)
       # 🚅 super scaffolding will insert new fields above this line.
+      optional :tag_ids, type: Array, desc: Api.heading(:tag_ids)
+      optional :blog_entry_ids, type: Array, desc: Api.heading(:blog_entry_ids)
       # 🚅 super scaffolding will insert new arrays above this line.
 
       # 🚅 super scaffolding will insert processing for new fields above this line.

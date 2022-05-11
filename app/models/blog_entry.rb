@@ -5,6 +5,8 @@ class BlogEntry < ApplicationRecord
   # 🚅 add belongs_to associations above.
 
   has_many :blog_articles, dependent: :destroy
+  has_many :blog_cards, dependent: :destroy
+  has_many :blog_lists, through: :blog_cards
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site

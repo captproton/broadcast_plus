@@ -31,6 +31,18 @@ en:
         _: &description Description
         label: *description
         heading: *description
+      tag_ids: &tags
+        _: &tag_ids Tags
+        label: *tag_ids
+        heading: *tag_ids
+        placeholder: None
+      tags: *tags
+      blog_entry_ids: &blog_entries
+        _: &blog_entry_ids Blog Entries
+        label: *blog_entry_ids
+        heading: *blog_entry_ids
+        placeholder: None
+      blog_entries: *blog_entries
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -89,6 +101,8 @@ en:
       blog_list:
         title: *title
         description: *description
+        tag_ids: *tag_ids
+        blog_entry_ids: *blog_entry_ids
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at
