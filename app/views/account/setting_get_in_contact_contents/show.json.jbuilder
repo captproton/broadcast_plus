@@ -1,0 +1,1 @@
+json.partial! "setting_get_in_contact_contents/setting_get_in_contact_content", setting_get_in_contact_content: @setting_get_in_contact_content

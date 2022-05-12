@@ -86,6 +86,7 @@ Rails.application.routes.draw do
           resources :setting_general_infos
           resources :setting_home_infos
           resources :setting_first_times
+          resources :setting_get_in_contact_contents
         end
       end
     end
