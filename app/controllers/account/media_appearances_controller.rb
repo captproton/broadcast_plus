@@ -66,6 +66,7 @@ class Account::MediaAppearancesController < Account::ApplicationController
     strong_params = params.require(:media_appearance).permit(
       :title,
       :published_on,
+      :article_url,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

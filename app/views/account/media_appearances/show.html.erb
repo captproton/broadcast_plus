@@ -12,6 +12,7 @@
         <% with_attribute_settings object: @media_appearance, strategy: :label do %>
           <%= render 'shared/attributes/text', attribute: :title %>
           <%= render 'shared/attributes/date', attribute: :published_on %>
+          <%= render 'shared/attributes/text', attribute: :article_url %>
           <%# 🚅 super scaffolding will insert new fields above this line. %>
         <% end %>
       <% end %>

@@ -21,6 +21,7 @@ class Api::V1::MediaAppearancesEndpointTest < Api::Test
 
       assert_equal media_appearance_data['title'], media_appearance.title
       assert_equal Date.parse(media_appearance_data['published_on']), media_appearance.published_on
+      assert_equal media_appearance_data['article_url'], media_appearance.article_url
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal media_appearance_data["site_id"], media_appearance.site_id
@@ -80,6 +81,7 @@ class Api::V1::MediaAppearancesEndpointTest < Api::Test
       put "/api/v1/media_appearances/#{@media_appearance.id}", params: {
         access_token: access_token,
         title: 'Alternative String Value',
+        article_url: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
 
@@ -91,6 +93,7 @@ class Api::V1::MediaAppearancesEndpointTest < Api::Test
       # But we have to manually assert the value was properly updated.
       @media_appearance.reload
       assert_equal @media_appearance.title, 'Alternative String Value'
+      assert_equal @media_appearance.article_url, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 
       # Also ensure we can't do that same action as another user.

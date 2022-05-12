@@ -3,6 +3,7 @@ json.extract! media_appearance,
   :site_id,
   :title,
   :published_on,
+  :article_url,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

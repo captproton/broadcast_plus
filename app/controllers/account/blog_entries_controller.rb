@@ -69,6 +69,7 @@ class Account::BlogEntriesController < Account::ApplicationController
       :publish_at,
       :seo_title,
       :seo_description,
+      :hero_image,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
