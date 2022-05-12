@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_200814) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_201721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -409,6 +409,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_200814) do
     t.index ["site_id"], name: "index_setting_get_in_contact_contents_on_site_id"
   end
 
+  create_table "setting_hire_mes", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "title"
+    t.text "learn_more_text"
+    t.text "learn_more_pdf_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_hire_mes_on_site_id"
+  end
+
   create_table "setting_home_infos", force: :cascade do |t|
     t.bigint "site_id", null: false
     t.text "biography_blurb"
@@ -584,6 +594,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_200814) do
   add_foreign_key "setting_first_times", "sites"
   add_foreign_key "setting_general_infos", "sites"
   add_foreign_key "setting_get_in_contact_contents", "sites"
+  add_foreign_key "setting_hire_mes", "sites"
   add_foreign_key "setting_home_infos", "sites"
   add_foreign_key "sites", "teams"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
