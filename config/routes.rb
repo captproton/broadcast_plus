@@ -87,6 +87,7 @@ Rails.application.routes.draw do
           resources :setting_home_infos
           resources :setting_first_times
           resources :setting_get_in_contact_contents
+          resources :setting_hire_mes
         end
       end
     end

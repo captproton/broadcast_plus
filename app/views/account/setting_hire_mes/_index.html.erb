@@ -1,0 +1,66 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :setting_hire_mes %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless setting_hire_mes.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if setting_hire_mes.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.learn_more_text.heading') %></th>
+            <th><%= t('.fields.learn_more_pdf_link.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% setting_hire_mes.each do |setting_hire_me| %>
+            <% with_attribute_settings object: setting_hire_me do %>
+              <tr data-id="<%= setting_hire_me.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, setting_hire_me] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :learn_more_text %></td>
+                <td><%= render 'shared/attributes/text', attribute: :learn_more_pdf_link %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, setting_hire_me %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, setting_hire_me], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, setting_hire_me %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, setting_hire_me], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(setting_hire_me)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, SettingHireMe.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :setting_hire_me], class: "#{first_button_primary(:setting_hire_me)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:setting_hire_me)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
