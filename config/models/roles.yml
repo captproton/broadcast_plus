@@ -1,5 +1,6 @@
 default:
   models:
+    SettingGeneralInfo: read
     SettingBookCollectionPage: read
     SettingBiography: read
     MediaAppearance: read
@@ -60,6 +61,7 @@ admin:
     - admin
     - editor
   models:
+    SettingGeneralInfo: manage
     SettingBookCollectionPage: manage
     SettingBiography: manage
     MediaAppearance: manage

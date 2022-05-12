@@ -1,0 +1,70 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :setting_general_infos %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless setting_general_infos.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if setting_general_infos.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.site_name.heading') %></th>
+            <th><%= t('.fields.plain_text_name.heading') %></th>
+            <th><%= t('.fields.text_number.heading') %></th>
+            <th><%= t('.fields.newsletter_subscription_url.heading') %></th>
+            <th><%= t('.fields.default_meta_blurb.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% setting_general_infos.each do |setting_general_info| %>
+            <% with_attribute_settings object: setting_general_info do %>
+              <tr data-id="<%= setting_general_info.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :site_name, url: [:account, setting_general_info] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :plain_text_name %></td>
+                <td><%= render 'shared/attributes/text', attribute: :text_number %></td>
+                <td><%= render 'shared/attributes/text', attribute: :newsletter_subscription_url %></td>
+                <td><%= render 'shared/attributes/text', attribute: :default_meta_blurb %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, setting_general_info %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, setting_general_info], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, setting_general_info %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, setting_general_info], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(setting_general_info)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, SettingGeneralInfo.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :setting_general_info], class: "#{first_button_primary(:setting_general_info)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:setting_general_info)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

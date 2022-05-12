@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :setting_general_info do
-    site { nil }
+    association :site
     site_name { "MyText" }
     plain_text_name { "MyText" }
     text_number { "MyText" }
