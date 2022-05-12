@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_190751) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_193248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -385,6 +385,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_190751) do
     t.index ["site_id"], name: "index_setting_general_infos_on_site_id"
   end
 
+  create_table "setting_home_infos", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "biography_blurb"
+    t.text "video_billboard_url"
+    t.text "watch_this_video_url"
+    t.text "bio_link_label"
+    t.text "watch_this_poster_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_home_infos_on_site_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.string "name"
@@ -546,6 +558,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_190751) do
   add_foreign_key "setting_biographies", "sites"
   add_foreign_key "setting_book_collection_pages", "sites"
   add_foreign_key "setting_general_infos", "sites"
+  add_foreign_key "setting_home_infos", "sites"
   add_foreign_key "sites", "teams"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
   add_foreign_key "wallpapers", "sites"
