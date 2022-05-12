@@ -11,7 +11,8 @@ class Api::V1::SettingHireMesEndpoint < Api::V1::Root
     params :setting_hire_me do
       optional :title, type: String, desc: Api.heading(:title)
       optional :learn_more_text, type: String, desc: Api.heading(:learn_more_text)
-      optional :learn_more_pdf_link, type: String, desc: Api.heading(:learn_more_pdf_link)
+      optional :body, type: String, desc: Api.heading(:body)
+      optional :learn_more_pdf, type: File, desc: Api.heading(:learn_more_pdf)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

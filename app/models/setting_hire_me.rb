@@ -7,6 +7,8 @@ class SettingHireMe < ApplicationRecord
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site
+  has_rich_text :body
+  has_one_attached :learn_more_pdf
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.

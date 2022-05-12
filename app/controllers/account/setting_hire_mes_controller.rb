@@ -66,7 +66,8 @@ class Account::SettingHireMesController < Account::ApplicationController
     strong_params = params.require(:setting_hire_me).permit(
       :title,
       :learn_more_text,
-      :learn_more_pdf_link,
+      :body,
+      :learn_more_pdf,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

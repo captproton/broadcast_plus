@@ -31,10 +31,14 @@ en:
         _: &learn_more_text Learn More Text
         label: *learn_more_text
         heading: *learn_more_text
-      learn_more_pdf_link:
-        _: &learn_more_pdf_link Learn More Pdf Link
-        label: *learn_more_pdf_link
-        heading: *learn_more_pdf_link
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
+      learn_more_pdf:
+        _: &learn_more_pdf Learn More Pdf
+        label: *learn_more_pdf
+        heading: *learn_more_pdf
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -93,7 +97,8 @@ en:
       setting_hire_me:
         title: *title
         learn_more_text: *learn_more_text
-        learn_more_pdf_link: *learn_more_pdf_link
+        body: *body
+        learn_more_pdf: *learn_more_pdf
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

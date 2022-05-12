@@ -21,7 +21,7 @@ class Api::V1::SettingHireMesEndpointTest < Api::Test
 
       assert_equal setting_hire_me_data['title'], setting_hire_me.title
       assert_equal setting_hire_me_data['learn_more_text'], setting_hire_me.learn_more_text
-      assert_equal setting_hire_me_data['learn_more_pdf_link'], setting_hire_me.learn_more_pdf_link
+      assert_equal setting_hire_me_data['learn_more_pdf'], setting_hire_me.learn_more_pdf
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal setting_hire_me_data["site_id"], setting_hire_me.site_id
@@ -82,7 +82,6 @@ class Api::V1::SettingHireMesEndpointTest < Api::Test
         access_token: access_token,
         title: 'Alternative String Value',
         learn_more_text: 'Alternative String Value',
-        learn_more_pdf_link: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
 
@@ -95,7 +94,6 @@ class Api::V1::SettingHireMesEndpointTest < Api::Test
       @setting_hire_me.reload
       assert_equal @setting_hire_me.title, 'Alternative String Value'
       assert_equal @setting_hire_me.learn_more_text, 'Alternative String Value'
-      assert_equal @setting_hire_me.learn_more_pdf_link, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 
       # Also ensure we can't do that same action as another user.

@@ -1,6 +1,7 @@
 default:
   models:
     SettingHireMe: read
+    SettingHireMe: read
     SettingGetInContactContent: read
     SettingFirstTime: read
     SettingHomeInfo: read
@@ -65,6 +66,7 @@ admin:
     - admin
     - editor
   models:
+    SettingHireMe: manage
     SettingHireMe: manage
     SettingGetInContactContent: manage
     SettingFirstTime: manage
