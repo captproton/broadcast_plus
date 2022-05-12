@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :setting_first_time do
-    site { nil }
+    association :site
     first_name { "MyText" }
     last_name { "MyText" }
     blurb { "MyText" }

@@ -85,6 +85,7 @@ Rails.application.routes.draw do
           resources :setting_book_collection_pages
           resources :setting_general_infos
           resources :setting_home_infos
+          resources :setting_first_times
         end
       end
     end

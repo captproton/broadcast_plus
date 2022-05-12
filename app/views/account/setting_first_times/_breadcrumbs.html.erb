@@ -1,0 +1,8 @@
+<% setting_first_time ||= @setting_first_time %>
+<% site ||= @site || setting_first_time&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_first_times] %>
+<% if setting_first_time&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_first_time.label_string, url: [:account, setting_first_time] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_first_times' %>

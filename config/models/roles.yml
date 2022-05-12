@@ -1,5 +1,6 @@
 default:
   models:
+    SettingFirstTime: read
     SettingHomeInfo: read
     SettingGeneralInfo: read
     SettingBookCollectionPage: read
@@ -62,6 +63,7 @@ admin:
     - admin
     - editor
   models:
+    SettingFirstTime: manage
     SettingHomeInfo: manage
     SettingGeneralInfo: manage
     SettingBookCollectionPage: manage
