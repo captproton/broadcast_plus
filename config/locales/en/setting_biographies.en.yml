@@ -27,6 +27,14 @@ en:
         _: &title Title
         label: *title
         heading: *title
+      hero_image:
+        _: &hero_image Hero Image
+        label: *hero_image
+        heading: *hero_image
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -84,6 +92,8 @@ en:
     attributes:
       setting_biography:
         title: *title
+        hero_image: *hero_image
+        body: *body
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

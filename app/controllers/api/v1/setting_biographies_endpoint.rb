@@ -10,6 +10,8 @@ class Api::V1::SettingBiographiesEndpoint < Api::V1::Root
 
     params :setting_biography do
       optional :title, type: String, desc: Api.heading(:title)
+      optional :hero_image, type: File, desc: Api.heading(:hero_image)
+      optional :body, type: String, desc: Api.heading(:body)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

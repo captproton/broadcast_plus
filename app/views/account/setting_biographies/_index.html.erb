@@ -16,6 +16,7 @@
         <thead>
           <tr>
             <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.hero_image.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
@@ -26,6 +27,7 @@
             <% with_attribute_settings object: setting_biography do %>
               <tr data-id="<%= setting_biography.id %>">
                 <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, setting_biography] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :hero_image %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">

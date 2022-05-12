@@ -2,6 +2,7 @@ json.extract! setting_biography,
   :id,
   :site_id,
   :title,
+  :hero_image,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

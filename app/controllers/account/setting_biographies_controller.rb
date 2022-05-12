@@ -65,6 +65,8 @@ class Account::SettingBiographiesController < Account::ApplicationController
   def setting_biography_params
     strong_params = params.require(:setting_biography).permit(
       :title,
+      :hero_image,
+      :body,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

@@ -7,6 +7,8 @@ class SettingBiography < ApplicationRecord
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site
+  has_one_attached :hero_image
+  has_rich_text :body
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.

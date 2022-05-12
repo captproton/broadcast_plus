@@ -20,6 +20,7 @@ class Api::V1::SettingBiographiesEndpointTest < Api::Test
       setting_biography = SettingBiography.find(setting_biography_data["id"])
 
       assert_equal setting_biography_data['title'], setting_biography.title
+      assert_equal setting_biography_data['hero_image'], setting_biography.hero_image
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal setting_biography_data["site_id"], setting_biography.site_id
