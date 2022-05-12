@@ -15,6 +15,7 @@ class Site < ApplicationRecord
   has_many :setting_biographies, dependent: :destroy, enable_updates: true
   has_many :setting_book_collection_pages, dependent: :destroy, enable_updates: true
   has_many :setting_general_infos, dependent: :destroy, enable_updates: true
+  has_many :setting_home_infos, dependent: :destroy
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

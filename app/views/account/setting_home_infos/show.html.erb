@@ -1,0 +1,31 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'account/shared/box', divider: true do |p| %>
+      <% p.content_for :title, t('.header') %>
+      <% p.content_for :description do %>
+        <%= t('.description') %>
+        <%= t('.manage_description') if can? :manage, @setting_home_info %>
+      <% end %>
+
+      <% p.content_for :body do %>
+        <% with_attribute_settings object: @setting_home_info, strategy: :label do %>
+          <%= render 'shared/attributes/text', attribute: :biography_blurb %>
+          <%= render 'shared/attributes/text', attribute: :video_billboard_url %>
+          <%= render 'shared/attributes/text', attribute: :watch_this_video_url %>
+          <%= render 'shared/attributes/text', attribute: :bio_link_label %>
+          <%= render 'shared/attributes/text', attribute: :watch_this_poster_url %>
+          <%# 🚅 super scaffolding will insert new fields above this line. %>
+        <% end %>
+      <% end %>
+
+      <% p.content_for :actions do %>
+        <%= link_to t('.buttons.edit'), [:edit, :account, @setting_home_info], class: first_button_primary if can? :edit, @setting_home_info %>
+        <%= button_to t('.buttons.destroy'), [:account, @setting_home_info], method: :delete, class: first_button_primary, data: { confirm: t('.buttons.confirmations.destroy', model_locales(@setting_home_info)) } if can? :destroy, @setting_home_info %>
+        <%= link_to t('global.buttons.back'), [:account, @site, :setting_home_infos], class: first_button_primary %>
+      <% end %>
+    <% end %>
+
+    <%# 🚅 super scaffolding will insert new children above this line. %>
+  <% end %>
+<% end %>

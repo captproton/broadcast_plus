@@ -1,0 +1,109 @@
+en:
+  setting_home_infos: &setting_home_infos
+    label: &label Setting Home Infos
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting Home Info
+      create: Create Setting Home Info
+      edit: Edit Setting Home Info
+      update: Update Setting Home Info
+      destroy: Remove Setting Home Info
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_home_info_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting Home Info ID
+      site_id:
+        heading: Site ID
+      biography_blurb:
+        _: &biography_blurb Biography Blurb
+        label: *biography_blurb
+        heading: *biography_blurb
+      video_billboard_url:
+        _: &video_billboard_url Video Billboard Url
+        label: *video_billboard_url
+        heading: *video_billboard_url
+      watch_this_video_url:
+        _: &watch_this_video_url Watch This Video Url
+        label: *watch_this_video_url
+        heading: *watch_this_video_url
+      bio_link_label:
+        _: &bio_link_label Bio Link Label
+        label: *bio_link_label
+        heading: *bio_link_label
+      watch_this_poster_url:
+        _: &watch_this_poster_url Watch This Poster Url
+        label: *watch_this_poster_url
+        heading: *watch_this_poster_url
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting Home Infos"
+      index: "List Setting Home Infos"
+      create: "Add a New Setting Home Info"
+      member_actions: "Actions for an Individual Setting Home Info"
+      show: "Retrieve a Setting Home Info"
+      update: "Update a Setting Home Info"
+      destroy: "Delete a Setting Home Info"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting Home Infos"
+      contexts:
+        site:
+          header: Setting Home Infos
+          description: Below is a list of Setting Home Infos that have been added for %{site_name}.
+          description_empty: No Setting Home Infos have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_home_info_name}"
+      header: Setting Home Info Details
+      description: Below are the details we have for %{setting_home_info_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_home_info_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting Home Info for %{site_name}"
+      header: New Setting Home Info Details
+      description: Please provide the details of the new Setting Home Info you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_home_info_name}"
+      header: Edit Setting Home Info Details
+      description: You can update the details or settings for %{setting_home_info_name} below.
+      form: *form
+    notifications:
+      created: Setting Home Info was successfully created.
+      updated: Setting Home Info was successfully updated.
+      destroyed: Setting Home Info was successfully destroyed.
+  account:
+    setting_home_infos: *setting_home_infos
+  activerecord:
+    attributes:
+      setting_home_info:
+        biography_blurb: *biography_blurb
+        video_billboard_url: *video_billboard_url
+        watch_this_video_url: *watch_this_video_url
+        bio_link_label: *bio_link_label
+        watch_this_poster_url: *watch_this_poster_url
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

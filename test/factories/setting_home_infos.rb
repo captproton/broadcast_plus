@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :setting_home_info do
-    site { nil }
+    association :site
     biography_blurb { "MyText" }
     video_billboard_url { "MyText" }
     watch_this_video_url { "MyText" }
