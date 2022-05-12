@@ -8,6 +8,8 @@ class Api::V1::SettingGeneralInfoSerializer < Api::V1::ApplicationSerializer
     :text_number,
     :newsletter_subscription_url,
     :default_meta_blurb,
+    :default_meta_image,
+    :is_team_website,
     # 🚅 super scaffolding will insert new fields above this line.
     :created_at,
     :updated_at

@@ -24,6 +24,8 @@ class Api::V1::SettingGeneralInfosEndpointTest < Api::Test
       assert_equal setting_general_info_data['text_number'], setting_general_info.text_number
       assert_equal setting_general_info_data['newsletter_subscription_url'], setting_general_info.newsletter_subscription_url
       assert_equal setting_general_info_data['default_meta_blurb'], setting_general_info.default_meta_blurb
+      assert_equal setting_general_info_data['default_meta_image'], setting_general_info.default_meta_image
+      assert_equal setting_general_info_data['is_team_website'], setting_general_info.is_team_website
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal setting_general_info_data["site_id"], setting_general_info.site_id

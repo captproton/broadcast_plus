@@ -7,6 +7,7 @@ class SettingGeneralInfo < ApplicationRecord
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site
+  has_one_attached :default_meta_image
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.

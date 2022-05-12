@@ -69,10 +69,13 @@ class Account::SettingGeneralInfosController < Account::ApplicationController
       :text_number,
       :newsletter_subscription_url,
       :default_meta_blurb,
+      :default_meta_image,
+      :is_team_website,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
 
+    assign_boolean(strong_params, :is_team_website)
     # 🚅 super scaffolding will insert processing for new fields above this line.
 
     strong_params

@@ -14,6 +14,8 @@ class Api::V1::SettingGeneralInfosEndpoint < Api::V1::Root
       optional :text_number, type: String, desc: Api.heading(:text_number)
       optional :newsletter_subscription_url, type: String, desc: Api.heading(:newsletter_subscription_url)
       optional :default_meta_blurb, type: String, desc: Api.heading(:default_meta_blurb)
+      optional :default_meta_image, type: File, desc: Api.heading(:default_meta_image)
+      optional :is_team_website, type: Boolean, desc: Api.heading(:is_team_website)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

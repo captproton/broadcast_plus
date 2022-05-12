@@ -20,6 +20,8 @@
             <th><%= t('.fields.text_number.heading') %></th>
             <th><%= t('.fields.newsletter_subscription_url.heading') %></th>
             <th><%= t('.fields.default_meta_blurb.heading') %></th>
+            <th><%= t('.fields.default_meta_image.heading') %></th>
+            <th  class="text-center"><%= t('.fields.is_team_website.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
@@ -34,6 +36,8 @@
                 <td><%= render 'shared/attributes/text', attribute: :text_number %></td>
                 <td><%= render 'shared/attributes/text', attribute: :newsletter_subscription_url %></td>
                 <td><%= render 'shared/attributes/text', attribute: :default_meta_blurb %></td>
+                <td><%= render 'shared/attributes/text', attribute: :default_meta_image %></td>
+                <td class="text-center"><%= render 'shared/attributes/boolean', attribute: :is_team_website %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">
