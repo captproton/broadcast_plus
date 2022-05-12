@@ -90,6 +90,7 @@ Rails.application.routes.draw do
           resources :setting_hire_mes
           resources :setting_event_pages
           resources :setting_podcasts
+          resources :setting_press_kits
         end
       end
     end

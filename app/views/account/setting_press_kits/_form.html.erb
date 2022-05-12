@@ -1,0 +1,22 @@
+<%= form_with model: setting_press_kit, url: (setting_press_kit.persisted? ? [:account, setting_press_kit] : [:account, @site, :setting_press_kits]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :hero_title, options: {autofocus: true} %>
+    <%= render 'shared/fields/file_field', method: :hero_image %>
+    <%= render 'shared/fields/text_field', method: :name %>
+    <%= render 'shared/fields/text_field', method: :birthplace %>
+    <%= render 'shared/fields/trix_editor', method: :biography %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, setting_press_kit], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :setting_press_kits], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>
