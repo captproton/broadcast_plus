@@ -19,6 +19,7 @@ class Site < ApplicationRecord
   has_many :setting_first_times, dependent: :destroy, enable_updates: true
   has_many :setting_get_in_contact_contents, dependent: :destroy, enable_updates: true
   has_many :setting_hire_mes, dependent: :destroy, enable_updates: true
+  has_many :setting_event_pages, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

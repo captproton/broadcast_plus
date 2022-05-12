@@ -20,6 +20,7 @@ class Api::V1::Root < Api::Base
   mount Api::V1::SettingFirstTimesEndpoint
   mount Api::V1::SettingGetInContactContentsEndpoint
   mount Api::V1::SettingHireMesEndpoint
+  mount Api::V1::SettingEventPagesEndpoint
   # 🚅 super scaffolding will mount new endpoints above this line.
 
   handle_not_found
