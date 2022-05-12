@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_193248) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_194901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -372,6 +372,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_193248) do
     t.index ["site_id"], name: "index_setting_book_collection_pages_on_site_id"
   end
 
+  create_table "setting_first_times", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "first_name"
+    t.text "last_name"
+    t.text "blurb"
+    t.text "twitter_handle"
+    t.text "featured_image_src"
+    t.text "featured_youtube_video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_first_times_on_site_id"
+  end
+
   create_table "setting_general_infos", force: :cascade do |t|
     t.bigint "site_id", null: false
     t.text "site_name"
@@ -557,6 +570,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_193248) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
   add_foreign_key "setting_biographies", "sites"
   add_foreign_key "setting_book_collection_pages", "sites"
+  add_foreign_key "setting_first_times", "sites"
   add_foreign_key "setting_general_infos", "sites"
   add_foreign_key "setting_home_infos", "sites"
   add_foreign_key "sites", "teams"
