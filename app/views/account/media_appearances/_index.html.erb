@@ -15,8 +15,10 @@
       <table class="table">
         <thead>
           <tr>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.published_on.heading') %></th>
+            <th><%= t('.fields.article_url.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
-            <th><%= "title" %></th>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
           </tr>
@@ -25,8 +27,10 @@
           <% media_appearances.each do |media_appearance| %>
             <% with_attribute_settings object: media_appearance do %>
               <tr data-id="<%= media_appearance.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, media_appearance] %></td>
+                <td><%= render 'shared/attributes/date', attribute: :published_on %></td>
+                <td><%= render 'shared/attributes/text', attribute: :article_url %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
-                <td><%= media_appearance.title %> </td>                
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">
                   <% unless hide_actions %>

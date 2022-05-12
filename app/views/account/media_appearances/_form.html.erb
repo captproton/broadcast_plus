@@ -2,8 +2,9 @@
   <%= render 'account/shared/forms/errors', form: form %>
 
   <% with_field_settings form: form do %>
-    <%= render 'shared/fields/text_area', method: :title, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :title, options: {autofocus: true} %>
     <%= render 'shared/fields/date_field', method: :published_on %>
+    <%= render 'shared/fields/text_field', method: :article_url %>
     <%# 🚅 super scaffolding will insert new fields above this line. %>
   <% end %>
 

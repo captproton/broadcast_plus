@@ -11,6 +11,7 @@ class Api::V1::MediaAppearancesEndpoint < Api::V1::Root
     params :media_appearance do
       optional :title, type: String, desc: Api.heading(:title)
       optional :published_on, type: Date, desc: Api.heading(:published_on)
+      optional :article_url, type: String, desc: Api.heading(:article_url)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

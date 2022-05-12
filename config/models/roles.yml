@@ -1,5 +1,7 @@
 default:
   models:
+    MediaAppearance: read
+    MediaAppearance: read
     BlogList: read
     BlogList: read
     BlogList: read
@@ -56,6 +58,8 @@ admin:
     - admin
     - editor
   models:
+    MediaAppearance: manage
+    MediaAppearance: manage
     BlogList: manage
     BlogList: manage
     BlogList: manage
