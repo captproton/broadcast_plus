@@ -1,0 +1,8 @@
+<% setting_biography ||= @setting_biography %>
+<% site ||= @site || setting_biography&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_biographies] %>
+<% if setting_biography&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_biography.label_string, url: [:account, setting_biography] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_biographies' %>

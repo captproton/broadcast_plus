@@ -1,0 +1,89 @@
+en:
+  setting_biographies: &setting_biographies
+    label: &label Setting Biographies
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting Biography
+      create: Create Setting Biography
+      edit: Edit Setting Biography
+      update: Update Setting Biography
+      destroy: Remove Setting Biography
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_biography_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting Biography ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting Biographies"
+      index: "List Setting Biographies"
+      create: "Add a New Setting Biography"
+      member_actions: "Actions for an Individual Setting Biography"
+      show: "Retrieve a Setting Biography"
+      update: "Update a Setting Biography"
+      destroy: "Delete a Setting Biography"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting Biographies"
+      contexts:
+        site:
+          header: Setting Biographies
+          description: Below is a list of Setting Biographies that have been added for %{site_name}.
+          description_empty: No Setting Biographies have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_biography_name}"
+      header: Setting Biography Details
+      description: Below are the details we have for %{setting_biography_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_biography_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting Biography for %{site_name}"
+      header: New Setting Biography Details
+      description: Please provide the details of the new Setting Biography you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_biography_name}"
+      header: Edit Setting Biography Details
+      description: You can update the details or settings for %{setting_biography_name} below.
+      form: *form
+    notifications:
+      created: Setting Biography was successfully created.
+      updated: Setting Biography was successfully updated.
+      destroyed: Setting Biography was successfully destroyed.
+  account:
+    setting_biographies: *setting_biographies
+  activerecord:
+    attributes:
+      setting_biography:
+        title: *title
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

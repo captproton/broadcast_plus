@@ -13,6 +13,7 @@ class Api::V1::Root < Api::Base
   mount Api::V1::BlogEntriesEndpoint
   mount Api::V1::BlogArticlesEndpoint
   mount Api::V1::BlogListsEndpoint
+  mount Api::V1::SettingBiographiesEndpoint
   # 🚅 super scaffolding will mount new endpoints above this line.
 
   handle_not_found

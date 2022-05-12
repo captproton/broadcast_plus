@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :setting_biography do
-    site { nil }
+    association :site
     title { "MyText" }
   end
 end

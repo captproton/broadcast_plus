@@ -81,6 +81,7 @@ Rails.application.routes.draw do
           end
 
           resources :blog_lists
+          resources :setting_biographies
         end
       end
     end

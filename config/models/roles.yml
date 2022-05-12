@@ -1,5 +1,6 @@
 default:
   models:
+    SettingBiography: read
     MediaAppearance: read
     MediaAppearance: read
     BlogList: read
@@ -58,6 +59,7 @@ admin:
     - admin
     - editor
   models:
+    SettingBiography: manage
     MediaAppearance: manage
     MediaAppearance: manage
     BlogList: manage

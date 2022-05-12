@@ -1,0 +1,10 @@
+<% if can? :read, SettingBiography.new(team: current_team) %>
+  <%= render 'account/shared/menu/item', {
+    url: main_app.polymorphic_path([:account, current_team, :setting_biographies]),
+    label: t('setting_biographies.navigation.label'),
+  } do |p| %>
+    <% p.content_for :icon do %>
+      <i class="<%= t('setting_biographies.navigation.icon') %>"></i>
+    <% end %>
+  <% end %>
+<% end %>
