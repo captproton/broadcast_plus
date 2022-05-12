@@ -13,6 +13,7 @@ class Site < ApplicationRecord
   has_many :blog_entries, dependent: :destroy, enable_updates: true
   has_many :blog_lists, dependent: :destroy, enable_updates: true
   has_many :setting_biographies, dependent: :destroy, enable_updates: true
+  has_many :setting_book_collection_pages, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

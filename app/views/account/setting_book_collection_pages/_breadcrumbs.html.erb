@@ -1,0 +1,8 @@
+<% setting_book_collection_page ||= @setting_book_collection_page %>
+<% site ||= @site || setting_book_collection_page&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_book_collection_pages] %>
+<% if setting_book_collection_page&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_book_collection_page.label_string, url: [:account, setting_book_collection_page] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_book_collection_pages' %>

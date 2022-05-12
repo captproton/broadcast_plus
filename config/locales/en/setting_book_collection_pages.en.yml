@@ -1,0 +1,94 @@
+en:
+  setting_book_collection_pages: &setting_book_collection_pages
+    label: &label Setting Book Collection Pages
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting Book Collection Page
+      create: Create Setting Book Collection Page
+      edit: Edit Setting Book Collection Page
+      update: Update Setting Book Collection Page
+      destroy: Remove Setting Book Collection Page
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_book_collection_page_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting Book Collection Page ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      hero_image:
+        _: &hero_image Hero Image
+        label: *hero_image
+        heading: *hero_image
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting Book Collection Pages"
+      index: "List Setting Book Collection Pages"
+      create: "Add a New Setting Book Collection Page"
+      member_actions: "Actions for an Individual Setting Book Collection Page"
+      show: "Retrieve a Setting Book Collection Page"
+      update: "Update a Setting Book Collection Page"
+      destroy: "Delete a Setting Book Collection Page"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting Book Collection Pages"
+      contexts:
+        site:
+          header: Setting Book Collection Pages
+          description: Below is a list of Setting Book Collection Pages that have been added for %{site_name}.
+          description_empty: No Setting Book Collection Pages have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_book_collection_page_name}"
+      header: Setting Book Collection Page Details
+      description: Below are the details we have for %{setting_book_collection_page_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_book_collection_page_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting Book Collection Page for %{site_name}"
+      header: New Setting Book Collection Page Details
+      description: Please provide the details of the new Setting Book Collection Page you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_book_collection_page_name}"
+      header: Edit Setting Book Collection Page Details
+      description: You can update the details or settings for %{setting_book_collection_page_name} below.
+      form: *form
+    notifications:
+      created: Setting Book Collection Page was successfully created.
+      updated: Setting Book Collection Page was successfully updated.
+      destroyed: Setting Book Collection Page was successfully destroyed.
+  account:
+    setting_book_collection_pages: *setting_book_collection_pages
+  activerecord:
+    attributes:
+      setting_book_collection_page:
+        title: *title
+        hero_image: *hero_image
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
