@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_11_235544) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_181139) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -356,6 +356,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_235544) do
     t.index ["tangible_thing_id"], name: "index_tangible_things_assignments_on_tangible_thing_id"
   end
 
+  create_table "setting_biographies", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_biographies_on_site_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.string "name"
@@ -514,6 +522,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_235544) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things", "scaffolding_absolutely_abstract_creative_concepts", column: "absolutely_abstract_creative_concept_id"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "memberships"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
+  add_foreign_key "setting_biographies", "sites"
   add_foreign_key "sites", "teams"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
   add_foreign_key "wallpapers", "sites"
