@@ -1,0 +1,94 @@
+en:
+  images: &images
+    label: &label Images
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Image
+      create: Create Image
+      edit: Edit Image
+      update: Update Image
+      destroy: Remove Image
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{image_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Image ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      graphic:
+        _: &graphic Graphic
+        label: *graphic
+        heading: *graphic
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Images"
+      index: "List Images"
+      create: "Add a New Image"
+      member_actions: "Actions for an Individual Image"
+      show: "Retrieve a Image"
+      update: "Update a Image"
+      destroy: "Delete a Image"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Images"
+      contexts:
+        site:
+          header: Images
+          description: Below is a list of Images that have been added for %{site_name}.
+          description_empty: No Images have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{image_name}"
+      header: Image Details
+      description: Below are the details we have for %{image_name}.
+      manage_description: You'll also find options for updating these details or removing %{image_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Image for %{site_name}"
+      header: New Image Details
+      description: Please provide the details of the new Image you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{image_name}"
+      header: Edit Image Details
+      description: You can update the details or settings for %{image_name} below.
+      form: *form
+    notifications:
+      created: Image was successfully created.
+      updated: Image was successfully updated.
+      destroyed: Image was successfully destroyed.
+  account:
+    images: *images
+  activerecord:
+    attributes:
+      image:
+        title: *title
+        graphic: *graphic
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

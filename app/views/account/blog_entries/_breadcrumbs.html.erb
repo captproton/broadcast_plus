@@ -1,0 +1,8 @@
+<% blog_entry ||= @blog_entry %>
+<% site ||= @site || blog_entry&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :blog_entries] %>
+<% if blog_entry&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: blog_entry.label_string, url: [:account, blog_entry] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'blog_entries' %>

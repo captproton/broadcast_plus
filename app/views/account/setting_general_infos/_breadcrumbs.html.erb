@@ -1,0 +1,8 @@
+<% setting_general_info ||= @setting_general_info %>
+<% site ||= @site || setting_general_info&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_general_infos] %>
+<% if setting_general_info&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_general_info.label_string, url: [:account, setting_general_info] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_general_infos' %>

@@ -31,6 +31,10 @@ en:
         _: &published_on Published On
         label: *published_on
         heading: *published_on
+      article_url:
+        _: &article_url Article Url
+        label: *article_url
+        heading: *article_url
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -89,6 +93,7 @@ en:
       media_appearance:
         title: *title
         published_on: *published_on
+        article_url: *article_url
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

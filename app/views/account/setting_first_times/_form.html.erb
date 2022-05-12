@@ -1,0 +1,24 @@
+<%= form_with model: setting_first_time, url: (setting_first_time.persisted? ? [:account, setting_first_time] : [:account, @site, :setting_first_times]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :first_name, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :last_name %>
+    <%= render 'shared/fields/text_field', method: :blurb %>
+    <%= render 'shared/fields/text_field', method: :twitter_handle %>
+    <%= render 'shared/fields/text_field', method: :featured_image_src %>
+    <%= render 'shared/fields/text_field', method: :featured_youtube_video_url %>
+    <%= render 'shared/fields/trix_editor', method: :biography %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, setting_first_time], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :setting_first_times], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

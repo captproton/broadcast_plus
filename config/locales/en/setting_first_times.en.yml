@@ -1,0 +1,119 @@
+en:
+  setting_first_times: &setting_first_times
+    label: &label Setting First Times
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting First Time
+      create: Create Setting First Time
+      edit: Edit Setting First Time
+      update: Update Setting First Time
+      destroy: Remove Setting First Time
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_first_time_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting First Time ID
+      site_id:
+        heading: Site ID
+      first_name:
+        _: &first_name First Name
+        label: *first_name
+        heading: *first_name
+      last_name:
+        _: &last_name Last Name
+        label: *last_name
+        heading: *last_name
+      blurb:
+        _: &blurb Blurb
+        label: *blurb
+        heading: *blurb
+      twitter_handle:
+        _: &twitter_handle Twitter Handle
+        label: *twitter_handle
+        heading: *twitter_handle
+      featured_image_src:
+        _: &featured_image_src Featured Image Src
+        label: *featured_image_src
+        heading: *featured_image_src
+      featured_youtube_video_url:
+        _: &featured_youtube_video_url Featured Youtube Video Url
+        label: *featured_youtube_video_url
+        heading: *featured_youtube_video_url
+      biography:
+        _: &biography Biography
+        label: *biography
+        heading: *biography
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting First Times"
+      index: "List Setting First Times"
+      create: "Add a New Setting First Time"
+      member_actions: "Actions for an Individual Setting First Time"
+      show: "Retrieve a Setting First Time"
+      update: "Update a Setting First Time"
+      destroy: "Delete a Setting First Time"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting First Times"
+      contexts:
+        site:
+          header: Setting First Times
+          description: Below is a list of Setting First Times that have been added for %{site_name}.
+          description_empty: No Setting First Times have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_first_time_name}"
+      header: Setting First Time Details
+      description: Below are the details we have for %{setting_first_time_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_first_time_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting First Time for %{site_name}"
+      header: New Setting First Time Details
+      description: Please provide the details of the new Setting First Time you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_first_time_name}"
+      header: Edit Setting First Time Details
+      description: You can update the details or settings for %{setting_first_time_name} below.
+      form: *form
+    notifications:
+      created: Setting First Time was successfully created.
+      updated: Setting First Time was successfully updated.
+      destroyed: Setting First Time was successfully destroyed.
+  account:
+    setting_first_times: *setting_first_times
+  activerecord:
+    attributes:
+      setting_first_time:
+        first_name: *first_name
+        last_name: *last_name
+        blurb: *blurb
+        twitter_handle: *twitter_handle
+        featured_image_src: *featured_image_src
+        featured_youtube_video_url: *featured_youtube_video_url
+        biography: *biography
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

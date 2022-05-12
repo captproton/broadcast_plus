@@ -1,0 +1,22 @@
+<%= form_with model: setting_home_info, url: (setting_home_info.persisted? ? [:account, setting_home_info] : [:account, @site, :setting_home_infos]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :biography_blurb, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :video_billboard_url %>
+    <%= render 'shared/fields/text_field', method: :watch_this_video_url %>
+    <%= render 'shared/fields/text_field', method: :bio_link_label %>
+    <%= render 'shared/fields/text_field', method: :watch_this_poster_url %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, setting_home_info], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :setting_home_infos], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

@@ -1,0 +1,1 @@
+json.partial! "setting_book_collection_pages/setting_book_collection_page", setting_book_collection_page: @setting_book_collection_page

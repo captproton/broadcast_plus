@@ -1,0 +1,70 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :blog_entries %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless blog_entries.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if blog_entries.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.pinned_value.heading') %></th>
+            <th><%= t('.fields.publish_at.heading') %></th>
+            <th><%= t('.fields.seo_title.heading') %></th>
+            <th><%= t('.fields.hero_image.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% blog_entries.each do |blog_entry| %>
+            <% with_attribute_settings object: blog_entry do %>
+              <tr data-id="<%= blog_entry.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, blog_entry] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :pinned_value %></td>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :publish_at %></td>
+                <td><%= render 'shared/attributes/text', attribute: :seo_title %></td>
+                <td><%= render 'shared/attributes/text', attribute: :hero_image %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, blog_entry %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, blog_entry], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, blog_entry %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, blog_entry], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(blog_entry)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, BlogEntry.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :blog_entry], class: "#{first_button_primary(:blog_entry)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:blog_entry)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<% image ||= @image %>
+<% site ||= @site || image&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :images] %>
+<% if image&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: image.label_string, url: [:account, image] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'images' %>

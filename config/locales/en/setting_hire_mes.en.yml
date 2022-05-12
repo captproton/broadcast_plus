@@ -1,0 +1,104 @@
+en:
+  setting_hire_mes: &setting_hire_mes
+    label: &label Setting Hire Mes
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting Hire Me
+      create: Create Setting Hire Me
+      edit: Edit Setting Hire Me
+      update: Update Setting Hire Me
+      destroy: Remove Setting Hire Me
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_hire_me_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting Hire Me ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      learn_more_text:
+        _: &learn_more_text Learn More Text
+        label: *learn_more_text
+        heading: *learn_more_text
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
+      learn_more_pdf:
+        _: &learn_more_pdf Learn More Pdf
+        label: *learn_more_pdf
+        heading: *learn_more_pdf
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting Hire Mes"
+      index: "List Setting Hire Mes"
+      create: "Add a New Setting Hire Me"
+      member_actions: "Actions for an Individual Setting Hire Me"
+      show: "Retrieve a Setting Hire Me"
+      update: "Update a Setting Hire Me"
+      destroy: "Delete a Setting Hire Me"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting Hire Mes"
+      contexts:
+        site:
+          header: Setting Hire Mes
+          description: Below is a list of Setting Hire Mes that have been added for %{site_name}.
+          description_empty: No Setting Hire Mes have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_hire_me_name}"
+      header: Setting Hire Me Details
+      description: Below are the details we have for %{setting_hire_me_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_hire_me_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting Hire Me for %{site_name}"
+      header: New Setting Hire Me Details
+      description: Please provide the details of the new Setting Hire Me you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_hire_me_name}"
+      header: Edit Setting Hire Me Details
+      description: You can update the details or settings for %{setting_hire_me_name} below.
+      form: *form
+    notifications:
+      created: Setting Hire Me was successfully created.
+      updated: Setting Hire Me was successfully updated.
+      destroyed: Setting Hire Me was successfully destroyed.
+  account:
+    setting_hire_mes: *setting_hire_mes
+  activerecord:
+    attributes:
+      setting_hire_me:
+        title: *title
+        learn_more_text: *learn_more_text
+        body: *body
+        learn_more_pdf: *learn_more_pdf
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

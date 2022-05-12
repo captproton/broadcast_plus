@@ -1,0 +1,22 @@
+<%= form_with model: setting_podcast, url: (setting_podcast.persisted? ? [:account, setting_podcast] : [:account, @site, :setting_podcasts]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :hero_title, options: {autofocus: true} %>
+    <%= render 'shared/fields/file_field', method: :hero_image %>
+    <%= render 'shared/fields/text_field', method: :title %>
+    <%= render 'shared/fields/trix_editor', method: :body %>
+    <%= render 'shared/fields/text_field', method: :podcast_player_src %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, setting_podcast], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :setting_podcasts], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

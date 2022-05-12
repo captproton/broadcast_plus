@@ -1,0 +1,21 @@
+<%= form_with model: setting_hire_me, url: (setting_hire_me.persisted? ? [:account, setting_hire_me] : [:account, @site, :setting_hire_mes]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :title, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :learn_more_text %>
+    <%= render 'shared/fields/trix_editor', method: :body %>
+    <%= render 'shared/fields/file_field', method: :learn_more_pdf %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, setting_hire_me], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :setting_hire_mes], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

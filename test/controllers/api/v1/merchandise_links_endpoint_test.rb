@@ -8,8 +8,7 @@ class Api::V1::MerchandiseLinksEndpointTest < Api::Test
       # See `test/controllers/api/test.rb` for common set up for API tests.
       super
 
-      @site = create(:site, team: @team)
-@book = create(:book, site: @site)
+      @book = create(:book, team: @team)
 @merchandise_link = create(:merchandise_link, book: @book)
       @other_merchandise_links = create_list(:merchandise_link, 3)
     end

@@ -20,6 +20,7 @@ class Api::V1::WallpapersEndpointTest < Api::Test
       wallpaper = Wallpaper.find(wallpaper_data["id"])
 
       assert_equal wallpaper_data['name'], wallpaper.name
+      assert_equal wallpaper_data['image'], wallpaper.image
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal wallpaper_data["site_id"], wallpaper.site_id

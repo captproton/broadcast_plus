@@ -1,0 +1,10 @@
+<% if can? :read, SettingGeneralInfo.new(team: current_team) %>
+  <%= render 'account/shared/menu/item', {
+    url: main_app.polymorphic_path([:account, current_team, :setting_general_infos]),
+    label: t('setting_general_infos.navigation.label'),
+  } do |p| %>
+    <% p.content_for :icon do %>
+      <i class="<%= t('setting_general_infos.navigation.icon') %>"></i>
+    <% end %>
+  <% end %>
+<% end %>

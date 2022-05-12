@@ -1,0 +1,99 @@
+en:
+  biographies: &biographies
+    label: &label Biographies
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Biography
+      create: Create Biography
+      edit: Edit Biography
+      update: Update Biography
+      destroy: Remove Biography
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{biography_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Biography ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      header_photo_url:
+        _: &header_photo_url Header Photo Url
+        label: *header_photo_url
+        heading: *header_photo_url
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Biographies"
+      index: "List Biographies"
+      create: "Add a New Biography"
+      member_actions: "Actions for an Individual Biography"
+      show: "Retrieve a Biography"
+      update: "Update a Biography"
+      destroy: "Delete a Biography"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Biographies"
+      contexts:
+        site:
+          header: Biographies
+          description: Below is a list of Biographies that have been added for %{site_name}.
+          description_empty: No Biographies have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{biography_name}"
+      header: Biography Details
+      description: Below are the details we have for %{biography_name}.
+      manage_description: You'll also find options for updating these details or removing %{biography_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Biography for %{site_name}"
+      header: New Biography Details
+      description: Please provide the details of the new Biography you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{biography_name}"
+      header: Edit Biography Details
+      description: You can update the details or settings for %{biography_name} below.
+      form: *form
+    notifications:
+      created: Biography was successfully created.
+      updated: Biography was successfully updated.
+      destroyed: Biography was successfully destroyed.
+  account:
+    biographies: *biographies
+  activerecord:
+    attributes:
+      biography:
+        title: *title
+        header_photo_url: *header_photo_url
+        body: *body
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
