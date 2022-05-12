@@ -1,5 +1,6 @@
 default:
   models:
+    SettingPodcast: read
     SettingEventPage: read
     SettingHireMe: read
     SettingHireMe: read
@@ -67,6 +68,7 @@ admin:
     - admin
     - editor
   models:
+    SettingPodcast: manage
     SettingEventPage: manage
     SettingHireMe: manage
     SettingHireMe: manage

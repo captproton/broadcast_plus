@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :setting_podcast do
-    site { nil }
+    association :site
     hero_title { "MyText" }
     title { "MyText" }
     podcast_player_src { "MyText" }

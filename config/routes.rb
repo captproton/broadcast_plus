@@ -89,6 +89,7 @@ Rails.application.routes.draw do
           resources :setting_get_in_contact_contents
           resources :setting_hire_mes
           resources :setting_event_pages
+          resources :setting_podcasts
         end
       end
     end
