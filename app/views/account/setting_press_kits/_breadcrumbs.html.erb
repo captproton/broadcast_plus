@@ -1,0 +1,8 @@
+<% setting_press_kit ||= @setting_press_kit %>
+<% site ||= @site || setting_press_kit&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_press_kits] %>
+<% if setting_press_kit&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_press_kit.label_string, url: [:account, setting_press_kit] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_press_kits' %>

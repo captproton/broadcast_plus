@@ -1,0 +1,109 @@
+en:
+  setting_get_in_contact_contents: &setting_get_in_contact_contents
+    label: &label Setting Get In Contact Contents
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting Get In Contact Content
+      create: Create Setting Get In Contact Content
+      edit: Edit Setting Get In Contact Content
+      update: Update Setting Get In Contact Content
+      destroy: Remove Setting Get In Contact Content
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_get_in_contact_content_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting Get In Contact Content ID
+      site_id:
+        heading: Site ID
+      first_name:
+        _: &first_name First Name
+        label: *first_name
+        heading: *first_name
+      last_name:
+        _: &last_name Last Name
+        label: *last_name
+        heading: *last_name
+      youtube_url:
+        _: &youtube_url Youtube Url
+        label: *youtube_url
+        heading: *youtube_url
+      youtube_image_url:
+        _: &youtube_image_url Youtube Image Url
+        label: *youtube_image_url
+        heading: *youtube_image_url
+      page_message:
+        _: &page_message Page Message
+        label: *page_message
+        heading: *page_message
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting Get In Contact Contents"
+      index: "List Setting Get In Contact Contents"
+      create: "Add a New Setting Get In Contact Content"
+      member_actions: "Actions for an Individual Setting Get In Contact Content"
+      show: "Retrieve a Setting Get In Contact Content"
+      update: "Update a Setting Get In Contact Content"
+      destroy: "Delete a Setting Get In Contact Content"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting Get In Contact Contents"
+      contexts:
+        site:
+          header: Setting Get In Contact Contents
+          description: Below is a list of Setting Get In Contact Contents that have been added for %{site_name}.
+          description_empty: No Setting Get In Contact Contents have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_get_in_contact_content_name}"
+      header: Setting Get In Contact Content Details
+      description: Below are the details we have for %{setting_get_in_contact_content_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_get_in_contact_content_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting Get In Contact Content for %{site_name}"
+      header: New Setting Get In Contact Content Details
+      description: Please provide the details of the new Setting Get In Contact Content you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_get_in_contact_content_name}"
+      header: Edit Setting Get In Contact Content Details
+      description: You can update the details or settings for %{setting_get_in_contact_content_name} below.
+      form: *form
+    notifications:
+      created: Setting Get In Contact Content was successfully created.
+      updated: Setting Get In Contact Content was successfully updated.
+      destroyed: Setting Get In Contact Content was successfully destroyed.
+  account:
+    setting_get_in_contact_contents: *setting_get_in_contact_contents
+  activerecord:
+    attributes:
+      setting_get_in_contact_content:
+        first_name: *first_name
+        last_name: *last_name
+        youtube_url: *youtube_url
+        youtube_image_url: *youtube_image_url
+        page_message: *page_message
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

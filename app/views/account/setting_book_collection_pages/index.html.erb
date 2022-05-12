@@ -1,0 +1,6 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'index', setting_book_collection_pages: @setting_book_collection_pages %>
+  <% end %>
+<% end %>

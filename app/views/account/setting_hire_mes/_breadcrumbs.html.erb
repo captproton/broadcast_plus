@@ -1,0 +1,8 @@
+<% setting_hire_me ||= @setting_hire_me %>
+<% site ||= @site || setting_hire_me&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_hire_mes] %>
+<% if setting_hire_me&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_hire_me.label_string, url: [:account, setting_hire_me] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_hire_mes' %>

@@ -1,0 +1,10 @@
+<% if can? :read, SettingEventPage.new(team: current_team) %>
+  <%= render 'account/shared/menu/item', {
+    url: main_app.polymorphic_path([:account, current_team, :setting_event_pages]),
+    label: t('setting_event_pages.navigation.label'),
+  } do |p| %>
+    <% p.content_for :icon do %>
+      <i class="<%= t('setting_event_pages.navigation.icon') %>"></i>
+    <% end %>
+  <% end %>
+<% end %>

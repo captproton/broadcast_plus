@@ -1,0 +1,68 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :setting_get_in_contact_contents %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless setting_get_in_contact_contents.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if setting_get_in_contact_contents.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.first_name.heading') %></th>
+            <th><%= t('.fields.last_name.heading') %></th>
+            <th><%= t('.fields.youtube_url.heading') %></th>
+            <th><%= t('.fields.youtube_image_url.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% setting_get_in_contact_contents.each do |setting_get_in_contact_content| %>
+            <% with_attribute_settings object: setting_get_in_contact_content do %>
+              <tr data-id="<%= setting_get_in_contact_content.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :first_name, url: [:account, setting_get_in_contact_content] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :last_name %></td>
+                <td><%= render 'shared/attributes/text', attribute: :youtube_url %></td>
+                <td><%= render 'shared/attributes/text', attribute: :youtube_image_url %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, setting_get_in_contact_content %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, setting_get_in_contact_content], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, setting_get_in_contact_content %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, setting_get_in_contact_content], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(setting_get_in_contact_content)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, SettingGetInContactContent.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :setting_get_in_contact_content], class: "#{first_button_primary(:setting_get_in_contact_content)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:setting_get_in_contact_content)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

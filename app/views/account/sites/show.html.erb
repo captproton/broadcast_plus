@@ -28,9 +28,18 @@
     <%= render 'account/media_appearances/index', media_appearances: @site.media_appearances, hide_back: true %>
     <%= render 'account/publisher_accounts/index', publisher_accounts: @site.publisher_accounts, hide_back: true %>
     <%= render 'account/images/index', images: @site.images, hide_back: true %>
-    <%= render 'account/biographies/index', biographies: @site.biographies, hide_back: true %>
     <%= render 'account/blog_entries/index', blog_entries: @site.blog_entries, hide_back: true %>
     <%= render 'account/blog_lists/index', blog_lists: @site.blog_lists, hide_back: true %>
+    <%= render 'account/setting_biographies/index', setting_biographies: @site.setting_biographies, hide_back: true %>
+    <%= render 'account/setting_book_collection_pages/index', setting_book_collection_pages: @site.setting_book_collection_pages, hide_back: true %>
+    <%= render 'account/setting_general_infos/index', setting_general_infos: @site.setting_general_infos, hide_back: true %>
+    <%= render 'account/setting_home_infos/index', setting_home_infos: @site.setting_home_infos, hide_back: true %>
+    <%= render 'account/setting_first_times/index', setting_first_times: @site.setting_first_times, hide_back: true %>
+    <%= render 'account/setting_get_in_contact_contents/index', setting_get_in_contact_contents: @site.setting_get_in_contact_contents, hide_back: true %>
+    <%= render 'account/setting_hire_mes/index', setting_hire_mes: @site.setting_hire_mes, hide_back: true %>
+    <%= render 'account/setting_event_pages/index', setting_event_pages: @site.setting_event_pages, hide_back: true %>
+    <%= render 'account/setting_podcasts/index', setting_podcasts: @site.setting_podcasts, hide_back: true %>
+    <%= render 'account/setting_press_kits/index', setting_press_kits: @site.setting_press_kits, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
   <% end %>
 <% end %>

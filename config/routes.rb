@@ -81,6 +81,16 @@ Rails.application.routes.draw do
           end
 
           resources :blog_lists
+          resources :setting_biographies
+          resources :setting_book_collection_pages
+          resources :setting_general_infos
+          resources :setting_home_infos
+          resources :setting_first_times
+          resources :setting_get_in_contact_contents
+          resources :setting_hire_mes
+          resources :setting_event_pages
+          resources :setting_podcasts
+          resources :setting_press_kits
         end
       end
     end

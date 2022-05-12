@@ -1,5 +1,17 @@
 default:
   models:
+    SettingPressKit: read
+    SettingPressKit: read
+    SettingPodcast: read
+    SettingEventPage: read
+    SettingHireMe: read
+    SettingHireMe: read
+    SettingGetInContactContent: read
+    SettingFirstTime: read
+    SettingHomeInfo: read
+    SettingGeneralInfo: read
+    SettingBookCollectionPage: read
+    SettingBiography: read
     MediaAppearance: read
     MediaAppearance: read
     BlogList: read
@@ -58,6 +70,18 @@ admin:
     - admin
     - editor
   models:
+    SettingPressKit: manage
+    SettingPressKit: manage
+    SettingPodcast: manage
+    SettingEventPage: manage
+    SettingHireMe: manage
+    SettingHireMe: manage
+    SettingGetInContactContent: manage
+    SettingFirstTime: manage
+    SettingHomeInfo: manage
+    SettingGeneralInfo: manage
+    SettingBookCollectionPage: manage
+    SettingBiography: manage
     MediaAppearance: manage
     MediaAppearance: manage
     BlogList: manage

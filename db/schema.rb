@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_11_235544) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -356,6 +356,110 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_235544) do
     t.index ["tangible_thing_id"], name: "index_tangible_things_assignments_on_tangible_thing_id"
   end
 
+  create_table "setting_biographies", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_biographies_on_site_id"
+  end
+
+  create_table "setting_book_collection_pages", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_book_collection_pages_on_site_id"
+  end
+
+  create_table "setting_event_pages", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "hero_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_event_pages_on_site_id"
+  end
+
+  create_table "setting_first_times", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "first_name"
+    t.text "last_name"
+    t.text "blurb"
+    t.text "twitter_handle"
+    t.text "featured_image_src"
+    t.text "featured_youtube_video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_first_times_on_site_id"
+  end
+
+  create_table "setting_general_infos", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "site_name"
+    t.text "plain_text_name"
+    t.text "text_number"
+    t.text "newsletter_subscription_url"
+    t.text "default_meta_blurb"
+    t.boolean "is_team_website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_general_infos_on_site_id"
+  end
+
+  create_table "setting_get_in_contact_contents", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "first_name"
+    t.text "last_name"
+    t.text "youtube_url"
+    t.text "youtube_image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_get_in_contact_contents_on_site_id"
+  end
+
+  create_table "setting_hire_mes", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "title"
+    t.text "learn_more_text"
+    t.text "learn_more_pdf_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_hire_mes_on_site_id"
+  end
+
+  create_table "setting_home_infos", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "biography_blurb"
+    t.text "video_billboard_url"
+    t.text "watch_this_video_url"
+    t.text "bio_link_label"
+    t.text "watch_this_poster_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_home_infos_on_site_id"
+  end
+
+  create_table "setting_podcasts", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "hero_title"
+    t.text "title"
+    t.text "podcast_player_src"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_podcasts_on_site_id"
+  end
+
+  create_table "setting_press_kits", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "hero_title"
+    t.text "name"
+    t.date "birthdate"
+    t.text "birthplace"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_press_kits_on_site_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.string "name"
@@ -514,6 +618,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_235544) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things", "scaffolding_absolutely_abstract_creative_concepts", column: "absolutely_abstract_creative_concept_id"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "memberships"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
+  add_foreign_key "setting_biographies", "sites"
+  add_foreign_key "setting_book_collection_pages", "sites"
+  add_foreign_key "setting_event_pages", "sites"
+  add_foreign_key "setting_first_times", "sites"
+  add_foreign_key "setting_general_infos", "sites"
+  add_foreign_key "setting_get_in_contact_contents", "sites"
+  add_foreign_key "setting_hire_mes", "sites"
+  add_foreign_key "setting_home_infos", "sites"
+  add_foreign_key "setting_podcasts", "sites"
+  add_foreign_key "setting_press_kits", "sites"
   add_foreign_key "sites", "teams"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
   add_foreign_key "wallpapers", "sites"

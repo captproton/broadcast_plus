@@ -1,0 +1,22 @@
+<%= form_with model: setting_get_in_contact_content, url: (setting_get_in_contact_content.persisted? ? [:account, setting_get_in_contact_content] : [:account, @site, :setting_get_in_contact_contents]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :first_name, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :last_name %>
+    <%= render 'shared/fields/text_field', method: :youtube_url %>
+    <%= render 'shared/fields/text_field', method: :youtube_image_url %>
+    <%= render 'shared/fields/trix_editor', method: :page_message %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, setting_get_in_contact_content], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :setting_get_in_contact_contents], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

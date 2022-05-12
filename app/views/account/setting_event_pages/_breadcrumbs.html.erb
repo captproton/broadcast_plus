@@ -1,0 +1,8 @@
+<% setting_event_page ||= @setting_event_page %>
+<% site ||= @site || setting_event_page&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_event_pages] %>
+<% if setting_event_page&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_event_page.label_string, url: [:account, setting_event_page] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_event_pages' %>

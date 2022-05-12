@@ -1,0 +1,8 @@
+<% setting_get_in_contact_content ||= @setting_get_in_contact_content %>
+<% site ||= @site || setting_get_in_contact_content&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_get_in_contact_contents] %>
+<% if setting_get_in_contact_content&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_get_in_contact_content.label_string, url: [:account, setting_get_in_contact_content] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_get_in_contact_contents' %>

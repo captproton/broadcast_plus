@@ -1,0 +1,72 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :setting_first_times %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless setting_first_times.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if setting_first_times.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.first_name.heading') %></th>
+            <th><%= t('.fields.last_name.heading') %></th>
+            <th><%= t('.fields.blurb.heading') %></th>
+            <th><%= t('.fields.twitter_handle.heading') %></th>
+            <th><%= t('.fields.featured_image_src.heading') %></th>
+            <th><%= t('.fields.featured_youtube_video_url.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% setting_first_times.each do |setting_first_time| %>
+            <% with_attribute_settings object: setting_first_time do %>
+              <tr data-id="<%= setting_first_time.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :first_name, url: [:account, setting_first_time] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :last_name %></td>
+                <td><%= render 'shared/attributes/text', attribute: :blurb %></td>
+                <td><%= render 'shared/attributes/text', attribute: :twitter_handle %></td>
+                <td><%= render 'shared/attributes/text', attribute: :featured_image_src %></td>
+                <td><%= render 'shared/attributes/text', attribute: :featured_youtube_video_url %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, setting_first_time %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, setting_first_time], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, setting_first_time %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, setting_first_time], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(setting_first_time)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, SettingFirstTime.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :setting_first_time], class: "#{first_button_primary(:setting_first_time)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:setting_first_time)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

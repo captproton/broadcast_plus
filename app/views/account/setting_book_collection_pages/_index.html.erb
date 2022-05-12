@@ -1,0 +1,64 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :setting_book_collection_pages %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless setting_book_collection_pages.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if setting_book_collection_pages.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.hero_image.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% setting_book_collection_pages.each do |setting_book_collection_page| %>
+            <% with_attribute_settings object: setting_book_collection_page do %>
+              <tr data-id="<%= setting_book_collection_page.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, setting_book_collection_page] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :hero_image %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, setting_book_collection_page %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, setting_book_collection_page], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, setting_book_collection_page %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, setting_book_collection_page], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(setting_book_collection_page)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, SettingBookCollectionPage.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :setting_book_collection_page], class: "#{first_button_primary(:setting_book_collection_page)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:setting_book_collection_page)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
