@@ -6,7 +6,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.1"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
@@ -168,3 +168,7 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 # that you run into a merge conflict in the future.
 
 # 🚅 super scaffolding will insert new oauth providers above this line.
+
+## *** ##
+## Don't forget to add broadcast_plus_theme-gary after public site code is factored into gem
+
