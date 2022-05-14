@@ -84,7 +84,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = default_url_options_from_base_url
 
   # allow users to access this application via the configured application domain.
-  config.hosts << default_url_options_from_base_url[:host]
+  # config.hosts << default_url_options_from_base_url[:host]
 
   config.action_mailer.delivery_method = :letter_opener
   config.active_job.queue_adapter = :sidekiq
