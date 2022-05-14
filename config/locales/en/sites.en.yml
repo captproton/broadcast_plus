@@ -27,6 +27,10 @@ en:
         _: &name Name
         label: *name
         heading: *name
+      subdomain:
+        _: &subdomain Subdomain
+        label: *subdomain
+        heading: *subdomain
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -84,6 +88,7 @@ en:
     attributes:
       site:
         name: *name
+        subdomain: *subdomain
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at
