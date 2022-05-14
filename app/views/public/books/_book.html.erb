@@ -1,0 +1,48 @@
+    <div class="row stack-row">
+        <div class="col-sm-4 col-md-3">
+            <%= image_tag("#{book.jacket_url}", size: "250x300")%>
+        </div>
+        <div class="col-sm-8 col-md-4">
+            <h2 class="h1 ct-liner-simple">
+                <%= book.title %> 
+            </h2>
+            <% book.merchandise_links.each do |link| %>
+                <%= link_to link.seller_name, link.item_url %>
+
+            &nbsp;|&nbsp;
+            
+            <% end %>
+            <a href="" class="em" target="_blank"></a>
+            <div class="hidden-md hidden-lg">
+                <div class="stack-item-content">
+                    <h6 class="ct-h-slab ct-h-inherit">by <%= book.byline %></h6>
+                    <p>
+                        <span style="font-weight: 400;">
+                            <%= book.description %>
+                        </span>
+                    </p>
+                    <p>&nbsp;</p>
+                </div>
+                <div class="stack-item-footer">
+                    <% if !book.merchandise_links.blank? %>
+                        <%= link_to 'Buy Now', book.merchandise_links.first.item_url, class: "ct-btn ct-btn-red", target: "_blank" %>                    
+                    <% end %>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="hidden-xs hidden-sm col-md-5">
+            <div class="stack-item-content">
+                <h6 class="ct-h-slab ct-h-inherit">by <%= book.byline %></h6>
+                <p><span style="font-weight: 400;">
+                <%= book.description %>
+                </span></p>
+                <p>&nbsp;</p>
+            </div>
+                <div class="stack-item-footer">
+                    <% if !book.merchandise_links.blank? %>
+                        <%= link_to 'Buy Now', book.merchandise_links.first.item_url, class: "ct-btn ct-btn-red", target: "_blank" %>                    
+                    <% end %>
+            </div>
+        </div>
+    </div>
