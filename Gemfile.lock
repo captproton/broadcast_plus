@@ -14,14 +14,6 @@ GIT
       grape (>= 0.10)
 
 GIT
-  remote: https://github.com/captproton/broadcast_plus_sites.git
-  revision: d557ff1652274298bf5f76f4cf5b7bd1cfbe93ba
-  branch: develop
-  specs:
-    broadcast_plus_sites (0.1.0)
-      rails (>= 7.0.3)
-
-GIT
   remote: https://github.com/teamcapybara/capybara.git
   revision: 2fece8d5163e8b3727077a66bb40d6e5ff6333d8
   specs:
@@ -303,11 +295,6 @@ GEM
     foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    gon (6.4.0)
-      actionpack (>= 3.0.20)
-      i18n (>= 0.7)
-      multi_json
-      request_store (>= 1.0)
     grape (1.6.2)
       activesupport
       builder
@@ -524,8 +511,6 @@ GEM
     regexp_parser (2.3.1)
     reline (0.3.1)
       io-console (~> 0.5)
-    request_store (1.5.1)
-      rack (>= 1.4)
     require_all (3.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -636,7 +621,6 @@ DEPENDENCIES
   active_hash!
   aws-sdk-s3
   bootsnap
-  broadcast_plus_sites!
   bullet_train
   bullet_train-api
   bullet_train-incoming_webhooks
@@ -655,7 +639,6 @@ DEPENDENCIES
   devise
   factory_bot_rails
   foreman
-  gon (~> 6.4)
   honeybadger
   image_processing (~> 1.12, >= 1.12.2)
   jbuilder
