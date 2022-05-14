@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render '/layouts/head' %>
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+
+    <%#= render 'shared/navbar_original' %>
+    <%#= render 'shared/notices' %>
+    <div class="backstage_color-bar"></div>
+    
+    <div class="backstage__sidebar-content-grid">
+      <%# if user_signed_in? %>
+        <%#= render '/backstage/sidebar' %>   
+        <%# else %>     
+          <section id="sidebar">
+          </section>
+      <%# end %>
+      <section id="main-dashboard-content">
+        <%= yield %>
+      </section>
+    </div>
+
+    <%#= render 'shared/footer_original' %>
+  </body>
+</html>
