@@ -1,4 +1,4 @@
-class Public::HomeController < Public::ApplicationController
+class Public::HomeController < Public::CustomerSite::BaseController
   # Redirect `/` to either `ENV["MARKETING_SITE_URL"]` or the sign-in page.
   # If you'd like to customize the action for `/`, you can remove this and define `def index ... end ` below.
   # include RootRedirect
@@ -10,7 +10,7 @@ class Public::HomeController < Public::ApplicationController
   # include DocumentationSupport
 
   def index
-    @site                   = Site.find_by!(subdomain: request.subdomain)
+    # @site                   = Site.find_by!(subdomain: request.subdomain)
 
 
   end
