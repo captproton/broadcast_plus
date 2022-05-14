@@ -19,6 +19,7 @@ class Api::V1::SitesEndpointTest < Api::Test
       site = Site.find(site_data["id"])
 
       assert_equal site_data['name'], site.name
+      assert_equal site_data['subdomain'], site.subdomain
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal site_data["team_id"], site.team_id
@@ -78,6 +79,7 @@ class Api::V1::SitesEndpointTest < Api::Test
       put "/api/v1/sites/#{@site.id}", params: {
         access_token: access_token,
         name: 'Alternative String Value',
+        subdomain: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
 
@@ -89,6 +91,7 @@ class Api::V1::SitesEndpointTest < Api::Test
       # But we have to manually assert the value was properly updated.
       @site.reload
       assert_equal @site.name, 'Alternative String Value'
+      assert_equal @site.subdomain, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 
       # Also ensure we can't do that same action as another user.

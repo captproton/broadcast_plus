@@ -10,7 +10,9 @@ class Public::HomeController < Public::ApplicationController
   # include DocumentationSupport
 
   def index
-    
+    @site                   = Site.find_by!(subdomain: request.subdomain)
+
+
   end
 
   def privacy
