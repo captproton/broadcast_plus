@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%#= Gon::Base.render_data %>
+<link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,500' rel='stylesheet' type='text/css'>
+ <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet"> 
+ <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Bowlby+One">
+
+ <link rel="stylesheet" href="https://use.typekit.net/hmd6exz.css">
+ <%= csrf_meta_tags %>
+ <!-- display_meta_tags -->
+  <%= tag :meta, name: "current-user", content: current_user.id, data: {email: current_user.email } if user_signed_in? %>
+
+<%# FIX: twitter needs some research https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started %>
+  <%#= display_meta_tags site: "#{@general_info}",
+                      reverse: true,
+                      image_src: '/assets/favicons/favicon-192.png',
+                      description: "#{@first_time.blurb}",
+                      canonical: request.original_url,
+                      og: {
+                        title:     "#{@general_info.plain_text_name || "About Me"}",
+                        site_name: "#{@general_info.plain_text_name}",
+                        type:      'website',
+                        url:       request.original_url,
+                        image:     "#{request.original_url.split("/").join("/")}#{@site_meta_image_url}",
+                        description: "#{@general_info.default_meta_blurb}"
+                      }
+                      %>
+
+ <%= csp_meta_tag %>
+
+<%#= stylesheet_link_tag 'frontdoor', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'socialshare', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'global', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'front', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'animation', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'segment', 'data-turbolinks-track': 'reload' %>
+
+<%#= render '/shared/google_analytics_snippet' %>

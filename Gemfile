@@ -174,3 +174,4 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 
 # bundle config local.broadcast_plus_sites /Volumes/Apps/code/ruby/gems/broadcast_plus_sites
 gem 'broadcast_plus_sites', git: 'https://github.com/captproton/broadcast_plus_sites.git', branch: 'develop'
+gem 'gon', '~> 6.4'

@@ -303,6 +303,11 @@ GEM
     foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gon (6.4.0)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     grape (1.6.2)
       activesupport
       builder
@@ -519,6 +524,8 @@ GEM
     regexp_parser (2.3.1)
     reline (0.3.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     require_all (3.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -648,6 +655,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   foreman
+  gon (~> 6.4)
   honeybadger
   image_processing (~> 1.12, >= 1.12.2)
   jbuilder

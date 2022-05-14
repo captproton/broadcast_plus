@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render 'shared/frontdoor_head' %>
+</head>
+<body class="<%#= body_css_class %>" data-segment="<%#= "#{ENV["SEGMENT_ID"]}"  %>">
+  <div aria-describedby="cookieconsent:desc"
+      aria-label="cookieconsent"
+      aria-live="polite"
+      class="cc-window cc-floating cc-type-info cc-theme-edgeless cc-bottom cc-left cc-color-override--1588655054 cc-invisible"
+      role="dialog"
+      style="display: none;">
+  <!--googleoff: all-->
+  <span class="cc-message"
+        id="cookieconsent:desc">
+        This website uses cookies to ensure you get the best experience on our website. 
+        <a aria-label="learn more about cookies"
+        class="cc-link"
+        href="/privacy-policy/"
+        rel="noopener noreferrer nofollow"
+        role="button"
+        tabindex="0"
+        target="_blank">Learn more
+      </a>
+    </span>
+    <div class="cc-compliance">
+      <a aria-label="dismiss cookie message"
+          class="cc-btn cc-dismiss"
+          role="button"
+          tabindex="0">Got it!</a>
+    </div>
+    <!--googleon: all-->
+  </div>
+
+  <div class="fb_reset"
+       id="fb-root">
+    <div style="position: absolute; top: -10000px; width: 0px; height: 0px;"></div>
+  </div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml: true,
+        version: 'v4.0'
+      });
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script> 
+  
+  <!-- Your customer chat code -->
+  <!--
+  <div class="fb-customerchat"
+    attribution=setup_tool
+    page_id="51535068349"
+    theme_color="#115740"
+    logged_in_greeting="Thank you so much for being a part of my community! Xoxo"
+    logged_out_greeting="Thank you so much for being a part of my community! Xoxo">
+  </div>
+  -->
+  <!-- Facebook Pixel Code -->
+
+  <script>
+
+  !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+           'https://connect.facebook.net/en_US/fbevents.js');
+   fbq('init', '380822665420224');
+   fbq('track', 'PageView');
+  </script> 
+  
+  <noscript>
+    <img height="1"
+       src="https://www.facebook.com/tr?id=380822665420224&ev=PageView&noscript=1"
+       style="display:none"
+       width="1">
+  </noscript> 
+  
+  <!-- Cookie Consent Code -->
+  <link href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
+        rel="stylesheet"
+        type="text/css">
+  <script data-cfasync="false"
+        src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script> 
+  <script>
+
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#216942",
+      "text": "#b2d192"
+    },
+    "button": {
+      "background": "#afed71"
+    }
+  },
+  "theme": "edgeless",
+  "position": "bottom-left",
+  "content": {
+    "href": "https://www.gocarlgo.com/privacy-policy/"
+  }
+  });
+  </script> 
+  
+  <!-- End Coookie Consent Code -->
+
+  <%# real code below %>
+  <div class="ct-body-wrapper">
+    <%#= render 'shared/navbar' %>
+    <style>
+      .notices_top_margin .alert {
+        margin-top: 2em;
+        z-index: 1000;
+      }
+    </style>
+    <%#= render 'shared/notices' %>
+
+    <%= yield %>
+    <%#= render 'shared/mobile_share' %>
+    <%#= render 'shared/footer' %>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/JacobLett/bootstrap4-latest/master/bootstrap-4-latest.min.js"></script>
+</body>
+</html>
