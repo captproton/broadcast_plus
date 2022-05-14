@@ -173,5 +173,5 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 ## Don't forget to add broadcast_plus_theme-gary after public site code is factored into gem
 
 # bundle config local.broadcast_plus_sites /Volumes/Apps/code/ruby/gems/broadcast_plus_sites
-gem 'broadcast_plus_sites', git: 'https://github.com/captproton/broadcast_plus_sites.git', branch: 'develop'
-gem 'gon', '~> 6.4'
+## theme will be factored out into a gem
+# gem 'broadcast_plus_sites', git: 'https://github.com/captproton/broadcast_plus_sites.git', branch: 'develop'
