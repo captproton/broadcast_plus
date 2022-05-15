@@ -1,14 +1,8 @@
-<% billboard_image_filename = "events_hero.jpg" %>
-<% headline = @site.general_info.site_name.to_s.html_safe %>
-<% podcast  =  Site.first.podcast %>
-<%#= render partial: '/shared/static_billboard', 
-    locals: { image_filename: billboard_image_filename,
-              headline:       headline
-    
-    } %>
+<% podcast  =  @podcast_page %>
+
 <%= render partial: '/shared/static_billboard', 
-    locals: { image_filename: podcast.billboard_image_url,
-              headline:       podcast.headline
+    locals: { image_filename:     @hero_image_url,
+              headline:       podcast.hero_title
     } %>
 
   <div class="ct-content-wrapper ct-flex-template">
@@ -51,7 +45,7 @@
             <p><a id="subscribebtns"
                name="subscribebtns"></a></p>
             <h1>Subscribe Here:</h1>
-            <%= render partial: "subscribe_button", collection: PublisherAcct.published_to, :as => :subscribe_button, locals: {podcast_title: podcast.title } %>
+            <%= render partial: "subscribe_button", collection: PublisherAccount.published_to, :as => :subscribe_button, locals: {podcast_title: podcast.title } %>
 
           </div>
         </div>

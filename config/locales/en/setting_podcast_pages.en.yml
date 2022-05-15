@@ -39,6 +39,10 @@ en:
         _: &podcast_player_src Podcast Player Src
         label: *podcast_player_src
         heading: *podcast_player_src
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -99,6 +103,7 @@ en:
         hero_image: *hero_image
         title: *title
         podcast_player_src: *podcast_player_src
+        body: *body
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

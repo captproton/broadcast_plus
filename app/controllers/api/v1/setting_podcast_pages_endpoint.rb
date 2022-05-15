@@ -13,6 +13,7 @@ class Api::V1::SettingPodcastPagesEndpoint < Api::V1::Root
       optional :hero_image, type: File, desc: Api.heading(:hero_image)
       optional :title, type: String, desc: Api.heading(:title)
       optional :podcast_player_src, type: String, desc: Api.heading(:podcast_player_src)
+      optional :body, type: String, desc: Api.heading(:body)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

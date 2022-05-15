@@ -68,6 +68,7 @@ class Account::SettingPodcastPagesController < Account::ApplicationController
       :hero_image,
       :title,
       :podcast_player_src,
+      :body,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
