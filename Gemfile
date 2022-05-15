@@ -176,4 +176,4 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 ## theme will be factored out into a gem
 
 gem 'chronic', '~> 0.10.2'
-gem "bullet_train-super_scaffolding", git: "git@github.com:bullet-train-co/bullet_train-super_scaffolding.git", branch: "features/test-super-scaffolded-attributes"
+gem "bullet_train-super_scaffolding", git: "https://github.com/bullet-train-co/bullet_train-super_scaffolding.git", branch: "features/test-super-scaffolded-attributes"
