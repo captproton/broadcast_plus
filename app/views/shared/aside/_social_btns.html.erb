@@ -1,0 +1,17 @@
+
+  <div class="ct-widget ct-widget-socialprops clearfix text-center"
+       id="gv_widgets_socialprops-2">
+    <div class="sidebar-c-5">
+    <%#= sidebar_icons %>
+      <% social_btns.sidebar_icons.each do |icon| %>
+         <span class="wrap-social-item">
+            <a alt=""
+            class=" <%= "sp-circle sp-#{icon.name}" %> "
+            href="<%= icon.url %>"
+            target="_blank">
+               <i class='<%= "#{icon.font_awesome_class}" %>'></i>
+            </a>
+         </span>          
+      <% end %>
+    </div>
+  </div>

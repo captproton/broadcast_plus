@@ -28,7 +28,7 @@ class PublisherAccount < ApplicationRecord
     end
 
     def self.all_links_and_icons
-        accounts = PublisherAcct.where("linked_icon_for_footer = ?", true)
+        accounts = PublisherAccount.where("linked_icon_for_footer = ?", true)
             .order(:frontpage_ranking)
             .select(:name, :url, :font_awesome_class, :network_kind, :blurb)
     end

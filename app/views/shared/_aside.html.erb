@@ -1,0 +1,23 @@
+<div class="col-lg-4 ct-global-sidebar">
+    <%= render '/shared/aside/subscribe_widget' %>
+
+
+  <div class="ct-widget ct-widget-socialprops clearfix text-center"
+       id="gv_widgets_socialprops-2">
+    <div class="sidebar-c-5">
+    <%#= sidebar_icons %>
+      <%= render partial: '/shared/aside/social_button', 
+                collection: sidebar_icons %>
+    </div>
+  </div>
+
+    <%#= render '/shared/aside/social_btns', locals: {sidebar_icons: PublisherAccount.sidebar_icons.first(5)} %>
+    <%#= render partial: "/shared/aside/featured_blog_entry", 
+        collection: Blog::Entry.featured, 
+        as: :entry %>
+
+
+    <div class="clearfix"></div>
+    <%= render '/shared/aside/meetups' %>
+</div>
+<!-- finish global-sidebar -->

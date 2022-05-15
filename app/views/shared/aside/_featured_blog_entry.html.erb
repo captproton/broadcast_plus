@@ -1,0 +1,27 @@
+  <div class="ct-widget ct-widget-articleunit">
+    <div class="ct-articleunit">
+      <h4 class="ct-h-welter50 text-right">Must Read</h4>
+      <div class="ct-articleunit-content">
+        <div class="ct-articleunit-thumb">
+          <%= link_to blog_entry_path(entry) do %>
+            <% if entry.image.attached? %>
+                <%= image_tag entry.image, class: "attachment-ad-unit-size size-ad-unit-size wp-post-image" ,
+                height: "234" %>
+            <% else %>
+                <img src="" height="234" />
+            <% end %>
+
+          <% end %>
+        </div>
+        <h3 class="h2 ct-liner-simple">
+          <%= link_to entry.title, blog_entry_path(entry) %>
+        </h3>
+      </div>
+      <div class="ct-articleunit-footer">
+        <span class="ct-articuleunit-date"><%= entry.created_at.strftime("%b %d, %Y") %> </span> 
+        <%= link_to blog_entry_path(entry) do %>
+          Read Now &gt;&gt;
+        <% end %>
+      </div>
+    </div>
+  </div>
