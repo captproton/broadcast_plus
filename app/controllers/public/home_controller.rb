@@ -14,8 +14,4 @@ class Public::HomeController < Public::CustomerSite::BaseController
 
 
   end
-
-  def privacy
-
-  end
 end
