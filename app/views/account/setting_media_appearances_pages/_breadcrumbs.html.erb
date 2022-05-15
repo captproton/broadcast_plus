@@ -1,0 +1,8 @@
+<% setting_media_appearances_page ||= @setting_media_appearances_page %>
+<% site ||= @site || setting_media_appearances_page&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_media_appearances_pages] %>
+<% if setting_media_appearances_page&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_media_appearances_page.label_string, url: [:account, setting_media_appearances_page] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_media_appearances_pages' %>

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :setting_media_appearances_page do
-    site { nil }
+    association :site
     hero_title { "MyText" }
   end
 end

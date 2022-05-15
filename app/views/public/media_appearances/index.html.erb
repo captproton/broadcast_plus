@@ -1,8 +1,8 @@
-<% billboard_image_filename = "events_hero.jpg" %>
-<% headline = "Recent Press" %>
+<%# billboard_image_filename = "events_hero.jpg" %>
+<%# headline = "Recent Press" %>
 <%= render partial: '/shared/static_billboard', 
-    locals: { image_filename: billboard_image_filename,
-              headline:       headline
+    locals: { image_filename:   @hero_image_url,
+              headline:         @media_appearances_page.hero_title
     
     } %>
 

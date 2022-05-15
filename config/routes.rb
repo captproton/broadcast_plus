@@ -98,6 +98,7 @@ Rails.application.routes.draw do
           resources :setting_event_pages
           resources :setting_podcasts
           resources :setting_press_kits
+          resources :setting_media_appearances_pages
         end
       end
     end

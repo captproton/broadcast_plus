@@ -1,0 +1,28 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'account/shared/box', divider: true do |p| %>
+      <% p.content_for :title, t('.header') %>
+      <% p.content_for :description do %>
+        <%= t('.description') %>
+        <%= t('.manage_description') if can? :manage, @setting_media_appearances_page %>
+      <% end %>
+
+      <% p.content_for :body do %>
+        <% with_attribute_settings object: @setting_media_appearances_page, strategy: :label do %>
+          <%= render 'shared/attributes/text', attribute: :hero_title %>
+          <%= render 'shared/attributes/text', attribute: :hero_image %>
+          <%# 🚅 super scaffolding will insert new fields above this line. %>
+        <% end %>
+      <% end %>
+
+      <% p.content_for :actions do %>
+        <%= link_to t('.buttons.edit'), [:edit, :account, @setting_media_appearances_page], class: first_button_primary if can? :edit, @setting_media_appearances_page %>
+        <%= button_to t('.buttons.destroy'), [:account, @setting_media_appearances_page], method: :delete, class: first_button_primary, data: { confirm: t('.buttons.confirmations.destroy', model_locales(@setting_media_appearances_page)) } if can? :destroy, @setting_media_appearances_page %>
+        <%= link_to t('global.buttons.back'), [:account, @site, :setting_media_appearances_pages], class: first_button_primary %>
+      <% end %>
+    <% end %>
+
+    <%# 🚅 super scaffolding will insert new children above this line. %>
+  <% end %>
+<% end %>
