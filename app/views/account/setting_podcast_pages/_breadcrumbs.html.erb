@@ -1,0 +1,8 @@
+<% setting_podcast_page ||= @setting_podcast_page %>
+<% site ||= @site || setting_podcast_page&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :setting_podcast_pages] %>
+<% if setting_podcast_page&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: setting_podcast_page.label_string, url: [:account, setting_podcast_page] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'setting_podcast_pages' %>

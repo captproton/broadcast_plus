@@ -1,0 +1,60 @@
+<% billboard_image_filename = "events_hero.jpg" %>
+<% headline = @site.general_info.site_name.to_s.html_safe %>
+<% podcast  =  Site.first.podcast %>
+<%#= render partial: '/shared/static_billboard', 
+    locals: { image_filename: billboard_image_filename,
+              headline:       headline
+    
+    } %>
+<%= render partial: '/shared/static_billboard', 
+    locals: { image_filename: podcast.billboard_image_url,
+              headline:       podcast.headline
+    } %>
+
+  <div class="ct-content-wrapper ct-flex-template">
+    <div class="ct-page-content">
+      <!-- ct-page-content -->
+      <div class="container ct-flex-has-sidebar">
+        <div class="col-md-8">
+          <!-- wrap -->
+          <div class="ct-flex-row"
+               id="flex-module-0">
+            <h2 class="h1 ct-liner">
+              <%= podcast.title %>
+            </h2>
+          </div>
+          <div class="ct-flex-row"
+               id="flex-module-1">
+            <p><strong><em>Check out the most recent podcast episode here:</em></strong></p>
+            <p>
+                <iframe frameborder="0"
+                        height="auto"
+                        scrolling="no"
+                        src="https://anchor.fm/<%= podcast.podcast_player_src %>/embed"
+                        width="100%"></iframe>
+            </p>
+
+            <%#= render 'embedded_podcast_player' %>
+            <%#  %>
+            <%#= render 'intro_paragraph' %>
+            <p>
+              <%= podcast.body %>            
+            </p>
+            <%#= render 'recommendations' %>            
+          </div>
+        </div><!-- wrap -->
+
+        <!-- button aside -->
+        <div class="ct-flex-sidebar col-md-4">
+          <div class="hidden-xs"
+               style="width: 85%; margin: 0 auto;">
+            <p><a id="subscribebtns"
+               name="subscribebtns"></a></p>
+            <h1>Subscribe Here:</h1>
+            <%= render partial: "subscribe_button", collection: PublisherAcct.published_to, :as => :subscribe_button, locals: {podcast_title: podcast.title } %>
+
+          </div>
+        </div>
+      </div><!-- .container -->
+    </div>
+  </div>
