@@ -23,6 +23,7 @@ class Site < ApplicationRecord
   has_many :setting_podcasts, dependent: :destroy, enable_updates: true
   has_many :setting_press_kits, dependent: :destroy, enable_updates: true
   has_many :setting_media_appearances_pages, dependent: :destroy
+  has_many :setting_podcast_pages, dependent: :destroy
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.

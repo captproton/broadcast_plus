@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 72.01">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        font-size: 20.51px;
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        font-family: Helvetica-Bold, Helvetica;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        font-family: MyriadPro-Regular, Myriad Pro;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.04em;
+      }
+
+      .cls-5 {
+        letter-spacing: -0.04em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0.01em;
+      }
+
+      .cls-7 {
+        fill: #35b3a6;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="pill">
+      <g id="pill_with_arrow">
+        <g id="pill_with_circle">
+          <rect x="29.95" y="0.59" width="222.94" height="66.61"/>
+          <circle cx="33.6" cy="33.9" r="33.6"/>
+          <circle cx="254.4" cy="33.6" r="33.6"/>
+          <circle class="cls-1" cx="32.55" cy="33.6" r="26.65"/>
+        </g>
+        <path class="cls-1" d="M252.8,25.16l14.69,8.43L252.8,42Z"/>
+      </g>
+    </g>
+    <g id="podcast_host_text">
+      <text class="cls-2" transform="translate(64.92 24.47)">m ipsum fantacy</text>
+      <text class="cls-3" transform="translate(66.38 61.68)">on<tspan class="cls-4" x="22.68" y="0"> </tspan><tspan class="cls-5" x="26.21" y="0">T</tspan><tspan x="35.5" y="0">une</tspan><tspan class="cls-6" x="68.52" y="0">I</tspan><tspan x="73.64" y="0">n</tspan></text>
+    </g>
+    <g id="logo">
+      <path class="cls-7" d="M11,27.91H30.12c5.36.77,8.65,3.6,9.19,9.19v4H18.61c-5.53-.66-7.45-3.73-7.83-7.83Zm30.39,13.2V35.42c.34-4.24,1.89-7.57,7.7-7.7h5.24v5.37c-.25,4.46-2.07,7.81-8.15,8.15Zm-15.91,3H40V49.9c0,5.22-2.84,6.93-7,7H25.46V44.08ZM40.08,17.82a7.44,7.44,0,1,1-7.44-7.51,7.47,7.47,0,0,1,7.44,7.51Z"/>
+    </g>
+  </g>
+</svg>

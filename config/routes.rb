@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     draw "books"
     draw "events"
     draw "media_appearances"
+    draw "podcast"
     draw "wallpapers"
     # draw "customer_site"
 
@@ -99,6 +100,7 @@ Rails.application.routes.draw do
           resources :setting_podcasts
           resources :setting_press_kits
           resources :setting_media_appearances_pages
+          resources :setting_podcast_pages
         end
       end
     end
