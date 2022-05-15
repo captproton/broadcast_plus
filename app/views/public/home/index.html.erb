@@ -264,19 +264,19 @@
 <%# billboard is removed for now because js bug and content is not ready.%>
 <%#= render 'billboard' %>
 <div class="ct-content-wrapper no-padding meat">
-  <%#= render 'mailing_list_cta_widget' %>
-  <%#= render 'index__about_me' %>
-  <%#= render 'media_appearances' %>
-  <%#= render 'pinned_blog_entries' %>
+  <%= render 'mailing_list_cta_widget' %>
+  <%= render 'index__about_me' %>
+  <%= render 'media_appearances' %>
+  <%= render 'pinned_blog_entries' %>
 </div>
-<%#= render 'stay_in_touch_with_me' %>
+<%= render 'stay_in_touch_with_me' %>
 <div class="gv-section"
       id="gv-sect-events">
   <div class="container">
     <div class="row">
       <div class="col-lg-5">
         <div class="clearfix"></div>
-        <%#= render 'upcoming_meetups' %>
+        <%= render 'upcoming_events' %>
       </div>
       <div class="col-lg-6 col-md-push-1">
       <!-- START INNER -->

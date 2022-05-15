@@ -1,17 +1,19 @@
 class Public::HomeController < Public::CustomerSite::BaseController
-  # Redirect `/` to either `ENV["MARKETING_SITE_URL"]` or the sign-in page.
-  # If you'd like to customize the action for `/`, you can remove this and define `def index ... end ` below.
-  # include RootRedirect
+  before_action :set_home_page
+  layout "frontdoor"
 
-  # Allow your application to disable public sign-ups and be invitation only.
-  # include InviteOnlySupport
-
-  # Make Bullet Train's documentation available at `/docs`.
-  # include DocumentationSupport
-
+  # GET /
   def index
-    # @site                   = Site.find_by!(subdomain: request.subdomain)
+    # @ = @site.events
+    @home_info = @site.setting_home_infos.first
+  end
 
 
+  def set_home_page
+    @page                = @site.setting_home_infos.first
+    @home_info          = @page
+    # @hero_image_url   = url_for(@page.hero_image)
+    @frontpage_icons    = PublisherAccount.frontpage_icons
+    @site_general_info  = @site.setting_general_infos.first
   end
 end
