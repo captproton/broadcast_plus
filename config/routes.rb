@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     draw "biography"
     draw "books"
     draw "events"
+    draw "hireme"
     draw "media_appearances"
     draw "podcast"
     draw "wallpapers"

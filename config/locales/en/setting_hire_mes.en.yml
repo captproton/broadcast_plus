@@ -39,6 +39,10 @@ en:
         _: &learn_more_pdf Learn More Pdf
         label: *learn_more_pdf
         heading: *learn_more_pdf
+      hero_image:
+        _: &hero_image Hero Image
+        label: *hero_image
+        heading: *hero_image
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -99,6 +103,7 @@ en:
         learn_more_text: *learn_more_text
         body: *body
         learn_more_pdf: *learn_more_pdf
+        hero_image: *hero_image
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

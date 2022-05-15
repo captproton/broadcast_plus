@@ -13,6 +13,7 @@ class Api::V1::SettingHireMesEndpoint < Api::V1::Root
       optional :learn_more_text, type: String, desc: Api.heading(:learn_more_text)
       optional :body, type: String, desc: Api.heading(:body)
       optional :learn_more_pdf, type: File, desc: Api.heading(:learn_more_pdf)
+      optional :hero_image, type: File, desc: Api.heading(:hero_image)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

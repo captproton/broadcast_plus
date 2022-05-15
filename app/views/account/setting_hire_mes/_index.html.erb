@@ -16,6 +16,7 @@
         <thead>
           <tr>
             <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.hero_image.heading') %></th>
             <th><%= t('.fields.learn_more_text.heading') %></th>
             <th><%= t('.fields.learn_more_pdf.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
@@ -28,6 +29,7 @@
             <% with_attribute_settings object: setting_hire_me do %>
               <tr data-id="<%= setting_hire_me.id %>">
                 <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, setting_hire_me] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :hero_image %></td>
                 <td><%= render 'shared/attributes/text', attribute: :learn_more_text %></td>
                 <td><%= render 'shared/attributes/text', attribute: :learn_more_pdf %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>

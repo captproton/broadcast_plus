@@ -9,6 +9,7 @@ class SettingHireMe < ApplicationRecord
   has_one :team, through: :site
   has_rich_text :body
   has_one_attached :learn_more_pdf
+  has_one_attached :hero_image
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
