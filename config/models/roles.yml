@@ -1,5 +1,6 @@
 default:
   models:
+    Event: read
     SettingPressKit: read
     SettingPressKit: read
     SettingPodcast: read
@@ -70,6 +71,7 @@ admin:
     - admin
     - editor
   models:
+    Event: manage
     SettingPressKit: manage
     SettingPressKit: manage
     SettingPodcast: manage

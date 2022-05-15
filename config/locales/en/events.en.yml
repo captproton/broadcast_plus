@@ -31,6 +31,10 @@ en:
         _: &start_date Start Date
         label: *start_date
         heading: *start_date
+      finish_date:
+        _: &finish_date Finish Date
+        label: *finish_date
+        heading: *finish_date
       more_info_url:
         _: &more_info_url More Info Url
         label: *more_info_url
@@ -97,6 +101,7 @@ en:
       event:
         title: *title
         start_date: *start_date
+        finish_date: *finish_date
         more_info_url: *more_info_url
         location: *location
         # 🚅 super scaffolding will insert new activerecord attributes above this line.

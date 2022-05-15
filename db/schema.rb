@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_14_172836) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_15_003642) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -439,6 +439,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_14_172836) do
     t.index ["site_id"], name: "index_setting_home_infos_on_site_id"
   end
 
+  create_table "setting_media_appearances_pages", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "hero_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_media_appearances_pages_on_site_id"
+  end
+
   create_table "setting_podcasts", force: :cascade do |t|
     t.bigint "site_id", null: false
     t.text "hero_title"
@@ -627,6 +635,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_14_172836) do
   add_foreign_key "setting_get_in_contact_contents", "sites"
   add_foreign_key "setting_hire_mes", "sites"
   add_foreign_key "setting_home_infos", "sites"
+  add_foreign_key "setting_media_appearances_pages", "sites"
   add_foreign_key "setting_podcasts", "sites"
   add_foreign_key "setting_press_kits", "sites"
   add_foreign_key "sites", "teams"

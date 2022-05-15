@@ -1,0 +1,35 @@
+            <div class="event clearfix">
+            <div class="ecol col-sm-2 col-md-3 col-lg-2 event-date">
+            <h3 class="gv-h-welter70">
+                <% if !@events.first.start_date.blank? %>
+                    <%= event.start_date.strftime("%b %d") %>                    
+                    <span class="visible-xs-inline">, <%= event.start_date.strftime("%Y") %></span>
+                    <span class="event-date-day"><%= event.start_date.strftime("%a") %></span>
+                    
+                <% else %>
+                    date not provided
+                <% end %>
+                    
+                </h3>
+            </div>
+            <div class="ecol col-sm-3 col-md-3 col-lg-4">
+                <h3 class="event-title">                            
+                    <%= event.title %>
+                </h3>
+            </div>
+            <div class="ecol col-sm-3 col-md-3 col-lg-3">
+                <div class="event-location"><%= event.location %></div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-3 event-ctrls">
+                <%= link_to 'Info', event.more_info_url,  target: "_blank", class: "ct-btn ct-btn-blue ct-btn-xlong" %>
+                <%= link_to "#", class: "ct-btn ct-btn-red", target:"_blank", nofollow:"" do %>
+                    <i class="far fa-calendar-check"></i>
+                <% end %>
+                
+<!--                                                
+                                <a href="http://www.google.com/calendar/render?action=TEMPLATE&amp;text=Sage+Summit+US+2020&amp;location=Orlando%2C+FL&amp;details=https%3A%2F%2Fevents.sage.com%2Fprofile%2Fweb%2Findex.cfm%3FPKwebID%3D0x42767513%26varPage%3Dhome%26utm_source%3Dtwitter_baa8ecb0-b576-494d-9a6b-00a4d9cf04ec%26utm_medium%3Dsocial%2520network%26utm_campaign%3DNPS_FY20_DGSO_owned_summit%23anchor2%0A%0AAdded+from+GaryVaynerchuk.com&amp;dates=20201209/20201209&amp;sf=true" class="ct-btn ct-btn-red" target="_blank" nofollow="">
+                    <i class="far fa-calendar-check"></i>
+                </a>
+-->                
+                            </div>
+        </div>

@@ -1,0 +1,21 @@
+
+<%# billboard_image_filename = "events_hero.jpg" %>
+<%# headline = "Carl Tanner" %>
+<%= render partial: '/shared/static_billboard', 
+    locals: { image_filename:   @hero_image_url,
+              headline:         @event_page.hero_title
+    
+    } %>
+
+<div class="ct-content-wrapper no-padding">
+    <div id="ct-calreply-widget" class="ct-widget-fulllength ct-widget-bg">
+        <div class="container text-center">
+            <h2 class="h3">Get Notifications For New Events And Episodes</h2>
+        </div>
+    </div>
+    <%#  %>
+    <div id="ct-event-page" class="ct-page-wrapper container">
+            <%= render @events %>
+
+    </div>
+</div>

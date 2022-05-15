@@ -20,7 +20,8 @@ class Api::V1::EventsEndpointTest < Api::Test
       event = Event.find(event_data["id"])
 
       assert_equal event_data['title'], event.title
-      assert_equal event_data['start_date'], event.start_date
+      assert_equal Date.parse(event_data['start_date']), event.start_date
+      assert_equal Date.parse(event_data['finish_date']), event.finish_date
       assert_equal event_data['more_info_url'], event.more_info_url
       assert_equal event_data['location'], event.location
       # 🚅 super scaffolding will insert new fields above this line.

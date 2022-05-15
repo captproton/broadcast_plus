@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to meetups_path, class: 'btn btn-default' do %>
+    All Meetups
+  <% end %>
+  <%= link_to edit_meetup_path(@meetup), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show meetup</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @meetup.title %></dd>
+
+  <dt>Start date:</dt>
+  <dd><%= @meetup.start_date %></dd>
+
+  <dt>End date:</dt>
+  <dd><%= @meetup.end_date %></dd>
+
+  <dt>More info url:</dt>
+  <dd><%= @meetup.more_info_url %></dd>
+
+  <dt>Location:</dt>
+  <dd><%= @meetup.location %></dd>
+
+</dl>

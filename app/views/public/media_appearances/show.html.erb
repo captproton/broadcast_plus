@@ -1,0 +1,18 @@
+<div class="page-header">
+  <%= link_to media_appearances_path, class: 'btn btn-default' do %>
+    All Media_appearances
+  <% end %>
+  <%= link_to edit_media_appearance_path(@media_appearance), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show media_appearance</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @media_appearance.title %></dd>
+
+  <dt>Published on:</dt>
+  <dd><%= @media_appearance.published_on %></dd>
+
+</dl>

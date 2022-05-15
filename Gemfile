@@ -85,7 +85,7 @@ gem "devise"
 
 # Core packages.
 gem "bullet_train"
-gem "bullet_train-super_scaffolding"
+# gem "bullet_train-super_scaffolding"
 gem "bullet_train-api"
 gem "bullet_train-outgoing_webhooks"
 gem "bullet_train-incoming_webhooks"
@@ -175,3 +175,5 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 # bundle config local.broadcast_plus_sites /Volumes/Apps/code/ruby/gems/broadcast_plus_sites
 ## theme will be factored out into a gem
 # gem 'broadcast_plus_sites', git: 'https://github.com/captproton/broadcast_plus_sites.git', branch: 'develop'
+gem 'chronic', '~> 0.10.2'
+gem "bullet_train-super_scaffolding", git: "git@github.com:bullet-train-co/bullet_train-super_scaffolding.git", branch: "features/test-super-scaffolded-attributes"
