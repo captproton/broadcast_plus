@@ -1,0 +1,74 @@
+// Place all the styles related to the blog controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.blog {
+    .container {
+        // width: 80%;
+        // margin: 4em auto;
+
+        button {
+            border: none;
+            outline: none;
+            padding: 1em 1.5em;
+            font-size: 1rem;
+            margin-top: 2em;
+            cursor: pointer;
+            background: rgb(158, 0, 250);
+            color: white;
+            font-weight: bold;
+            will-change: background;
+            transition: background 1s;
+
+            &:hover {
+                background: rgb(229, 0, 250);
+            }
+        }
+    }
+}
+.blog {
+    .share,
+    .overlay {
+        display: none;
+    }
+
+    .show-share {
+        display: block;
+    }
+
+    .overlay {
+        content: " ";
+        opacity: 1;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .share {
+        opacity: 1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 30%;
+        margin: auto;
+        width: 50%;
+        z-index: 1;
+        padding: 1em;
+        background: white;
+
+        h2 {
+            margin: 0;
+        }
+
+        button {
+            border: none;
+            padding: 0.8em 1.2em;
+            margin-top: 3em;
+            width: 32%;
+            cursor: pointer;
+        }
+    }
+}

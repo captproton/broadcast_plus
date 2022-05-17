@@ -1,0 +1,53 @@
+// body {
+//   background-color: orange;
+// }
+.theme-white {
+
+    // upcoming events
+    .event-listing-grid {
+        display: grid;
+        grid-template-columns: 87px, 270px;
+        grid-column-gap: 15px;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "event-date event-title"
+            "event-info event-info";
+    }
+
+    .widget-event-date {
+        grid-area: event-date;
+    }
+
+    .widget-event-title {
+        grid-area: event-title;
+    }
+
+    .widget-event-info {
+        grid-area: event-info;
+    }
+
+    @media(min-width: 667px) {
+        .event-listing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-gap: 15px;
+            grid-template-rows: auto;
+            grid-template-areas: 
+                "event-date event-title event-title event-info";
+        }
+
+        .widget-event-date {
+            grid-area: event-date;
+        }
+
+        .widget-event-title {
+            grid-area: event-title;
+        }
+
+        .widget-event-info {
+            grid-area: event-info;
+        }
+
+    }
+
+}

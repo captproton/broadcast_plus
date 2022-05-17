@@ -1,0 +1,29 @@
+// Place all the styles related to the Blog::Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.write-article {
+    max-width: 65%;
+}
+.article-settings {
+    margin: 0% 0px auto 10px;
+    min-width: 20%;
+    // max-width: 27%;
+}
+
+.article-controls {
+    background-color: aqua;
+    padding: 5px;
+}
+
+.article-controls textarea {
+    height: 150px;
+    overflow-y: auto;
+
+}
+
+trix-editor {
+    height: 350px !important;
+    max-height: 350px !important;
+      overflow-y: auto !important;
+}
+

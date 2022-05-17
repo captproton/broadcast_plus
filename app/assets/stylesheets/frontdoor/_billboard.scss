@@ -1,0 +1,248 @@
+.home {
+    padding-top: 30px;
+}
+
+.ct-billboard-wrapper,
+.ct-billboard-features,
+.ct-billboard,
+.ct-billboard-poster,
+.ct-billboard-header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 400;
+}
+.ct-billboard-wrapper {
+    background: #000;
+    z-index: 400;
+    color: #fff;
+    /*margin-top: 40px !important;*/
+}
+.ct-billboard-poster img,
+.ct-billboard-poster-img,
+.ct-billboard-poster .wp-post-image {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+.ct-billboard-postwrap,
+.ct-billboard-callout {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 405;
+}
+.ct-billboard-postwrap .container,
+.ct-billboard-callout .container {
+    position: relative;
+}
+@media (min-width: 768px) {
+    .ct-billboard-callout {
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+    }
+    .ct-billboard-callout .container {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.ct-billboard {
+    max-height: 700px;
+    overflow: hidden;
+}
+.ct-page-feature .ct-billboard-callout {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+}
+.ct-page-feature .ct-billboard-callout .container {
+    top: 50%;
+    transform: translateY(-50%);
+}
+//
+//
+.ct-page-feature h1 {
+    font-size: 32pt;
+    line-height: 28pt;
+    padding-left: 30%;
+    padding-right: 20px;
+}
+@media (min-width: 768px) {
+    .ct-page-feature h1 {
+        font-size: 48pt;
+        line-height: 36pt;
+        padding-left: 0;
+    }
+}
+@media (min-width: 992px) {
+    .ct-page-feature h1 {
+        font-size: 54pt;
+        line-height: 48pt;
+    }
+    .ct-page-feature .ct-billboard-poster {
+        margin-top: -3%;
+    }
+}
+.ct-billboard-callout-inner {
+    width: 100%;
+    font-size: 44pt;
+    line-height: 40pt;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .ct-billboard-callout-inner {
+        font-size: 35pt;
+        line-height: 30pt;
+    }
+}
+@media (min-width: 768px) {
+    .ct-billboard-callout-inner {
+        width: 40%;
+        font-size: 28pt;
+        line-height: 22pt;
+    }
+    .ct-billboard-callout-inner .ct-quote-style {
+        padding: 0;
+    }
+    .ct-billboard-callout-inner .ct-quote-sig {
+        max-width: 125px;
+    }
+}
+@media (min-width: 875px) {
+    .ct-billboard-callout-inner {
+        font-size: 32pt;
+        line-height: 26pt;
+    }
+    .ct-billboard-callout-inner .ct-quote-sig {
+        max-width: 150px;
+    }
+}
+@media (min-width: 1100px) {
+    .ct-billboard-callout-inner {
+        width: 40%;
+        font-size: 36pt;
+        line-height: 30pt;
+    }
+    .ct-billboard-callout-inner .ct-quote-sig {
+        max-width: 200px;
+    }
+}
+@media (min-width: 1300px) {
+    .ct-billboard-callout-inner {
+        font-size: 46pt;
+        line-height: 40pt;
+    }
+}
+.ct-billboard-interact {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background: transparent url(asset_path("btn-play-hover.png")) no-repeat center center;
+    background-size: 100% 100%;
+    opacity: 0.5;
+    z-index: 410;
+}
+.ct-billboard-interact:hover {
+    opacity: 1;
+}
+.ct-billboard-interact.all {
+    display: block;
+    visibility: visible;
+}
+@media (min-width: 768px) {
+    .ct-billboard-interact {
+        width: 150px;
+        height: 150px;
+        display: block;
+        visibility: visible;
+    }
+}
+.ct-billboard-poster .ct-billboard-interact {
+    display: block;
+    visibility: visible;
+}
+.ct-billboard-white {
+    color: #000;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.ct-billboard-small .ct-billboard-interact {
+    width: 100px;
+    height: 100px;
+}
+.ct-post-feature .ct-billboard {
+    max-height: 100%;
+}
+@media (min-width: 992px) {
+    .ct-post-feature .ct-billboard {
+        max-height: 840px;
+    }
+    .ct-post-feature .ct-billboard-poster img,
+    .ct-post-feature .ct-billboard-poster-img,
+    .ct-post-feature .ct-billboard-poster .wp-post-image {
+        position: relative;
+    }
+}
+.ct-billboard-postwrap {
+    background: #fff;
+    color: #000;
+    padding-top: 20px;
+}
+@media (min-width: 992px) {
+    .ct-billboard-postwrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        padding-top: 0;
+        background: rgba(0, 0, 0, 0.15);
+        background: -webkit-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 0.5) 70%,
+            rgba(0, 0, 0, 0.75) 80%,
+            rgba(0, 0, 0, 0.9) 90%,
+            #000000 100%
+        );
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 0.5) 70%,
+            rgba(0, 0, 0, 0.75) 80%,
+            rgba(0, 0, 0, 0.9) 90%,
+            #000000 100%
+        );
+    }
+    .ct-billboard-postwrap .container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        top: auto;
+    }
+    .ct-billboard-postwrap .ct-liner-simple a,
+    .ct-billboard-postwrap .ct-liner-simple a:hover,
+    .ct-billboard-postwrap .ct-liner-simple a:visited,
+    .ct-billboard-postwrap .ct-liner-simple a:focus,
+    .ct-billboard-postwrap .ct-liner-simple a:active {
+        color: #fff;
+    }
+    .ct-billboard-postwrap .ct-liner-simple:after {
+        border-color: #fff;
+    }
+}
+
+.plyr {
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
