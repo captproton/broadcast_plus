@@ -1,13 +1,13 @@
 <div id="ct-sect-blog" class="ct-section">
-        <%# <% if Blog::Entry.featured.count > 0 %> %>
-                <%#= render partial: "pinned_blog_entry", 
-                collection: Blog::Entry.featured, 
+        <% if BlogList.featured.blog_entries.count > 0 %>
+                <%= render partial: "pinned_blog_entry", 
+                collection: BlogList.featured.blog_entries.order("pinned_value DESC"), 
                 as: :entry %>
           
-        <%# <% else %> %>
+        <% else %>
                 <div id="ct-sect-blog" class="ct-section">
                         <h3>no pinned blog entries</h3>
                 </div>          
-        <%# <% end %> %>
+        <% end %>
 </div>
 

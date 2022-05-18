@@ -1,0 +1,15 @@
+// Place all the styles related to the FirstTimes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.ct-first-time-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 1rem;
+}
+@media all and (min-width: 768px) {
+    .ct-first-time-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-gap: 2rem;
+    }
+}

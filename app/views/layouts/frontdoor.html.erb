@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <style>
+  h1 {
+    color: orange;
+  }
+ </style>
   <%= render 'shared/frontdoor_head' %>
 </head>
-<body class="<%#= body_css_class %>" data-segment="<%#= "#{ENV["SEGMENT_ID"]}"  %>">
+<body class="frontdoor <%= controller_name %>" data-segment="<%#= "#{ENV["SEGMENT_ID"]}"  %>">
   <div aria-describedby="cookieconsent:desc"
       aria-label="cookieconsent"
       aria-live="polite"
@@ -116,18 +121,18 @@
 
   <%# real code below %>
   <div class="ct-body-wrapper">
-    <%#= render 'shared/navbar' %>
+    <%= render 'shared/navbar' %>
     <style>
       .notices_top_margin .alert {
         margin-top: 2em;
         z-index: 1000;
       }
     </style>
-    <%#= render 'shared/notices' %>
+    <%= render 'shared/notices' %>
 
     <%= yield %>
-    <%#= render 'shared/mobile_share' %>
-    <%#= render 'shared/footer' %>
+    <%= render 'shared/mobile_share' %>
+    <%= render 'shared/footer' %>
   </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -1,0 +1,24 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+
+// $navbar-default-bg: #312312;
+// $light-orange: #ff8c00;
+// $navbar-default-color: $light-orange;
+
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
+// @import "bootstrap";
+// @import "jumpstart/sticky-footer";
+// @import "jumpstart/announcements";
+@import "frontdoor";
+@import "blog/articles";
+
+
+// Fixes bootstrap nav-brand container overlap
+@include media-breakpoint-down(xs) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

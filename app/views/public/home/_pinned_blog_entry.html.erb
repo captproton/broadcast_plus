@@ -1,0 +1,54 @@
+<div id="ct-sect-blog" class="ct-section">
+    <div class="container">
+        <h4 class="h3 ct-h-welter50">Read This</h4>
+        <div class="row">
+            <div class="col-sm-6 col-md-8">
+                <div class="ct-post-img">
+                    <%#= link_to blog_entry_path(entry) do %>
+                        <% if entry.hero_image.attached? %>
+                            <%= image_tag entry.hero_image %>
+                        <% else %>
+                            <img src="" width="280" />
+                        <% end %>
+
+                    
+                    <%# end %>
+                    
+
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4">
+                
+                <% if entry.blog_articles.first.present? %>
+                    <h1 class="ct-liner-simple">
+                        <a href="/the-garyvee-content-strategy-how-to-grow-and-distribute-your-brands-social-media-content/">
+                            <%= link_to entry.title, blog_entry_path(entry) %>
+                                                </a>
+                    </h1>
+                    <h5 class="ct-h-slab ct-post-date">
+                    <%# https://alexanderpaterson.com/posts/showing-estimated-reading-time-on-a-rails-blog-post %>
+                        <%= time_ago_in_words(entry.created_at) %> ago                    
+                        <span class="middot">·</span>
+                        <%# text = entry.article.body.to_plain_text
+                        @reading_time = (text.scan(/\w+/).length / 150).to_i  %>
+                        <span>
+                            <%= pluralize(@reading_time, 'minute') %>
+                        </span>               
+                    </h5>
+                    <p>
+                        <%#= entry.summary %> &#8230;
+                    </p>
+                    <div class="text-right">
+                        <%= link_to  blog_entry_path(entry), class: "ct-post-permalink link-blue" do %>
+                            Read More &gt;&gt;
+                        <% end %>
+                        
+                    </div>
+                    
+                <% end %>
+                
+            </div>
+        </div>
+    </div>
+</div>

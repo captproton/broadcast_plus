@@ -13,6 +13,7 @@ class BlogEntry < ApplicationRecord
   has_one_attached :hero_image
   # 🚅 add has_one associations above.
 
+  scope :published,    -> {where("publish_at <= ?", Date.current)}
   # 🚅 add scopes above.
 
   validates :title, presence: true

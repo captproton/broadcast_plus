@@ -6,6 +6,11 @@
  <link rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Bowlby+One">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+
+
  <link rel="stylesheet" href="https://use.typekit.net/hmd6exz.css">
  <%= csrf_meta_tags %>
  <!-- display_meta_tags -->
@@ -29,7 +34,7 @@
 
  <%= csp_meta_tag %>
 
-<%#= stylesheet_link_tag 'frontdoor', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 <%#= javascript_pack_tag 'socialshare', 'data-turbolinks-track': 'reload' %>
 <%#= javascript_pack_tag 'global', 'data-turbolinks-track': 'reload' %>

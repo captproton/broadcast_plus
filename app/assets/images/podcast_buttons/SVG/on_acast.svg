@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 288 67.5" style="enable-background:new 0 0 288 67.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{display:none;fill:#FFFFFF;}
+	.st2{font-family:'Monaco';}
+	.st3{font-size:18px;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st5{font-family:'MyriadPro-Bold';}
+	.st6{font-size:24px;}
+	.st7{display:none;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;enable-background:new    ;}
+	.st8{display:none;}
+	.st9{display:inline;}
+	.st10{display:inline;fill:#FFFFFF;}
+</style>
+<g id="graphics">
+	<g id="pill_with_arrow">
+		<g id="pill_with_circle">
+			<rect x="30" y="0.6" width="222.9" height="66.6"/>
+			<circle cx="33.6" cy="33.9" r="33.6"/>
+			<circle cx="254.4" cy="33.6" r="33.6"/>
+			<circle class="st0" cx="32.5" cy="33.6" r="26.6"/>
+		</g>
+		<path class="st1" d="M252.8,25.2l14.7,8.4L252.8,42V25.2z"/>
+	</g>
+</g>
+<g id="button-text">
+	<text transform="matrix(1 0 0 1 57.1302 55.4441)" class="st0 st2 st3">on Google Podcasts</text>
+	<text transform="matrix(1 0 0 1 57.1302 55.4441)" class="st4 st2 st3">on Google Podcasts</text>
+	<text transform="matrix(1 0 0 1 85.6793 28.5843)" class="st0 st5 st6">Lorem ipsum</text>
+	<text transform="matrix(1 0 0 1 85.6793 28.5843)" class="st7 st5 st6">Lorem ipsum</text>
+</g>
+<g id="logo" class="st8">
+	<path id="acast-logo-background" class="st9" d="M32.6,9.3c12.5,0,22.9,9.3,24.5,21.5L37.6,58c-13.3,2.8-26.3-5.8-29.1-19.1
+		c-0.3-1.6-0.5-3.3-0.5-5C8,20.3,19,9.3,32.6,9.3z"/>
+	<path id="acast-logo-foreground" class="st10" d="M33.6,18.8c-9,0-14,3.7-14,7.6c0,3.1,2.3,5,6,5c3.5,0,5.8-1.3,5.8-3.1l-0.1-0.9
+		c-0.1-0.1-0.1-0.5-0.1-0.9s0.1-1.8,2.3-1.8c2.4,0,2.4,2,2.4,3.1v5.4h-0.5c-11.9,0.3-18.1,3.2-18.1,8.7c0,4.5,4,7.4,10.1,7.4
+		c3.6,0,7.2-1.8,8.7-4.2l11.9-17.2C48.1,23.5,43.3,18.8,33.6,18.8z M35.6,40.2c0,1.5-1.3,2.8-2.9,2.8C31,43,30,42.1,30,40.4
+		c0-1.9,1.3-3.8,5.1-4.2h0.6L35.6,40.2z"/>
+</g>
+</svg>
