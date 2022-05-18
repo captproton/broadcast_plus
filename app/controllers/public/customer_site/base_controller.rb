@@ -20,6 +20,21 @@ class Public::CustomerSite::BaseController < Public::ApplicationController
 
   def set_general_info
     @general_info = @site.setting_general_infos.first if @site
+    @text_number                  = @site.setting_general_infos.first.text_number
+    @newsletter_subscription_url  = @site.setting_general_infos.first.newsletter_subscription_url
+    # @site_meta_image_url          = _set_site_meta_image_url
+
+    if @site.setting_general_infos.first.is_team_website? == true
+      @texting_phrase = "TEXT US"
+      @possesive      = "our"
+      @objective_case = "us"
+      @hiring_phrase  = "Services"
+    else
+      @texting_phrase = "TEXT ME"
+      @possesive      = "my"
+      @objective_case = "me"
+      @hiring_phrase  = "Hire Me"
+    end
   end
 
   def set_first_time
@@ -27,11 +42,18 @@ class Public::CustomerSite::BaseController < Public::ApplicationController
   end
 
   def collect_sets_for_the_frontdoor
-    @upcoming_events         ||=  @site.events.coming_soon
+    @upcoming_events          ||=  @site.events.coming_soon
+    @upcoming_meetups         ||=  Event.coming_soon
     @linked_icon_data         ||=  PublisherAccount.all_links_and_icons
     @linked_icons_for_footer  ||= PublisherAccount.linked_icons_for_footer
   end
+# 
 
-  
+
+# Controllers can call this to add classes to the body tag
+def add_body_css_class(css_class)
+  @body_css_classes ||= []
+  @body_css_classes << css_class
+end  
   
 end

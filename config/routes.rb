@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     # The root `/` path is routed to `Public::HomeController#index` by default.
     draw "legal"
     draw "biography"
+    draw "blog"
     draw "books"
     draw "events"
     draw "hireme"

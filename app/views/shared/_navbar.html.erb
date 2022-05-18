@@ -1,0 +1,84 @@
+  <div class="ct-nav-wrapper"
+       id="ct-main-nav">
+    <div class="ct-hello-bar-wrapper"
+         id="hello-bar"
+         style="display:flex;">
+      <nav class="ct-hello-bar">
+        <ul class="menu"
+            id="menu-hello-bar">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8224"
+              id="menu-item-8224">
+              <%= link_to podcasts_path do %>
+            Subscribe to <%= @possesive %> podcast 🎧
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <script>
+      document.getElementById('hello-bar').addEventListener('click', function(event) {
+        window.location = event.target.querySelector('a').getAttribute('href');
+      })
+    </script>
+    <div class="ct-nav-inner">
+      <div class="ct-cta-first"
+           id="cta-firsttime">
+        <a href="/first-time-here/">
+          <%= image_tag 'logo-firsttime.svg' %>
+        </a>
+      </div>
+      <div class="ct-cta-community coin">
+        <a href="sms:+<%= @text_number %>&amp;body= Hello">
+          <%= render '/shared/text_me_svg' %> </a>
+      </div>
+      <div class="row">
+        <div class="ct-nav-mobile">
+          <button class="ct-nav-toggle link" data-block="footer-menu">Menu</button>
+          <!-- a href="#mobile-menu" class="ct-nav-toggle">Menu</a -->
+        </div>
+        <div class="ct-mark-type col">
+          <a class="no-hover"
+               href="/" style="padding-top: 8px;"><%= @site.setting_general_infos.first.site_name.to_s.html_safe %></a>
+        </div>
+        <div class="ct-nav-desktop col-8">
+          <nav class="ct-nav">
+            <ul class="menu"
+                id="menu-main-nav">
+              <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-7117"
+                  id="menu-item-7117">
+                <a aria-current="page"
+                    href="/hire-<%= @objective_case %>/"
+                    rel="noopener noreferrer"
+                    target="_blank"><%= @hiring_phrase %></a>
+              </li>
+              <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-7117"
+                  id="menu-item-7117">
+                <a aria-current="page"
+                    href="/podcast/"
+                    rel="noopener noreferrer"
+                    target="_blank">PODCAST</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"
+                  id="menu-item-55">
+                <a href="/blog/">Blog</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"
+                  id="menu-item-52">
+                <a href="/events/">Events</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7930"
+                  id="menu-item-7930">
+                <a href="/get-in-touch/">Contact</a>
+              </li>
+              <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8182"
+                  id="menu-item-8182">
+                <a href="/biography/"><%= @possesive %> Story</a>
+              </li>
+            </ul>
+          </nav>
+        </div><!-- <button data-href="#ct-search|modal-open" class="ct-search-toggle ct-modal-ctrl">
+                <i class="fa fa-search"></i>
+            </button> %> -->
+      </div>
+    </div>
+  </div>
