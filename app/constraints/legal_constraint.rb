@@ -1,5 +1,5 @@
 class LegalConstraint
-    DOMAIN = "lvh.me"
+    DOMAIN = ENV["HOSTNAME"]
     SUBDOMAINS = ["www", ""]
 
     def self.matches?(request)

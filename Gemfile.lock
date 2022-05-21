@@ -259,6 +259,10 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     doorkeeper (5.5.4)
       railties (>= 5)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     dry-configurable (0.15.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
@@ -649,6 +653,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  dotenv-rails
   factory_bot_rails
   font-awesome-sass (~> 5.13)
   foreman
