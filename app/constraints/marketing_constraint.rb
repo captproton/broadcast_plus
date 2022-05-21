@@ -1,5 +1,5 @@
 class MarketingConstraint
-    DOMAIN = "mybroadcast.xyz"
+    DOMAIN = ENV["HOSTNAME"].to_s
     SUBDOMAINS = ["www", ""]
 
     def self.matches?(request)
