@@ -9,7 +9,7 @@
     
     } %>
 
-<% @press_kit = @press_kit_page %>
+
   <div class="ct-content-wrapper">
     <div class="ct-page-wrapper container">
       <div class="row">
@@ -17,22 +17,23 @@
           <div class="ct-page-content">
             <h2 class="h1 ct-liner-simple">Basic Info</h2>
             <h6 class="ct-h-slab ct-h-nomargin">Full Name</h6>
-            <p><%= @press_kit.name %> </p>
-            <!--  <h6 class="ct-h-slab ct-h-nomargin">Other names</h6>
-            <p>Garyvee</p> -->
+            <p><%= @press_kit_page.name %> </p>
+<!--            <h6 class="ct-h-slab ct-h-nomargin">Other names</h6>
+            <p>Garyvee</p>
+-->
             <h6 class="ct-h-slab ct-h-nomargin">Born</h6>
-            <p><%#= @press_kit.birth_date.strftime("%B %d, %Y") %> (age <%#= @press_kit.calculate_current_age%>)<br>
+            <p><%= @press_kit.birth_date.strftime("%B %d, %Y") %> (age <%= @press_kit.calculate_current_age%>)<br>
             <%= @press_kit.birthplace %></p>
 
             <h6 class="ct-h-slab ct-h-nomargin">Website</h6>
             <ul>
-              <%#= render  partial: "press_kits/weblink", 
+              <%= render  partial: "press_kits/weblink", 
                 collection: @press_kit.press_kit_links.website, 
                 as: :weblink %>
             </ul>
             <h6 class="ct-h-slab ct-h-nomargin">Social</h6>
             <ul>
-              <%#= render  partial: "press_kits/weblink", 
+              <%= render  partial: "press_kits/weblink", 
                 collection: @press_kit.press_kit_links.social, 
                 as: :weblink %>
             </ul>
@@ -40,14 +41,14 @@
 
             <h6 class="ct-h-slab ct-h-nomargin">Companies</h6>
             <ul>
-              <%#= render  partial: "press_kits/weblink", 
+              <%= render  partial: "press_kits/weblink", 
                 collection: @press_kit.press_kit_links.company, 
                 as: :weblink %>
 
             </ul>
 
             <p>&nbsp;</p>
-            <!--  <h6 class="ct-h-slab ct-h-nomargin">Contact</h6>
+<!--            <h6 class="ct-h-slab ct-h-nomargin">Contact</h6>
             <p><a href="mailto:zach@vaynerspeakers.com"
                rel="noopener"
                target="_blank">Zachary Nadler</a><br>
@@ -58,7 +59,9 @@
             <p>For VaynerMedia inquiries: <a href="mailto:comms@vaynermedia.com"
                rel="noopener"
                target="_blank">Communications Team</a></p>
-            <p>For Gary Vaynerchuk related inquiries: <a href="mailto:maha.abouelenein@vaynermedia.com">Maha Abouelenein</a></p> -->
+            <p>For Gary Vaynerchuk related inquiries: <a href="mailto:maha.abouelenein@vaynermedia.com">Maha Abouelenein</a></p>
+-->
+            <div class="page-spacer-sm"></div>
           </div>
         </div>
 
@@ -69,12 +72,12 @@
             <p><%= @press_kit.biography %></p>
           </div>
 
-          <%# @press_kit_headshots     = @press_kit.press_kit_photos.published_headshots %>
-          <%# @press_kit_actionshots   = @press_kit.press_kit_photos.published_action_shots %>
+          <% @press_kit_headshots     = @press_kit.press_kit_photos.published_headshots %>
+          <% @press_kit_actionshots   = @press_kit.press_kit_photos.published_action_shots %>
           <div class="ct-page-content"
                id="gvpg-media-appearances">
             <h3 class="h1 ct-liner-half">Recent Press</h3>            
-            <%#= render  partial: "press_kit_entry", 
+            <%= render  partial: "press_kit_entry", 
             collection: @press_kit.press_kit_entries.all, 
             as: :press_kit_entry %>
 
@@ -82,15 +85,15 @@
           <div class="ct-page-content"
                id="gvpg-media-downloads">
             <h3 class="h1 ct-liner-half">Headshots &amp; Photos</h3>
-            <%#= render  partial: "press_kit_photo", 
+            <%= render  partial: "press_kit_photo", 
             collection: @press_kit_headshots, 
             as: :press_kit_photo %>
 
-            <%#= render  partial: "press_kit_photo", 
+            <%= render  partial: "press_kit_photo", 
             collection: @press_kit_actionshots, 
             as: :press_kit_photo %>
           </div>
-      </div>
+        </div>
       </div>
     </div>
   </div>
