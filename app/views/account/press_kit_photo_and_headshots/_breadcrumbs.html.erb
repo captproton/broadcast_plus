@@ -1,0 +1,8 @@
+<% press_kit_photo_and_headshot ||= @press_kit_photo_and_headshot %>
+<% setting_press_kit ||= @setting_press_kit || press_kit_photo_and_headshot&.setting_press_kit %>
+<%= render 'account/setting_press_kits/breadcrumbs', setting_press_kit: setting_press_kit %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, setting_press_kit, :press_kit_photo_and_headshots] %>
+<% if press_kit_photo_and_headshot&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: press_kit_photo_and_headshot.label_string, url: [:account, press_kit_photo_and_headshot] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'press_kit_photo_and_headshots' %>

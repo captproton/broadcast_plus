@@ -1,0 +1,62 @@
+<% setting_press_kit = @setting_press_kit || @setting_press_kit %>
+<% context ||= setting_press_kit %>
+<% collection ||= :press_kit_photo_and_headshots %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless press_kit_photo_and_headshots.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if press_kit_photo_and_headshots.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.title.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% press_kit_photo_and_headshots.each do |press_kit_photo_and_headshot| %>
+            <% with_attribute_settings object: press_kit_photo_and_headshot do %>
+              <tr data-id="<%= press_kit_photo_and_headshot.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, press_kit_photo_and_headshot] %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, press_kit_photo_and_headshot %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, press_kit_photo_and_headshot], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, press_kit_photo_and_headshot %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, press_kit_photo_and_headshot], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(press_kit_photo_and_headshot)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == setting_press_kit %>
+        <% if can? :create, PressKitPhotoAndHeadshot.new(setting_press_kit: setting_press_kit) %>
+          <%= link_to t('.buttons.new'), [:new, :account, setting_press_kit, :press_kit_photo_and_headshot], class: "#{first_button_primary(:press_kit_photo_and_headshot)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:press_kit_photo_and_headshot)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

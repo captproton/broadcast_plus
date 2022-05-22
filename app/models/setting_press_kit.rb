@@ -5,6 +5,7 @@ class SettingPressKit < ApplicationRecord
   # 🚅 add belongs_to associations above.
 
   has_many :press_kit_entries, dependent: :destroy, enable_updates: true
+  has_many :press_kit_photo_and_headshots, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site

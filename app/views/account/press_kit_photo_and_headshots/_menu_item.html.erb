@@ -1,0 +1,10 @@
+<% if can? :read, PressKitPhotoAndHeadshot.new(team: current_team) %>
+  <%= render 'account/shared/menu/item', {
+    url: main_app.polymorphic_path([:account, current_team, :press_kit_photo_and_headshots]),
+    label: t('press_kit_photo_and_headshots.navigation.label'),
+  } do |p| %>
+    <% p.content_for :icon do %>
+      <i class="<%= t('press_kit_photo_and_headshots.navigation.icon') %>"></i>
+    <% end %>
+  <% end %>
+<% end %>

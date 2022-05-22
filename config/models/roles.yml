@@ -1,5 +1,6 @@
 default:
   models:
+    PressKitPhotoAndHeadshot: read
     PressKitEntry: read
     PressKitEntry: read
     SettingPodcastPage: read
@@ -75,6 +76,7 @@ admin:
     - admin
     - editor
   models:
+    PressKitPhotoAndHeadshot: manage
     PressKitEntry: manage
     PressKitEntry: manage
     SettingPodcastPage: manage

@@ -1,0 +1,109 @@
+en:
+  press_kit_photo_and_headshots: &press_kit_photo_and_headshots
+    label: &label Press Kit Photo And Headshots
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Press Kit Photo And Headshot
+      create: Create Press Kit Photo And Headshot
+      edit: Edit Press Kit Photo And Headshot
+      update: Update Press Kit Photo And Headshot
+      destroy: Remove Press Kit Photo And Headshot
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{press_kit_photo_and_headshot_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Press Kit Photo And Headshot ID
+      setting_press_kit_id:
+        heading: Setting Press Kit ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+      dimensions_wxh:
+        _: &dimensions_wxh Dimensions Wxh
+        label: *dimensions_wxh
+        heading: *dimensions_wxh
+      headshot_or_other:
+        _: &headshot_or_other Headshot Or Other
+        label: *headshot_or_other
+        heading: *headshot_or_other
+      publish_at:
+        _: &publish_at Publish At
+        label: *publish_at
+        heading: *publish_at
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Press Kit Photo And Headshots"
+      index: "List Press Kit Photo And Headshots"
+      create: "Add a New Press Kit Photo And Headshot"
+      member_actions: "Actions for an Individual Press Kit Photo And Headshot"
+      show: "Retrieve a Press Kit Photo And Headshot"
+      update: "Update a Press Kit Photo And Headshot"
+      destroy: "Delete a Press Kit Photo And Headshot"
+      fields: *fields
+    index:
+      section: "%{setting_press_kits_possessive} Press Kit Photo And Headshots"
+      contexts:
+        setting_press_kit:
+          header: Press Kit Photo And Headshots
+          description: Below is a list of Press Kit Photo And Headshots that have been added for %{setting_press_kit_name}.
+          description_empty: No Press Kit Photo And Headshots have been added for %{setting_press_kit_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{press_kit_photo_and_headshot_name}"
+      header: Press Kit Photo And Headshot Details
+      description: Below are the details we have for %{press_kit_photo_and_headshot_name}.
+      manage_description: You'll also find options for updating these details or removing %{press_kit_photo_and_headshot_name} from %{setting_press_kit_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Press Kit Photo And Headshot for %{setting_press_kit_name}"
+      header: New Press Kit Photo And Headshot Details
+      description: Please provide the details of the new Press Kit Photo And Headshot you'd like to add to %{setting_press_kit_name}.
+      form: *form
+    edit:
+      section: "%{press_kit_photo_and_headshot_name}"
+      header: Edit Press Kit Photo And Headshot Details
+      description: You can update the details or settings for %{press_kit_photo_and_headshot_name} below.
+      form: *form
+    notifications:
+      created: Press Kit Photo And Headshot was successfully created.
+      updated: Press Kit Photo And Headshot was successfully updated.
+      destroyed: Press Kit Photo And Headshot was successfully destroyed.
+  account:
+    press_kit_photo_and_headshots: *press_kit_photo_and_headshots
+  activerecord:
+    attributes:
+      press_kit_photo_and_headshot:
+        title: *title
+        description: *description
+        dimensions_wxh: *dimensions_wxh
+        headshot_or_other: *headshot_or_other
+        publish_at: *publish_at
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
