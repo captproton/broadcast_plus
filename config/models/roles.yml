@@ -1,5 +1,7 @@
 default:
   models:
+    PressKitEntry: read
+    PressKitEntry: read
     SettingPodcastPage: read
     SettingMediaAppearancesPage: read
     Event: read
@@ -73,6 +75,8 @@ admin:
     - admin
     - editor
   models:
+    PressKitEntry: manage
+    PressKitEntry: manage
     SettingPodcastPage: manage
     SettingMediaAppearancesPage: manage
     Event: manage

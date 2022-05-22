@@ -1,0 +1,31 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'account/shared/box', divider: true do |p| %>
+      <% p.content_for :title, t('.header') %>
+      <% p.content_for :description do %>
+        <%= t('.description') %>
+        <%= t('.manage_description') if can? :manage, @press_kit_entry %>
+      <% end %>
+
+      <% p.content_for :body do %>
+        <% with_attribute_settings object: @press_kit_entry, strategy: :label do %>
+          <%= render 'shared/attributes/text', attribute: :title %>
+          <%= render 'shared/attributes/text', attribute: :article_link %>
+          <%= render 'shared/attributes/date', attribute: :publish_on %>
+          <%= render 'shared/attributes/date_and_time', attribute: :release_at %>
+          <%= render 'shared/attributes/text', attribute: :article_image %>
+          <%# 🚅 super scaffolding will insert new fields above this line. %>
+        <% end %>
+      <% end %>
+
+      <% p.content_for :actions do %>
+        <%= link_to t('.buttons.edit'), [:edit, :account, @press_kit_entry], class: first_button_primary if can? :edit, @press_kit_entry %>
+        <%= button_to t('.buttons.destroy'), [:account, @press_kit_entry], method: :delete, class: first_button_primary, data: { confirm: t('.buttons.confirmations.destroy', model_locales(@press_kit_entry)) } if can? :destroy, @press_kit_entry %>
+        <%= link_to t('global.buttons.back'), [:account, @setting_press_kit, :press_kit_entries], class: first_button_primary %>
+      <% end %>
+    <% end %>
+
+    <%# 🚅 super scaffolding will insert new children above this line. %>
+  <% end %>
+<% end %>

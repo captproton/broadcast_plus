@@ -102,7 +102,9 @@ Rails.application.routes.draw do
           resources :setting_hire_mes
           resources :setting_event_pages
           resources :setting_podcasts
-          resources :setting_press_kits
+          resources :setting_press_kits do
+            resources :press_kit_entries
+          end
           resources :setting_media_appearances_pages
           resources :setting_podcast_pages
         end
