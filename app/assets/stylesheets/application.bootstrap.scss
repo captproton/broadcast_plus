@@ -1,8 +1,6 @@
-@use 'frontdoor';
-@use "blog/articles";
-@import 'frontdoor/press_kits';
-@import 'press_kits';
 @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import 'frontdoor';
 
 
 // $navbar-default-bg: #312312;
