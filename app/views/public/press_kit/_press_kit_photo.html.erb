@@ -1,0 +1,27 @@
+<div class="form-group col-md-6">
+    <div class="ct-article-unit-thumb">
+        <% if press_kit_photo.image.attached? %>
+            <%= image_tag press_kit_photo.image, 
+                class: "img-full-responsive", 
+                title: "#{press_kit_photo.headshot_or_other}: #{press_kit_photo.title}"  %>
+        <% else %>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSpj0DBTVsaja01_xWh37bcutvpd7rh7zEd528HD0d_l6A73osY" width="280" data-behavior="uppy-preview" />
+        <% end %>    
+
+    </div>
+    <div class="ct-articleunit">
+        <div class="h4 ct-h-slab-caps ct-presskit-cta">
+        Download
+        </div>
+        <ul class="ct-presskit-list">
+        <li>
+        <% if press_kit_photo.image.attached? %>
+            <%= link_to  press_kit_photo.image, 
+                class: "link-blue link-bold", download: url_for(press_kit_photo.image) do %>
+                <%= press_kit_photo.dimensions_wxh %>    
+            <% end %>
+        <% end %>
+        </li>
+        </ul>
+    </div>
+</div>

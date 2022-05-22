@@ -1,14 +1,10 @@
-
-<%# the db for this page is incomplete. %>
-
-<%# billboard_image_filename = "press_kit_hero.jpg" %>
-<%# headline = "Press Kit & Headshots" %>
 <%= render partial: '/shared/static_billboard', 
     locals: { image_filename: @hero_image_url,
               headline:       @press_kit_page.hero_title
     
     } %>
-<% @press_kit = @press_kit_page %>
+
+
   <div class="ct-content-wrapper">
     <div class="ct-page-wrapper container">
       <div class="row">
@@ -16,23 +12,23 @@
           <div class="ct-page-content">
             <h2 class="h1 ct-liner-simple">Basic Info</h2>
             <h6 class="ct-h-slab ct-h-nomargin">Full Name</h6>
-            <p><%= @press_kit.name %> </p>
+            <p><%= @press_kit_page.name %> </p>
 <!--            <h6 class="ct-h-slab ct-h-nomargin">Other names</h6>
             <p>Garyvee</p>
 -->
             <h6 class="ct-h-slab ct-h-nomargin">Born</h6>
-            <p><%#= @press_kit.birth_date.strftime("%B %d, %Y") %> (age <%#= @press_kit.calculate_current_age%>)<br>
-            <%= @press_kit.birthplace %></p>
+            <p><%= @press_kit.birthdate.strftime("%B %d, %Y") %> (age <%= @press_kit.calculate_current_age%>)<br>
+            <%= @press_kit_page.birthplace %></p>
 
             <h6 class="ct-h-slab ct-h-nomargin">Website</h6>
             <ul>
-              <%#= render  partial: "press_kits/weblink", 
+              <%= render  partial: "weblink", 
                 collection: @press_kit.press_kit_links.website, 
                 as: :weblink %>
             </ul>
             <h6 class="ct-h-slab ct-h-nomargin">Social</h6>
             <ul>
-              <%#= render  partial: "press_kits/weblink", 
+              <%= render  partial: "weblink", 
                 collection: @press_kit.press_kit_links.social, 
                 as: :weblink %>
             </ul>
@@ -40,7 +36,7 @@
 
             <h6 class="ct-h-slab ct-h-nomargin">Companies</h6>
             <ul>
-              <%#= render  partial: "press_kits/weblink", 
+              <%= render  partial: "weblink", 
                 collection: @press_kit.press_kit_links.company, 
                 as: :weblink %>
 
@@ -71,24 +67,22 @@
             <p><%= @press_kit.biography %></p>
           </div>
 
-          <%# @press_kit_headshots     = @press_kit.press_kit_photos.published_headshots %>
-          <%# @press_kit_actionshots   = @press_kit.press_kit_photos.published_action_shots %>
           <div class="ct-page-content"
                id="gvpg-media-appearances">
             <h3 class="h1 ct-liner-half">Recent Press</h3>            
-            <%#= render  partial: "press_kit_entry", 
-            collection: @press_kit.press_kit_entries.all, 
+            <%= render  partial: "press_kit_entry", 
+            collection: @press_kit_entries, 
             as: :press_kit_entry %>
 
           </div>
           <div class="ct-page-content"
                id="gvpg-media-downloads">
             <h3 class="h1 ct-liner-half">Headshots &amp; Photos</h3>
-            <%#= render  partial: "press_kit_photo", 
+            <%= render  partial: "press_kit_photo", 
             collection: @press_kit_headshots, 
             as: :press_kit_photo %>
 
-            <%#= render  partial: "press_kit_photo", 
+            <%= render  partial: "press_kit_photo", 
             collection: @press_kit_actionshots, 
             as: :press_kit_photo %>
           </div>

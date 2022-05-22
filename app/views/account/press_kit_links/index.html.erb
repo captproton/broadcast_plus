@@ -1,0 +1,6 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'index', press_kit_links: @press_kit_links %>
+  <% end %>
+<% end %>

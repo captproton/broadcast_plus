@@ -1,4 +1,4 @@
-class PressKitPhotoAndHeadshot < ApplicationRecord
+class PressKitLink < ApplicationRecord
   # 🚅 add concerns above.
 
   belongs_to :setting_press_kit
@@ -7,13 +7,13 @@ class PressKitPhotoAndHeadshot < ApplicationRecord
   # 🚅 add has_many associations above.
 
   has_one :team, through: :setting_press_kit
-  has_one_attached :photo
   # 🚅 add has_one associations above.
-  scope :published_headshots,     -> { where("headshot_or_other = ?", "headshot").where("publish_at <= ?", Time.now)}
-  scope :published_action_shots,  -> { where("headshot_or_other != ?", "headshot").where("publish_at <= ?", Time.now)}
+  scope :social,     -> { where("category = ?", "Social"||"social")}
+  scope :website,     -> { where("category = ?", "Website"||"website")}
+  scope :company,     -> { where("category = ?", "Company"||"company")}
   # 🚅 add scopes above.
 
-  validates :title, presence: true
+  validates :label, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
