@@ -1,0 +1,22 @@
+<article id="recent_events_10851" class="ct-post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ct-post-img">
+                <%= link_to (image_tag press_kit_entry.article_image), press_kit_entry.article_link %>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="h2 ct-post-title ct-liner-simple">
+                <%= link_to press_kit_entry.title, press_kit_entry.article_link %>
+            </h3>
+            <div class="ct-articleunit-footer">
+                <span class="ct-articuleunit-date">
+                    <%= press_kit_entry.publish_on.strftime("%b %d, %Y") %>&nbsp;
+                </span>
+                <%= link_to press_kit_entry.article_link do %>
+                    Read More &gt;&gt;
+                <% end %>
+            </div>
+        </div>
+    </div>
+</article>

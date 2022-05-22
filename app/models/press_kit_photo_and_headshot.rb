@@ -9,7 +9,8 @@ class PressKitPhotoAndHeadshot < ApplicationRecord
   has_one :team, through: :setting_press_kit
   has_one_attached :photo
   # 🚅 add has_one associations above.
-
+  scope :published_headshots,     -> { where("headshot_or_other = ?", "headshot").where("publish_at <= ?", Time.now)}
+  scope :published_action_shots,  -> { where("headshot_or_other != ?", "headshot").where("publish_at <= ?", Time.now)}
   # 🚅 add scopes above.
 
   validates :title, presence: true

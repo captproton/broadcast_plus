@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :press_kit_link do
-    setting_press_kit { nil }
+    association :setting_press_kit
     label { "MyText" }
     url { "MyText" }
     category { "MyText" }

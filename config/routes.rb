@@ -105,6 +105,7 @@ Rails.application.routes.draw do
           resources :setting_press_kits do
             resources :press_kit_entries
             resources :press_kit_photo_and_headshots
+            resources :press_kit_links
           end
           resources :setting_media_appearances_pages
           resources :setting_podcast_pages
