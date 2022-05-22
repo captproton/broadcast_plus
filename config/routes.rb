@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     draw "hireme"
     draw "media_appearances"
     draw "podcast"
+    draw "press_kit"
     draw "wallpapers"
     # draw "customer_site"
 
