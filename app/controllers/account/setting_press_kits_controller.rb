@@ -69,10 +69,12 @@ class Account::SettingPressKitsController < Account::ApplicationController
       :name,
       :birthplace,
       :biography,
+      :birthdate,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
 
+    assign_date(strong_params, :birthdate)
     # 🚅 super scaffolding will insert processing for new fields above this line.
 
     strong_params

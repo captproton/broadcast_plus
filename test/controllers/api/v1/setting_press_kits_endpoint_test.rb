@@ -23,6 +23,7 @@ class Api::V1::SettingPressKitsEndpointTest < Api::Test
       assert_equal setting_press_kit_data['hero_image'], setting_press_kit.hero_image
       assert_equal setting_press_kit_data['name'], setting_press_kit.name
       assert_equal setting_press_kit_data['birthplace'], setting_press_kit.birthplace
+      assert_equal Date.parse(setting_press_kit_data['birthdate']), setting_press_kit.birthdate
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal setting_press_kit_data["site_id"], setting_press_kit.site_id
