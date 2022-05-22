@@ -7,6 +7,7 @@ class PressKitPhotoAndHeadshot < ApplicationRecord
   # 🚅 add has_many associations above.
 
   has_one :team, through: :setting_press_kit
+  has_one_attached :photo
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.

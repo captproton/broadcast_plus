@@ -24,6 +24,7 @@ class Api::V1::PressKitPhotoAndHeadshotsEndpointTest < Api::Test
       assert_equal press_kit_photo_and_headshot_data['dimensions_wxh'], press_kit_photo_and_headshot.dimensions_wxh
       assert_equal press_kit_photo_and_headshot_data['headshot_or_other'], press_kit_photo_and_headshot.headshot_or_other
       assert_equal Date.parse(press_kit_photo_and_headshot_data['publish_at']), press_kit_photo_and_headshot.publish_at
+      assert_equal press_kit_photo_and_headshot_data['photo'], press_kit_photo_and_headshot.photo
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal press_kit_photo_and_headshot_data["setting_press_kit_id"], press_kit_photo_and_headshot.setting_press_kit_id

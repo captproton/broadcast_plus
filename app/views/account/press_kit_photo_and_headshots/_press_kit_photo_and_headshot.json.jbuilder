@@ -6,6 +6,7 @@ json.extract! press_kit_photo_and_headshot,
   :dimensions_wxh,
   :headshot_or_other,
   :publish_at,
+  :photo,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

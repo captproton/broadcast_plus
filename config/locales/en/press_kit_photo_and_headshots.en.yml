@@ -43,6 +43,10 @@ en:
         _: &publish_at Publish At
         label: *publish_at
         heading: *publish_at
+      photo:
+        _: &photo Photo
+        label: *photo
+        heading: *photo
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -104,6 +108,7 @@ en:
         dimensions_wxh: *dimensions_wxh
         headshot_or_other: *headshot_or_other
         publish_at: *publish_at
+        photo: *photo
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

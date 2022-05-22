@@ -14,6 +14,7 @@ class Api::V1::PressKitPhotoAndHeadshotsEndpoint < Api::V1::Root
       optional :dimensions_wxh, type: String, desc: Api.heading(:dimensions_wxh)
       optional :headshot_or_other, type: String, desc: Api.heading(:headshot_or_other)
       optional :publish_at, type: Date, desc: Api.heading(:publish_at)
+      optional :photo, type: File, desc: Api.heading(:photo)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

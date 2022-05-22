@@ -69,6 +69,7 @@ class Account::PressKitPhotoAndHeadshotsController < Account::ApplicationControl
       :dimensions_wxh,
       :headshot_or_other,
       :publish_at,
+      :photo,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
