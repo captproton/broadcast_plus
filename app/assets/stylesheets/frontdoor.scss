@@ -4,10 +4,10 @@
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 // @import "bootstrap";
-@use "frontdoor/about_me";
-@use "frontdoor/animation";
-@use "frontdoor/billboard";
-@use "frontdoor/biography";
+@use "./frontdoor/about_me";
+@use "./frontdoor/animation";
+@use "./frontdoor/billboard";
+@use "./frontdoor/biography";
 @use "frontdoor/blog";
 @use "frontdoor/contact_form_notifications";
 @use "frontdoor/contact_messages";

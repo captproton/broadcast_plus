@@ -8,6 +8,7 @@
               headline:       @press_kit_page.hero_title
     
     } %>
+
 <% @press_kit = @press_kit_page %>
   <div class="ct-content-wrapper">
     <div class="ct-page-wrapper container">
@@ -17,9 +18,8 @@
             <h2 class="h1 ct-liner-simple">Basic Info</h2>
             <h6 class="ct-h-slab ct-h-nomargin">Full Name</h6>
             <p><%= @press_kit.name %> </p>
-<!--            <h6 class="ct-h-slab ct-h-nomargin">Other names</h6>
-            <p>Garyvee</p>
--->
+            <!--  <h6 class="ct-h-slab ct-h-nomargin">Other names</h6>
+            <p>Garyvee</p> -->
             <h6 class="ct-h-slab ct-h-nomargin">Born</h6>
             <p><%#= @press_kit.birth_date.strftime("%B %d, %Y") %> (age <%#= @press_kit.calculate_current_age%>)<br>
             <%= @press_kit.birthplace %></p>
@@ -47,7 +47,7 @@
             </ul>
 
             <p>&nbsp;</p>
-<!--            <h6 class="ct-h-slab ct-h-nomargin">Contact</h6>
+            <!--  <h6 class="ct-h-slab ct-h-nomargin">Contact</h6>
             <p><a href="mailto:zach@vaynerspeakers.com"
                rel="noopener"
                target="_blank">Zachary Nadler</a><br>
@@ -58,9 +58,7 @@
             <p>For VaynerMedia inquiries: <a href="mailto:comms@vaynermedia.com"
                rel="noopener"
                target="_blank">Communications Team</a></p>
-            <p>For Gary Vaynerchuk related inquiries: <a href="mailto:maha.abouelenein@vaynermedia.com">Maha Abouelenein</a></p>
--->
-            <div class="page-spacer-sm"></div>
+            <p>For Gary Vaynerchuk related inquiries: <a href="mailto:maha.abouelenein@vaynermedia.com">Maha Abouelenein</a></p> -->
           </div>
         </div>
 
@@ -92,7 +90,7 @@
             collection: @press_kit_actionshots, 
             as: :press_kit_photo %>
           </div>
-        </div>
+      </div>
       </div>
     </div>
   </div>
