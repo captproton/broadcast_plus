@@ -10,7 +10,8 @@
     <div class="ct-page-content">
       <!-- ct-page-content -->
       <div class="container ct-flex-has-sidebar">
-        <div class="col-md-8">
+        <div class="row">
+                <div class="col-md-8">
           <!-- wrap -->
           <div class="ct-flex-row"
                id="flex-module-0">
@@ -23,11 +24,9 @@
             <p><strong><em>Check out the most recent podcast episode here:</em></strong></p>
 
             <%= render 'embedded_podcast_player' %>
-            <%#= render 'intro_paragraph' %>
-            <p>
-              <%= podcast.body %>
-            </p>
-            <%#= render 'recommendations' %>            
+            <%= render 'intro_paragraph' %>
+            <%# FIX: the static data of recommendations should be replaced %>
+            <%= render 'recommendations' %>            
           </div>
         </div><!-- wrap -->
 
@@ -41,6 +40,8 @@
             <%= render partial: "subscribe_button", collection: PublisherAccount.published_to, :as => :subscribe_button, locals: {podcast_title: podcast.title } %>
 
           </div>
+        </div>
+
         </div>
       </div><!-- .container -->
     </div>
