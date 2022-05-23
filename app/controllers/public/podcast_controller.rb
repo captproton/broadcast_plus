@@ -1,4 +1,5 @@
 class Public::PodcastController < Public::CustomerSite::BaseController
+
   before_action :set_podcast_page
   layout "frontdoor"
 

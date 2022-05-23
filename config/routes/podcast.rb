@@ -1,3 +1,2 @@
-get '/podcast', to: 'podcasts#index'
-get '/podcasts', to: 'podcasts#index'
+get '/podcast', to: 'podcast#index'
 
