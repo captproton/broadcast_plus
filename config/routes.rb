@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     draw "blog"
     draw "books"
     draw "events"
+    draw "get_in_touch"
     draw "hireme"
     draw "media_appearances"
     draw "podcast"
