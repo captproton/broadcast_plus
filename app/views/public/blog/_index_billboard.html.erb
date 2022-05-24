@@ -1,0 +1,36 @@
+
+<section class="ct-billboard-wrapper ct-post-feature">
+            <article class="ct-billboard">
+                <div class="ct-billboard-poster" style="opacity: 1;">
+                    <%= image_tag entry.image %>
+
+
+                </div>
+                <div class="ct-billboard-postwrap">
+                    <div class="ct-post-container container">
+                        <%= render partial: '/blog/article_sharing_bar', locals: { entry: entry } %>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <h1 class="ct-ctrl-title ct-liner-simple ct-post-title">
+                                    <%= link_to entry.title, entry %>
+                                </h1>
+                            </div>
+                            <div class="col-sm-6 text-left">
+                                <h5 class="ct-h-slab ct-post-date">
+                                    <%= time_ago_in_words(entry.created_at) %> ago                                    
+                                    <span class="middot">·</span>
+                                    <%= entry.article.reading_time.to_i ||= 1 %> min read                                
+                                </h5>
+
+                                    <p><%= entry.summary  %></p>
+                                <div class="text-right">
+                                    <%= link_to entry, class: "ct-post-permalink link-blue" do %>
+                                        Read More &gt;&gt;
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>

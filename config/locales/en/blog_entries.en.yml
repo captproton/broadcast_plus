@@ -47,6 +47,10 @@ en:
         _: &hero_image Hero Image
         label: *hero_image
         heading: *hero_image
+      image:
+        _: &image Image
+        label: *image
+        heading: *image
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -109,6 +113,7 @@ en:
         seo_title: *seo_title
         seo_description: *seo_description
         hero_image: *hero_image
+        image: *image
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

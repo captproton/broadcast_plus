@@ -15,6 +15,7 @@ class Api::V1::BlogEntriesEndpoint < Api::V1::Root
       optional :seo_title, type: String, desc: Api.heading(:seo_title)
       optional :seo_description, type: String, desc: Api.heading(:seo_description)
       optional :hero_image, type: File, desc: Api.heading(:hero_image)
+      optional :image, type: File, desc: Api.heading(:image)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 
