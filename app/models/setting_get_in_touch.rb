@@ -1,0 +1,2 @@
+class SettingGetInTouch < ApplicationRecord
+end
