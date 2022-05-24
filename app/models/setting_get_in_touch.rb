@@ -1,2 +1,0 @@
-class SettingGetInTouch < ApplicationRecord
-end
