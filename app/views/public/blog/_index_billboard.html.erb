@@ -2,13 +2,13 @@
 <section class="ct-billboard-wrapper ct-post-feature">
             <article class="ct-billboard">
                 <div class="ct-billboard-poster" style="opacity: 1;">
-                    <%= image_tag entry.image %>
+                    <%= image_tag entry.hero_image %>
 
 
                 </div>
                 <div class="ct-billboard-postwrap">
                     <div class="ct-post-container container">
-                        <%= render partial: '/blog/article_sharing_bar', locals: { entry: entry } %>
+                        <%= render partial: 'article_sharing_bar', locals: { entry: entry } %>
                         <div class="row clearfix">
                             <div class="col-sm-6">
                                 <h1 class="ct-ctrl-title ct-liner-simple ct-post-title">

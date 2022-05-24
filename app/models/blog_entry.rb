@@ -1,4 +1,6 @@
 class BlogEntry < ApplicationRecord
+  make_taggable # Alias for make_taggable :tags
+  make_taggable :skills, :interests, :hashtags
   # 🚅 add concerns above.
 
   belongs_to :site

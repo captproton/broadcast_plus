@@ -181,3 +181,4 @@ gem "bullet_train-super_scaffolding", git: "https://github.com/bullet-train-co/b
 gem 'pagy', '~> 3.9'
 gem 'font-awesome-sass', '~> 5.13'
 
+gem "make_taggable", "~> 0.7.5"
