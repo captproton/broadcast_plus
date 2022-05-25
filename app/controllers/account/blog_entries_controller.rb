@@ -71,14 +71,18 @@ class Account::BlogEntriesController < Account::ApplicationController
       :seo_description,
       :hero_image,
       :image,
-      :tag_list,
+      blog_list_ids: [],
+      blog_lists: [],
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
 
     assign_date_and_time(strong_params, :publish_at)
     # 🚅 super scaffolding will insert processing for new fields above this line.
+    assign_select_options(strong_params, :blog_list_ids)
 
+    
+    
     strong_params
   end
 end
