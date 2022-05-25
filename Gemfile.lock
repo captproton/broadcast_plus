@@ -381,6 +381,8 @@ GEM
       rails (>= 6.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    make_taggable (0.7.5)
+      activerecord (>= 5.2.0, <= 7.5.0)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -664,6 +666,7 @@ DEPENDENCIES
   knapsack_pro
   letter_opener
   magic_test
+  make_taggable (~> 0.7.5)
   minitest-retry
   pagy (~> 3.9)
   pg (>= 0.18, < 2.0)
