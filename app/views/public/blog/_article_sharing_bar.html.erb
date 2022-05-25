@@ -5,8 +5,8 @@
 
 <div class="row clearfix ct-post-sharemeta">
     <div class="col-sm-6 col-md-7 ct-post-tags">
-      <% entry.blog_lists.hashtags.select(:id, :title).each do |t| %>
-        <%= link_to "##{t}" , tag_path(t), class: "link-blue" %>                                
+      <% entry.blog_lists.where("description = ?", "tag").select(:id, :title).each do |t| %>
+        <%= link_to "##{t.title}" , tag_path(t), class: "link-blue" %>                                
       <% end %>
       <%= link_to "#", 
         data: {permalink: sharing[:permalink], title: sharing[:title], handle: sharing[:twitter_handle] },

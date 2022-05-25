@@ -73,6 +73,7 @@ class Account::BlogEntriesController < Account::ApplicationController
       :image,
       blog_list_ids: [],
       blog_lists: [],
+      :summary,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

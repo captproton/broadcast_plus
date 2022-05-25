@@ -31,9 +31,10 @@
                         <%= time_ago_in_words(entry.created_at) %> ago                    
                         <span class="middot">·</span>
                         <%# text = entry.article.body.to_plain_text
-                        @reading_time = (text.scan(/\w+/).length / 150).to_i  %>
+                            @reading_time = (text.scan(/\w+/).length / 150).to_i  
+                        %>
                         <span>
-                            <%= pluralize(@reading_time, 'minute') %>
+                            <%#= pluralize(@reading_time, 'minute') %>
                         </span>               
                     </h5>
                     <p>

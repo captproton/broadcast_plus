@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     draw "legal"
     draw "biography"
     draw "blog"
+    draw "blog_tags"
     draw "books"
     draw "events"
     draw "get_in_touch"

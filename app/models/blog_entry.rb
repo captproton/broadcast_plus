@@ -14,6 +14,7 @@ class BlogEntry < ApplicationRecord
   has_one :team, through: :site
   has_one_attached :hero_image
   has_one_attached :image
+  has_rich_text :summary
   # 🚅 add has_one associations above.
 
     scope :featured, -> { where("pinned_value > ?", 0)

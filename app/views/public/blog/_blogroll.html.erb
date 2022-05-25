@@ -1,0 +1,10 @@
+  <div class="col-lg-8" id="blogroll">
+  <%= render partial: "public/blog/entries/entry", 
+      collection: @blog_entries %>     
+    
+    <% if(!params.has_key?(:tag) )%>
+      <%#= render partial: '/shared/pagy/nav', locals: {pagy: @pagy} %>      
+    <% end %>
+      
+  </div>
+<!-- finish blogroll -->
