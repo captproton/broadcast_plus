@@ -51,6 +51,7 @@ en:
         _: &image Image
         label: *image
         heading: *image
+
       summary:
         _: &summary Summary
         label: *summary

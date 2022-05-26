@@ -40,6 +40,8 @@ class BlogEntry < ApplicationRecord
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
-
+  def article
+    article = self.blog_articles.first
+  end
   # 🚅 add methods above.
 end
