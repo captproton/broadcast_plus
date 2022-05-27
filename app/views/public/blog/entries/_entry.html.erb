@@ -5,16 +5,9 @@
       <div class="ct-post-img">
       
         <%= link_to entry do %>
-                <%= image_tag("https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20181217210654/HIPHOPArtboard-1-700x560.jpg",
-                  class: "attachment-large size-large wp-post-image", 
-                  srcset: { "https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20181217210654/HIPHOPArtboard-1-700x560.jpg" => "700w","https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20181217210654/HIPHOPArtboard-1-250x200.jpg" => "250w" }
-                  )
-                %>
+          <% entry_image = !entry.hero_image.blank? ? entry.hero_image : "https://via.placeholder.com/768x614" %>
 
-        
-          <%# entry_image = !entry.hero_image.blank? ? entry.hero_image : "https://via.placeholder.com/768x614" %>
-
-          <%#= image_tag entry_image, size: "768x614", class: "attachment-large size-large wp-post-image" %>
+          <%= image_tag entry_image, size: "768x614" %>
         
         <% end %>
       </div>
