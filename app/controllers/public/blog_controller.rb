@@ -9,7 +9,8 @@ class Public::BlogController < Public::CustomerSite::BaseController
       @entries = @blog_entries
     else
       # @pagy, @blog_entries  = pagy(@site.blog_entrie.published, items: 10)
-      @blog_entries  = pagy(@site.blog_entries.published, items: 10)
+      @blog_entries  = @site.blog_entries.published
+      # @blog_entries  = pagy(@site.blog_entries.published, items: 10)
     end
     @billboard_entry            = BlogEntry.featured.first
     @blog_featured_2nd_and_3rd  = BlogEntry.featured_2nd_and_3rd
