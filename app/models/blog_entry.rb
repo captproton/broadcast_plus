@@ -40,8 +40,8 @@ class BlogEntry < ApplicationRecord
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
-  def article
-    article = self.blog_articles.first
+  def essay
+    essay = self.blog_articles.first
   end
 
   def self.construct_meta_image_url(blog_entry)

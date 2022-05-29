@@ -1,5 +1,33 @@
-<h1>Public::BlogEntries#show</h1>
-<p>Find me in app/views/public/blog_entries/show.html.erb</p>
-<h3>
-<%= @blog_entry.title %> 
-</h3>
+<%# FIX: twitter needs some research https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started %>
+<%# set_meta_tags  title: "#{@blog_entry.title}",
+                  description: "#{@blog_entry.seo_description}",
+                  keywords: "#{@blog_entry.tag_list}",
+                  image_src: Blog::Entry.construct_meta_image_url(@blog_entry).to_s,
+                  og: {
+                      title:     "#{@blog_entry.title || ''}",
+                      site_name: "#{@site.general_info.plain_text_name}",
+                      type:      'website',
+                      url:       request.original_url,
+                      image:     Blog::Entry.construct_meta_image_url(@blog_entry).to_s,
+                      description: "#{@blog_entry.seo_description}"
+                  }
+%>
+
+<article id='<%= "post-#{params[:id]}" %>' class='<%= "post-#{params[:id]}" %> post type-post status-publish format-standard has-post-thumbnail hentry category-business category-leadership'>
+  
+  <%= render 'billboard', locals: {billboard_image: @blog_entry.hero_image } %>
+  <%#= render 'entry_sharing_sidebar', query_data:  %>
+  <div class="ct-single-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="ct-single-content col-md-8">
+          <%= render partial: 'content', 
+              locals: {blog_article: @blog_article, blog_entry: @blog_entry } 
+          %>
+        </div>
+              <%= render partial: '/shared/aside', 
+              locals: { sidebar_icons: @sidebar_icons } %>
+      </div>
+    </div>
+  </div>
+</article>

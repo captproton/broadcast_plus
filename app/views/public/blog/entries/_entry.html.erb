@@ -11,7 +11,7 @@
         
         <% end %>
       </div>
-        <%= render partial: 'public/blog/article_sharing_bar', locals: { entry: entry } %>
+        <%= render partial: '/shared/article_sharing_bar', locals: { entry: entry } %>
       <div class="row clearfix">
         <div class="col-sm-6">
           <h1 class="ct-ctrl-title ct-post-title ct-liner-simple">
@@ -23,7 +23,7 @@
           <h5 class="ct-h-slab ct-post-date">
             <%= time_ago_in_words(entry.publish_at) %> ago&nbsp;
             <span class="middot">·</span>
-            <%= entry.article.reading_time || 1 %>  min read
+            <%= entry.blog_articles.first.reading_time || 1 %>  min read
           </h5>
 
           <p>

@@ -14,6 +14,7 @@ class BlogArticle < ApplicationRecord
   # 🚅 add scopes above.
 
   validates :pinned_value, presence: true
+  validates :byline, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.

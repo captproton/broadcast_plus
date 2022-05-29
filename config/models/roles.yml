@@ -1,5 +1,6 @@
 default:
   models:
+    BlogArticle: read
     PressKitLink: read
     PressKitPhotoAndHeadshot: read
     PressKitEntry: read
@@ -77,6 +78,7 @@ admin:
     - admin
     - editor
   models:
+    BlogArticle: manage
     PressKitLink: manage
     PressKitPhotoAndHeadshot: manage
     PressKitEntry: manage

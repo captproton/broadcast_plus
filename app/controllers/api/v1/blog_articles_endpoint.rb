@@ -9,8 +9,10 @@ class Api::V1::BlogArticlesEndpoint < Api::V1::Root
     end
 
     params :blog_article do
+      optional :byline, type: String, desc: Api.heading(:byline)
       optional :pinned_value, type: String, desc: Api.heading(:pinned_value)
       optional :body, type: String, desc: Api.heading(:body)
+      optional :name, type: String, desc: Api.heading(:name)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

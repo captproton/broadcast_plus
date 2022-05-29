@@ -3,7 +3,9 @@ class Public::BlogEntriesController < Public::CustomerSite::BaseController
   end
 
   def show
-    @blog_entry = BlogEntry.find(params[:id])
+    @blog_entry             = BlogEntry.find(params[:id])
+    @blog_article           = @blog_entry.essay
+    @blog_recommendations   = BlogEntry.recommend_entries(@site, "blog-entry-aside")
   end
 
   def cosmo

@@ -1,0 +1,47 @@
+
+<%= render 'headline' %> 
+<% if   blog_article.present? %>
+
+<div class="gv-post-author row">
+        <%= render partial: 'author',
+        locals: {blog_article: blog_article} %>      
+    <%#= render 'sharing_top_bar' %>
+</div>
+    <%= render  partial: 'entry_content', 
+    locals: {blog_article: @blog_article} %>
+<% else %>
+    <h4>no article attached</h4>
+<% end %>
+
+
+<div class="ct-post-footer">
+    <%#= render 'post_sharing' %>
+    <%#= render 'entry_comments' %>
+    <div class="ct-post-tags">
+        <%# blog_entry.tag_list.each do |t| %>
+            <%#= link_to "##{t}" , tag_path(t), class: "link-blue" %>                                
+        <%# end %>
+
+
+    </div>
+
+    <%#= render 'entry_tags', locals  %>
+    <%#= render  partial: 'entry_content', 
+    locals: {tag_list: @blog_entry.tag_list} %>    
+        <%#= render partial: "blog/entries/entry", 
+        collection: Blog::Entry.featured_2nd_and_3rd, 
+        as: :entry %>
+</div>
+<div class="ct-post-suggested">
+    
+    <% if !@blog_recommendations.blank? %>
+        <h3 class="ct-h-welter50">
+            Check this out
+        </h3>
+        <%= render  partial: "recommended_entry", 
+                    collection: @blog_recommendations, 
+                    as: :recommended_entry %>
+    <% end %>
+    
+</div>
+                

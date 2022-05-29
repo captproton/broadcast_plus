@@ -64,8 +64,10 @@ class Account::BlogArticlesController < Account::ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def blog_article_params
     strong_params = params.require(:blog_article).permit(
+      :byline,
       :pinned_value,
       :body,
+      :name,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
