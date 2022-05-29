@@ -36,6 +36,8 @@ class Site < ApplicationRecord
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
-
+  def general_info
+    self.setting_general_infos.first
+  end
   # 🚅 add methods above.
 end

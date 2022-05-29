@@ -4,8 +4,8 @@
       <div class="ct-articleunit-content">
         <div class="ct-articleunit-thumb">
           <%= link_to blog_entry_path(entry) do %>
-            <% if entry.image.attached? %>
-                <%= image_tag entry.image, class: "attachment-ad-unit-size size-ad-unit-size wp-post-image" ,
+            <% if entry.hero_image.attached? %>
+                <%= image_tag entry.hero_image, class: "attachment-ad-unit-size size-ad-unit-size wp-post-image" ,
                 height: "234" %>
             <% else %>
                 <img src="" height="234" />
