@@ -1,0 +1,19 @@
+<section class="ct-billboard-wrapper ct-page-feature" style="margin-top: 0px; margin-bottom: 0px;">
+    <div class="ct-billboard">
+        <div class="ct-billboard-poster" style="opacity: 1;">
+        <% if @blog_entry.hero_image.attached? %>
+            <%= image_tag @blog_entry.hero_image  %>
+        
+        <% end %>
+        
+        <%# 
+            <img src="https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20200901170243/IMG_A2E82CF68D29-1.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20200901170243/IMG_A2E82CF68D29-1.jpeg 1400w, https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20200901170243/IMG_A2E82CF68D29-1-250x200.jpeg 250w, https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20200901170243/IMG_A2E82CF68D29-1-700x560.jpeg 700w, https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20200901170243/IMG_A2E82CF68D29-1-768x614.jpeg 768w, https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20200901170243/IMG_A2E82CF68D29-1-120x96.jpeg 120w" sizes="(max-width: 1400px) 100vw, 1400px">        
+        %>
+        </div>
+        <div class="ct-billboard-callout">
+            <div class="container text-right">
+                <h1 class="col-sm-6 pull-right"></h1>
+            </div>
+        </div>
+    </div>
+</section>

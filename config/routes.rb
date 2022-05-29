@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :public do
+    # get 'blog_entries/index'
+    get 'blog_entries/show'
+    get 'blog_entries/cosmo'
+    get 'blog_entries/houston'
+  end
   # See `config/routes/*.rb` to customize these configurations.
   draw "concerns"
   draw "devise"
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
     draw "legal"
     draw "biography"
     draw "blog"
+    draw "blog_entries"
     draw "blog_tags"
     draw "books"
     draw "events"

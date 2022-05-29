@@ -12,8 +12,8 @@
   </div>
 
     <%#= render '/shared/aside/social_btns', locals: {sidebar_icons: PublisherAccount.sidebar_icons.first(5)} %>
-    <%#= render partial: "/shared/aside/featured_blog_entry", 
-        collection: Blog::Entry.featured, 
+    <%= render partial: "/shared/aside/featured_blog_entry", 
+        collection: @recommended_entries, 
         as: :entry %>
 
 

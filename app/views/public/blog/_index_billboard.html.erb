@@ -19,7 +19,7 @@
                                 <h5 class="ct-h-slab ct-post-date">
                                     <%= time_ago_in_words(entry.created_at) %> ago                                    
                                     <span class="middot">·</span>
-                                    <%= entry.article.reading_time.to_i ||= 1 %> min read                                
+                                    <%= entry.essay.reading_time.to_i ||= 1 %> min read                                
                                 </h5>
 
                                     <p><%= entry.summary  %></p>

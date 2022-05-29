@@ -23,6 +23,10 @@ en:
         heading: Blog Article ID
       blog_entry_id:
         heading: Blog Entry ID
+      byline:
+        _: &byline Byline
+        label: *byline
+        heading: *byline
       pinned_value:
         _: &pinned_value Pinned Value
         label: *pinned_value
@@ -31,6 +35,10 @@ en:
         _: &body Body
         label: *body
         heading: *body
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -87,8 +95,10 @@ en:
   activerecord:
     attributes:
       blog_article:
+        byline: *byline
         pinned_value: *pinned_value
         body: *body
+        name: *name
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

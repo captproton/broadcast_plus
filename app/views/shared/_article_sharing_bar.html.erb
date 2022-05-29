@@ -1,0 +1,55 @@
+<% sharing = { title: entry.title, 
+                permalink: root_url + blog_entry_path(entry), twitter_handle: "gocarlgodotcom" }  %>
+
+<% query_data = { text: sharing[:title], url: sharing[:permalink], via: sharing[:twitter_handle] } %>
+
+<div class="row clearfix ct-post-sharemeta">
+    <div class="col-sm-6 col-md-7 ct-post-tags">
+      <% entry.tag_list.split(", ").each do |t| %>
+        <%= link_to "##{t}" , tag_path(t), class: "link-blue" %>                                
+      <% end %>
+      <%= link_to "#", 
+        data: {permalink: sharing[:permalink], title: sharing[:title], handle: sharing[:twitter_handle] },
+        class: "ct-btn ct-btn-white ct-post-mobileshare pull-right visible-xs-inline-block",
+
+        onclick: "revealSomething(this.getAttribute('data-permalink'), 
+                                  this.getAttribute('data-title'), 
+                                  this.getAttribute('data-handle'));" do %>
+        Share <i class="fas fa-share"></i>
+      <% end %>
+    </div>
+    <div class="hidden-xs col-sm-6 col-md-4 pull-right text-right">
+        <div class="ct-post-sharing hidden-xs">
+            <div class="row">
+                <div class="col-xs-4">
+                <%# Comment out facebook until we get a facebook id %>
+                  <%#= link_to "#", 
+                    data: {permalink: permalink, platform: "facebook" },
+                    class: "ct-ctrl-share ct-btn ct-btn-block ct-btn-short ct-btn-s-fb",
+                    title: "Share on Facebook" do %>
+                    <%# <i class="fab fa-facebook"></i> %>
+                  <%# end %>
+                </div>
+                <div class="col-xs-4">
+
+                  <%= link_to "https://twitter.com/intent/tweet?#{query_data.to_query}",
+                    class: "ct-ctrl-share ct-btn ct-btn-block ct-btn-short ct-btn-s-tw",
+                    data: {permalink: sharing[:permalink], platform: "twitter" },
+                    target: "_blank",
+                    title: "Tweet on Twitter" do %>
+                    <i class="fab fa-twitter"></i>
+                  <% end %>
+                </div>
+                <div class="col-xs-4">
+                  <%= link_to "https://www.linkedin.com/shareArticle?#{query_data.to_query}", 
+                    data: {permalink: sharing[:permalink], platform: "linkedin" },
+                    class: "ct-ctrl-share ct-btn ct-btn-block ct-btn-short ct-btn-s-in",
+                    target: "_blank",
+                    title: "Share on LinkedIn" do %>
+                    <i class="fab fa-linkedin"></i>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
