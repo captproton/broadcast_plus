@@ -5,10 +5,10 @@
       <div class="clearfix event event-2-col">
         <%= link_to event.more_info_url, target: "_blank", class: "event-linker" do %>
         <div class="widget-event-date text-center">
-          <div class="h3 gv-h-welter50">
+          <div class="h3 h-welter50">
             <%=  event.start_date.strftime("%b") %>
           </div>
-          <div class="h2 gv-h-welter50">
+          <div class="h2 h-welter50">
             <%=  event.start_date.strftime("%d") %>
           </div>
         </div>
@@ -17,7 +17,7 @@
           <h4 class="event-location"><%= event.location %></h4>
         </div><%end %>
         <div class="widget-event-info">
-          <%= link_to event.more_info_url, target: "_blank", class: "event-linker" do %><%end %><%= link_to event.more_info_url,  target: "_blank", class: "gv-btn gv-btn-blue gv-btn-block" do %>Info <%end %>
+          <%= link_to event.more_info_url, target: "_blank", class: "event-linker" do %><%end %><%= link_to event.more_info_url,  target: "_blank", class: "btn btn-blue btn-block" do %>Info <%end %>
         </div>
       </div><%end %><!--  finish  listing-->
     </div>

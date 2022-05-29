@@ -313,3 +313,121 @@
         width: 100%;
     }    
 }
+// upcoming events box style
+.blog {
+.ct-widget-events {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.ct-widget-events h1:first-child,
+.ct-widget-events h2:first-child,
+.ct-widget-events h3:first-child,
+.ct-widget-events h4:first-child,
+.ct-widget-events h5:first-child {
+  margin-top: 0;
+}
+.widget-event-date,
+.widget-event-title,
+.widget-event-info {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 10px;
+}
+.event-listing {
+  display: block;
+  padding-top: 10px;
+}
+.event-widget-footer {
+  padding: 20px 0;
+}
+.event-linker,
+.event-linker:hover,
+.event-linker:active,
+.event-linker:focus,
+.event-linker:visited {
+  color: #fff;
+}
+.widget-event-title h1,
+.widget-event-title h2,
+.widget-event-title h3,
+.widget-event-title h4,
+.widget-event-title h5,
+.widget-event-title h6,
+.widget-event-title .h1,
+.widget-event-title .h2,
+.widget-event-title .h3,
+.widget-event-title .h4,
+.widget-event-title .h5,
+.widget-event-title .h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+}
+.widget-event-title .event-title,
+.widget-event-title .event-location {
+  text-align: left;
+}
+.ct-widget-events .event {
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.ct-widget-events .event .event-title,
+.ct-widget-events .event .event-location {
+  font-size: 14pt;
+}
+.ct-widget-events .event-3-col .widget-event-date {
+  width: 23%;
+}
+.ct-widget-events .event-3-col .widget-event-title {
+  width: 72%;
+}
+.ct-widget-events .event-3-col .widget-event-info {
+  width: 100%;
+  padding-top: 20px;
+}
+@media (min-width: 480px) {
+  .ct-widget-events .event-3-col .widget-event-title {
+    width: 53%;
+  }
+  .ct-widget-events .event-3-col .widget-event-info {
+    width: 24%;
+    padding-top: 0;
+  }
+}
+.ct-widget-events .event-2-col .widget-event-date {
+  width: 23%;
+}
+.ct-widget-events .event-2-col .widget-event-title {
+  width: 72%;
+}
+.ct-widget-events .event-2-col .widget-event-info {
+  display: none;
+  visibility: none;
+}
+.ct-widget-events.theme-white .event-listing {
+  border-top: 1px solid #000;
+}
+.ct-widget-events.theme-white .event {
+  border-bottom: 1px solid #a7a7a7;
+}
+.ct-widget-events.theme-black {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+}
+.ct-widget-events.theme-black .event {
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid #a7a7a7;
+}
+.ct-widget-events.theme-black .event-widget-footer {
+  padding-top: 30px;
+}
+.ct-widget-events.theme-black .event-widget-footer .ct-btn {
+  font-size: 0.9em;
+}
+
+}
