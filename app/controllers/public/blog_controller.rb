@@ -16,7 +16,7 @@ class Public::BlogController < Public::CustomerSite::BaseController
     @billboard_entry            = BlogEntry.featured.first
     @blog_featured_2nd_and_3rd  = BlogEntry.featured_2nd_and_3rd
     # sidebar
-    @blog_list_title       = "blog-entry-aside"
+    @blog_list_title       = "blog-index-aside"
     @recommended_entries  = BlogEntry.recommend_entries(@site, @blog_list_title)
     
     @sidebar_icons              = PublisherAccount.sidebar_icons.first(5)

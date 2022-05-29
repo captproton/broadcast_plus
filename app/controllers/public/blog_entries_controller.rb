@@ -5,7 +5,10 @@ class Public::BlogEntriesController < Public::CustomerSite::BaseController
   def show
     @blog_entry             = BlogEntry.find(params[:id])
     @blog_article           = @blog_entry.essay
-    @blog_recommendations   = BlogEntry.recommend_entries(@site, "blog-entry-aside")
+    # sidebar
+    @blog_list_title        = "blog-entry-aside"
+    @recommended_entries    = BlogEntry.recommend_entries(@site, @blog_list_title)
+
   end
 
   def cosmo
