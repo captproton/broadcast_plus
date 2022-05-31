@@ -4,6 +4,7 @@
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 // @import "bootstrap";
+@use "./frontdoor/utilities";
 @use "./frontdoor/about_me";
 @use "./frontdoor/animation";
 @use "./frontdoor/billboard";
@@ -47,6 +48,7 @@
 }
 
 body .frontdoor {
+  background-color: orange;
 
   h1 small,
   h2 small,
