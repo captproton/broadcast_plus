@@ -39,8 +39,8 @@ class PublisherAccount < ApplicationRecord
             .select(:name, :url, :font_awesome_class, :network_kind, :blurb)
     end
 
-    def self.sidebar_icons
-        accounts = self.where("sidebar_ranking > ?", 0)
+    def self.sidebar_icons(site)
+        accounts = site.publisher_accounts.where("sidebar_ranking > ?", 0)
             .order(:sidebar_ranking).
             select(:name, :url, :font_awesome_class, :network_kind)
     end

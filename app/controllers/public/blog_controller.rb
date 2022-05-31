@@ -19,7 +19,7 @@ class Public::BlogController < Public::CustomerSite::BaseController
     @blog_list_title       = "blog-index-aside"
     @recommended_entries  = BlogEntry.recommend_entries(@site, @blog_list_title)
     
-    @sidebar_icons              = PublisherAccount.sidebar_icons.first(5)
+    @sidebar_icons              = PublisherAccount.sidebar_icons(@site).first(5)
 
   end
 end
