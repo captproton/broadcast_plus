@@ -6,6 +6,38 @@
     <div class="ct-wiki-exp-icon"></div></a></h4>
     <div class="ct-wiki-content">
       <div class="row form-group">
+    <%# start collection %>
+    <% @recommended_entries.each_with_index do | element, index | %>
+        <div class="col-md-6">
+          <div class="ct-articleunit ct-articleunit-pg"
+                id="post-7703">
+            <div class="ct-articleunit-content">
+              <div class="ct-articleunit-thumb">
+                <a href="https://www.garyvaynerchuk.com/the-airplane-project/"
+                      target=""><img alt=""
+                      class="attachment-ad-unit-size size-ad-unit-size wp-post-image"
+                      sizes="(max-width: 400px) 100vw, 400px"
+                      src="https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20171211012541/article-template-400x234.png"
+                      srcset="https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20171211012541/article-template-400x234.png 400w, https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20171211012541/article-template-300x175.png 300w"></a>
+              </div>
+              <h3 class="h2 ct-liner-simple"><a href="https://www.garyvaynerchuk.com/the-airplane-project/"
+                  target=""><%= "#{index},  entry.title " %> </a>                  
+              </h3>
+            </div>
+            <div class="ct-articleunit-footer">
+              <span class="ct-articuleunit-date">Dec 11, 2017</span> <a href="https://www.garyvaynerchuk.com/the-airplane-project/"
+                    target="">Read More &gt;&gt;</a>
+            </div>
+          </div>
+        </div>
+    <% if index.odd? %>
+      </div><div class="row form-group"> 
+    <% end %>
+
+        
+  <% end %>
+        
+      <%# finish collection %>
         <div class="col-md-6">
           <div class="ct-articleunit ct-articleunit-pg"
                 id="post-7703">
