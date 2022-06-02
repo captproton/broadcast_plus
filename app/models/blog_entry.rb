@@ -76,5 +76,9 @@ class BlogEntry < ApplicationRecord
     end
   end
 
+  def hero_image_as_thumbnail
+    hero_image.variant(resize_to_limit: [300, 300]).processed
+  end
+
   # 🚅 add methods above.
 end
