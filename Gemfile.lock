@@ -209,9 +209,9 @@ GEM
       rails (>= 7.0.0)
     bullet_train-super_load_and_authorize_resource (1.0.1)
       rails (>= 6.0.0)
-    bullet_train-themes (1.0.15)
+    bullet_train-themes (1.0.10)
       rails (>= 7.0.0)
-    bullet_train-themes-light (1.0.24)
+    bullet_train-themes-light (1.0.15)
       bullet_train-themes-tailwind_css
       rails (>= 7.0.0)
     bullet_train-themes-tailwind_css (1.0.10)
@@ -308,8 +308,6 @@ GEM
     ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
-    font-awesome-sass (6.1.1)
-      sassc (~> 2.0)
     foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -562,8 +560,6 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     selenium-webdriver (4.2.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -658,7 +654,8 @@ DEPENDENCIES
   bullet_train-scope_questions
   bullet_train-sortable
   bullet_train-super_scaffolding!
-  bullet_train-themes-light
+  bullet_train-themes (~> 1.0, <= 1.0.10)
+  bullet_train-themes-light (~> 1.0, <= 1.0.15)
   capybara!
   capybara-email
   chronic (~> 0.10.2)
@@ -667,7 +664,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
-  font-awesome-sass (~> 6.1, >= 6.1.1)
   foreman
   honeybadger
   image_processing (~> 1.12, >= 1.12.2)

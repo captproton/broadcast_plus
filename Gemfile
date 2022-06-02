@@ -90,7 +90,8 @@ gem "bullet_train"
 gem "bullet_train-api"
 gem "bullet_train-outgoing_webhooks"
 gem "bullet_train-incoming_webhooks"
-gem "bullet_train-themes-light"
+gem 'bullet_train-themes', '~> 1.0', '<= 1.0.10'
+gem 'bullet_train-themes-light', '~> 1.0', '<= 1.0.15'
 gem "bullet_train-integrations"
 gem "bullet_train-integrations-stripe"
 
@@ -179,5 +180,4 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 gem 'chronic', '~> 0.10.2'
 gem "bullet_train-super_scaffolding", git: "https://github.com/bullet-train-co/bullet_train-super_scaffolding.git", branch: "features/test-super-scaffolded-attributes"
 gem 'pagy', '~> 3.9'
-gem 'font-awesome-sass', '~> 6.1', '>= 6.1.1'
 gem "make_taggable", "~> 0.7.5"
