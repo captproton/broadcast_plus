@@ -1,11 +1,12 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'frontdoor';
+@import 'frontdoor/events';
 
 
-.frontdoor {
-  background-color: orange;
-}
+// .frontdoor {
+//   background-color: orange;
+// }
 .frontdoor {
   h1,
   h2,

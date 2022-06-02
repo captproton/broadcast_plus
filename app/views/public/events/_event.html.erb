@@ -23,7 +23,9 @@
             <div class="col-sm-4 col-md-3 col-lg-3 event-ctrls">
                 <%= link_to 'Info', event.more_info_url,  target: "_blank", class: "ct-btn ct-btn-blue ct-btn-xlong" %>
                 <%= link_to "#", class: "ct-btn ct-btn-red", target:"_blank", nofollow:"" do %>
-                    <i class="far fa-calendar-check"></i>
+                    <div class="fa-solid fa-calendar-check-size">
+                        <%= render 'fa_calendar_check_svg' %>
+                    </div>
                 <% end %>
                 
 <!--                                                
