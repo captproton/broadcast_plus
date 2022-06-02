@@ -1,4 +1,82 @@
-@use "frontdoor/events";
+.books {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    }
+
+    body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 14pt;
+    line-height: 1.6em;
+    color: #000;
+    }    
+
+    .ct-liner-half,
+    .ct-liner-simple,
+    .ct-liner,
+    .ct-liner-short {
+    margin-bottom: 0;
+    }
+    .ct-liner-half:after,
+    .ct-liner-simple:after,
+    .ct-liner:after,
+    .ct-liner-short:after {
+    display: block;
+    margin: 20px 0;
+    border-top: 1px solid #000;
+    content: ' ';
+    height: 1px;
+    overflow: hidden;
+    }
+    .ct-widget-bg .ct-liner-half:after,
+    .ct-widget-bg .ct-liner-simple:after,
+    .ct-widget-bg .ct-liner:after,
+    .ct-widget-bg .ct-liner-short:after {
+    border-color: #fff;
+    }
+    @media (min-width: 992px) {
+    .ct-liner-half {
+        width: 50%;
+    }
+    }
+    @media (min-width: 768px) {
+    .ct-liner-short {
+        width: 50%;
+    }
+    }
+    @media (min-width: 992px) {
+    .ct-liner-short {
+        width: 30%;
+    }
+    }
+    .ct-liner {
+    margin-top: 20px;
+    margin-bottom: 0;
+    }
+    .ct-liner:after {
+    margin: 20px -20px 20px 0;
+    }
+    .ct-liner:first-of-type {
+    margin-top: 0;
+    }
+    @media (min-width: 992px) {
+    .ct-liner {
+        font-size: 40pt;
+        line-height: 36pt;
+    }
+    .ct-liner:after {
+        margin: 15px 0 20px;
+        width: 100%;
+    }
+    }
+}
+
+
 // ****************************************************************
 //            fully compiled styles
 //            TODO: create seciton headers
