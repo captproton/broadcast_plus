@@ -5,7 +5,10 @@ class Public::BiographyController < Public::CustomerSite::BaseController
   # GET /books
   # GET /books.json
   def index
-    # @ = @site.events
+    # sidebar
+    @blog_list_title       = "biography-aside"
+    @recommended_entries  = BlogEntry.recommend_entries(@site, @blog_list_title)
+    @sidebar_icons              = PublisherAccount.sidebar_icons(@site).first(5)
   end
 
 

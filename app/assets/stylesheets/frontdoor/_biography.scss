@@ -2,5 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .biography {
-    
+   font-family: Georgia, "Times New Roman", Times, serif;
+   font-size: 14pt;
+   line-height: 1.6em;
+   color: #000;
+
+   h1, .h1 {
+       height: auto;
+   }
+}
+.biography {
+    .ct-widget {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    }    
+
+    .ct-widget-mailinglist.sidebar {
+    background: #000;
+    padding: 20px;
+    color: #fff;
+    }
+    .ct-widget-mailinglist {
+    text-align: center;
+    }
+    .ct-widget-mailinglist {
+    display: block;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    }
+
+    .ct-widget-mailinglist.sidebar h2 {
+        margin-top: 0;
+    }
+    .text-right, .stack-item-footer {
+        text-align: right;
+    }
+    h1, .h1 {
+        font-size: 38pt;
+        line-height: 36pt;
+    }
+    h1, .h1, h2, .h2, h3, .h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    h1, h2, .h1, .h2 {
+        font-family: "LeagueGothic-Regular", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 400;
+    }
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: inherit;
+        text-transform: uppercase;
+        font-style: normal;
+    }
+    .text-right {
+        text-align: right !important;
+    }
+
+    .ct-widget-mailinglist .ct-form {
+        padding: 15px 0;
+        text-align: left;
+        position: relative;
+        }
+
+
 }
