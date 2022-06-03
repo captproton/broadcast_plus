@@ -1,7 +1,7 @@
 <div class="form-group col-md-6">
     <div class="ct-article-unit-thumb">
-        <% if press_kit_photo.image.attached? %>
-            <%= image_tag press_kit_photo.image, 
+        <% if press_kit_photo.photo.attached? %>
+            <%= image_tag press_kit_photo.photo, 
                 class: "img-full-responsive", 
                 title: "#{press_kit_photo.headshot_or_other}: #{press_kit_photo.title}"  %>
         <% else %>
@@ -15,9 +15,9 @@
         </div>
         <ul class="ct-presskit-list">
         <li>
-        <% if press_kit_photo.image.attached? %>
-            <%= link_to  press_kit_photo.image, 
-                class: "link-blue link-bold", download: url_for(press_kit_photo.image) do %>
+        <% if press_kit_photo.photo.attached? %>
+            <%= link_to  press_kit_photo.photo, 
+                class: "link-blue link-bold", download: url_for(press_kit_photo.photo) do %>
                 <%= press_kit_photo.dimensions_wxh %>    
             <% end %>
         <% end %>

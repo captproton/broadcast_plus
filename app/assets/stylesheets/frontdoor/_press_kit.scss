@@ -1,0 +1,111 @@
+.press_kit {
+    h1, .h1 {
+        height: auto;
+    }
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 14pt;
+    line-height: 1.6em;
+    color: #000;
+    
+    .gridbody {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 0px;
+    }
+
+    .mondock {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 0px;
+    }
+
+}
+
+.press_kits {
+    .img-full-responsive,
+.ct-flex-sidebar img,
+.ct-post-img img,
+.ct-post-content img.size-full,
+.ct-post-content .wp-caption img,
+.ct-post-content .wp-caption.aligncenter,
+.ct-post-content .wp-caption.alignleft,
+.ct-post-content .wp-caption.alignright,
+.ct-post-content .wp-caption.alignnone,
+.ct-post-content img.alignleft,
+.ct-post-content img.alignright,
+.ct-post-content img.aligncenter,
+.ct-post-content img.alignnone,
+.ct-post-content img.img-left-30,
+.ct-post-content img.img-left-50,
+.ct-post-content img.img-right-30,
+.ct-post-content img.img-right-50,
+.ct-post-content img.img-full-100,
+.ct-post-avatar .avatar {
+ width:100%
+}
+.img-avatar-responsive {
+ max-width:150px !important
+}
+@media (min-width: 768px) {
+ .img-avatar-responsive {
+  max-width:200px !important
+ }
+}
+@media (min-width: 992px) {
+ .img-avatar-responsive {
+  max-width:250px !important
+ }
+}
+.img-avatar-responsive,
+.img-responsive-c {
+ margin:0 auto
+}
+hr {
+ margin-top:20px;
+ margin-bottom:20px;
+ border:0;
+ border-top:1px solid #ffffff
+}
+.sr-only {
+ position:absolute;
+ width:1px;
+ height:1px;
+ margin:-1px;
+ padding:0;
+ overflow:hidden;
+ clip:rect(0, 0, 0, 0);
+ border:0
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+ position:static;
+ width:auto;
+ height:auto;
+ margin:0;
+ overflow:visible;
+ clip:auto;
+ outline:0
+}
+[role="button"] {
+ cursor:pointer
+}
+
+}
+
+.press_kit {
+    .ct-presskit-cta {
+        font-size: 16pt;
+        margin-bottom: 0;
+    }
+
+    h4, .h4 {
+
+        height: auto;
+
+    }
+}
