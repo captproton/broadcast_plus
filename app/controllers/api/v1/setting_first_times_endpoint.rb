@@ -9,13 +9,16 @@ class Api::V1::SettingFirstTimesEndpoint < Api::V1::Root
     end
 
     params :setting_first_time do
+      optional :hero_title, type: String, desc: Api.heading(:hero_title)
+      optional :hero_image, type: File, desc: Api.heading(:hero_image)
       optional :first_name, type: String, desc: Api.heading(:first_name)
       optional :last_name, type: String, desc: Api.heading(:last_name)
+      optional :biography, type: String, desc: Api.heading(:biography)
+      optional :featured_aside_image, type: File, desc: Api.heading(:featured_aside_image)
       optional :blurb, type: String, desc: Api.heading(:blurb)
       optional :twitter_handle, type: String, desc: Api.heading(:twitter_handle)
-      optional :featured_image_src, type: String, desc: Api.heading(:featured_image_src)
       optional :featured_youtube_video_url, type: String, desc: Api.heading(:featured_youtube_video_url)
-      optional :biography, type: String, desc: Api.heading(:biography)
+      optional :youtube_video_poster_photo_url, type: String, desc: Api.heading(:youtube_video_poster_photo_url)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

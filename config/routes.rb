@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     draw "blog_tags"
     draw "books"
     draw "events"
+    draw "first_time_here"
     draw "get_in_touch"
     draw "hireme"
     draw "media_appearances"

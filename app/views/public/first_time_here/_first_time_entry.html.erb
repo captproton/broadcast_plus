@@ -1,0 +1,23 @@
+<div id="post-<%= first_time_entry.id %>" class="ct-articleunit ct-articleunit-pg">
+    <div class="ct-articleunit-content">
+        <div class="ct-articleunit-thumb">
+            <%= link_to first_time_entry do %>
+                <%= image_tag first_time_entry.hero_image, class: "attachment-ad-unit-size size-ad-unit-size wp-post-image" %>
+            <% end %>                    
+        </div>
+
+        <h3 class="h2 ct-liner-simple">
+            <%= link_to first_time_entry.title, first_time_entry %>
+            
+        </h3>
+    </div>
+    <div class="ct-articleunit-footer">
+        <span class="ct-articuleunit-date"><%= first_time_entry.publish_at.strftime("%b %d, %Y") %></span>
+        <%= link_to  first_time_entry do %>
+            Read More &gt;&gt;
+        
+        <% end %>
+        
+
+    </div>
+</div>

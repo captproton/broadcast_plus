@@ -1,0 +1,21 @@
+<%# billboard_image_filename = "first_time_here_hero.jpg" %>
+<%# headline = "First Time Here?" %>
+<%= render partial: '/shared/static_billboard', 
+    locals: { image_filename:   @hero_image_url,
+              headline:         @page_info.hero_title
+    
+    } %>
+
+
+
+  <div class="ct-content-wrapper ct-flex-template">
+    <div class="ct-page-content">
+    <!-- ct-page-content -->
+      <div class="container ct-flex-has-sidebar">
+        <%= render 'first_time_aside', locals: {first_time: @page_info } %>
+        <%= render 'first_time_text',  locals: {first_time: @page_info }  %>
+        <!-- .container -->
+      </div>
+    </div>
+  </div>
+
