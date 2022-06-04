@@ -1,5 +1,6 @@
 default:
   models:
+    SettingFirstTime: read
     BlogArticle: read
     PressKitLink: read
     PressKitPhotoAndHeadshot: read
@@ -78,6 +79,7 @@ admin:
     - admin
     - editor
   models:
+    SettingFirstTime: manage
     BlogArticle: manage
     PressKitLink: manage
     PressKitPhotoAndHeadshot: manage

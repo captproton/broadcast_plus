@@ -64,13 +64,15 @@ class Account::SettingFirstTimesController < Account::ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def setting_first_time_params
     strong_params = params.require(:setting_first_time).permit(
+      :hero_title,
+      :hero_image,
       :first_name,
       :last_name,
+      :biography,
+      :featured_aside_image,
       :blurb,
       :twitter_handle,
-      :featured_image_src,
       :featured_youtube_video_url,
-      :biography,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

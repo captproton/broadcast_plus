@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_29_213939) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_181946) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -435,6 +435,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_29_213939) do
     t.text "featured_youtube_video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hero_title"
+    t.string "name"
     t.index ["site_id"], name: "index_setting_first_times_on_site_id"
   end
 

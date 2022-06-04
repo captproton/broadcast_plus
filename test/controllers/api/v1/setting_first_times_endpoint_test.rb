@@ -19,11 +19,13 @@ class Api::V1::SettingFirstTimesEndpointTest < Api::Test
       # Fetch the setting_first_time in question and prepare to compare it's attributes.
       setting_first_time = SettingFirstTime.find(setting_first_time_data["id"])
 
+      assert_equal setting_first_time_data['hero_title'], setting_first_time.hero_title
+      assert_equal setting_first_time_data['hero_image'], setting_first_time.hero_image
       assert_equal setting_first_time_data['first_name'], setting_first_time.first_name
       assert_equal setting_first_time_data['last_name'], setting_first_time.last_name
+      assert_equal setting_first_time_data['featured_aside_image'], setting_first_time.featured_aside_image
       assert_equal setting_first_time_data['blurb'], setting_first_time.blurb
       assert_equal setting_first_time_data['twitter_handle'], setting_first_time.twitter_handle
-      assert_equal setting_first_time_data['featured_image_src'], setting_first_time.featured_image_src
       assert_equal setting_first_time_data['featured_youtube_video_url'], setting_first_time.featured_youtube_video_url
       # 🚅 super scaffolding will insert new fields above this line.
 
@@ -83,11 +85,11 @@ class Api::V1::SettingFirstTimesEndpointTest < Api::Test
       # Post an attribute update ensure nothing is seriously broken.
       put "/api/v1/setting_first_times/#{@setting_first_time.id}", params: {
         access_token: access_token,
+        hero_title: 'Alternative String Value',
         first_name: 'Alternative String Value',
         last_name: 'Alternative String Value',
         blurb: 'Alternative String Value',
         twitter_handle: 'Alternative String Value',
-        featured_image_src: 'Alternative String Value',
         featured_youtube_video_url: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
@@ -99,11 +101,11 @@ class Api::V1::SettingFirstTimesEndpointTest < Api::Test
 
       # But we have to manually assert the value was properly updated.
       @setting_first_time.reload
+      assert_equal @setting_first_time.hero_title, 'Alternative String Value'
       assert_equal @setting_first_time.first_name, 'Alternative String Value'
       assert_equal @setting_first_time.last_name, 'Alternative String Value'
       assert_equal @setting_first_time.blurb, 'Alternative String Value'
       assert_equal @setting_first_time.twitter_handle, 'Alternative String Value'
-      assert_equal @setting_first_time.featured_image_src, 'Alternative String Value'
       assert_equal @setting_first_time.featured_youtube_video_url, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 

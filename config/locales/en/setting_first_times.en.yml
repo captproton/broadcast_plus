@@ -17,12 +17,20 @@ en:
         destroy: Delete
       confirmations:
         # TODO customize for your use-case.
-        destroy: Are you sure you want to remove %{setting_first_time_name}? This will also remove it's associated data. This can't be undone.
+        destroy: Are you sure you want to remove this item? This will also remove it's associated data. This can't be undone.
     fields: &fields
       id:
         heading: Setting First Time ID
       site_id:
         heading: Site ID
+      hero_title:
+        _: &hero_title Hero Title
+        label: *hero_title
+        heading: *hero_title
+      hero_image:
+        _: &hero_image Hero Image
+        label: *hero_image
+        heading: *hero_image
       first_name:
         _: &first_name First Name
         label: *first_name
@@ -31,6 +39,14 @@ en:
         _: &last_name Last Name
         label: *last_name
         heading: *last_name
+      biography:
+        _: &biography Biography
+        label: *biography
+        heading: *biography
+      featured_aside_image:
+        _: &featured_aside_image Featured Aside Image
+        label: *featured_aside_image
+        heading: *featured_aside_image
       blurb:
         _: &blurb Blurb
         label: *blurb
@@ -39,18 +55,10 @@ en:
         _: &twitter_handle Twitter Handle
         label: *twitter_handle
         heading: *twitter_handle
-      featured_image_src:
-        _: &featured_image_src Featured Image Src
-        label: *featured_image_src
-        heading: *featured_image_src
       featured_youtube_video_url:
         _: &featured_youtube_video_url Featured Youtube Video Url
         label: *featured_youtube_video_url
         heading: *featured_youtube_video_url
-      biography:
-        _: &biography Biography
-        label: *biography
-        heading: *biography
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -107,13 +115,15 @@ en:
   activerecord:
     attributes:
       setting_first_time:
+        hero_title: *hero_title
+        hero_image: *hero_image
         first_name: *first_name
         last_name: *last_name
+        biography: *biography
+        featured_aside_image: *featured_aside_image
         blurb: *blurb
         twitter_handle: *twitter_handle
-        featured_image_src: *featured_image_src
         featured_youtube_video_url: *featured_youtube_video_url
-        biography: *biography
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at
