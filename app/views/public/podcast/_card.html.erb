@@ -1,0 +1,27 @@
+    <div class="col-md-6">
+        <div class="ct-articleunit ct-articleunit-pg"
+            id="post-7703">
+        <div class="ct-articleunit-content">
+            <div class="ct-articleunit-thumb">
+            <a href="https://www.garyvaynerchuk.com/the-airplane-project/"
+                    target="">
+                    <%= image_tag card.hero_image,
+                    class: "attachment-ad-unit-size size-ad-unit-size wp-post-image",
+                    sizes: "(max-width: 400px) 100vw, 400px",
+                    srcset: '" #{card.hero_image}  400w, #{card.hero_image } 300w"'
+                    %>
+            </a>
+            </div>
+            <h3 class="h2 ct-liner-simple"><a href="https://www.garyvaynerchuk.com/the-airplane-project/"
+                target=""><%= " #{card.title} " %> </a>                  
+            </h3>
+        </div>
+        <div class="ct-articleunit-footer">
+            <span class="ct-articuleunit-date"><%= " #{ card.publish_at.strftime("%b %d, %Y") } " %></span> 
+            <%= link_to "Read More &gt;&gt;".html_safe, card, target: "" %>
+        </div>
+        </div>
+    </div>
+    <% if index.odd? %>
+      </div><div class="row form-group"> 
+    <% end %>

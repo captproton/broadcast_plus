@@ -1,0 +1,17 @@
+<%= render partial: '/shared/static_billboard', 
+    locals: { image_filename:   @hero_image_url,
+              headline:         @book_info.title
+    
+    } %>
+
+
+<div class="ct-content-wrapper">
+  <div class="ct-page-wrapper container">
+  <% if !@books.count.blank?  %>
+    <%= render @books %>    
+  <% else %>
+    <%= render '_no_books_listed' %>
+  <% end %>
+  </div>
+</div>
+

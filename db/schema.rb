@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_04_001729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
     t.integer "last_updated_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "byline"
+    t.string "name"
     t.index ["blog_entry_id"], name: "index_blog_articles_on_blog_entry_id"
   end
 
@@ -160,6 +162,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "team_id"
     t.index ["team_id"], name: "index_invitations_on_team_id"
+  end
+
+  create_table "leads", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.text "email_address"
+    t.text "subject"
+    t.text "message_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "media_appearances", force: :cascade do |t|
@@ -286,6 +298,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
     t.index ["user_id"], name: "index_oauth_stripe_accounts_on_user_id"
   end
 
+  create_table "press_kit_entries", force: :cascade do |t|
+    t.text "title"
+    t.text "article_link"
+    t.date "publish_on"
+    t.datetime "release_at"
+    t.bigint "setting_press_kit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_press_kit_id"], name: "index_press_kit_entries_on_setting_press_kit_id"
+  end
+
+  create_table "press_kit_links", force: :cascade do |t|
+    t.bigint "setting_press_kit_id", null: false
+    t.text "label"
+    t.text "url"
+    t.text "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_press_kit_id"], name: "index_press_kit_links_on_setting_press_kit_id"
+  end
+
+  create_table "press_kit_photo_and_headshots", force: :cascade do |t|
+    t.text "title"
+    t.text "description"
+    t.text "dimensions_wxh"
+    t.text "headshot_or_other"
+    t.date "publish_at"
+    t.bigint "setting_press_kit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setting_press_kit_id"], name: "index_press_kit_photo_and_headshots_on_setting_press_kit_id"
+  end
+
   create_table "publisher_accounts", force: :cascade do |t|
     t.string "name"
     t.text "url"
@@ -390,6 +435,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
     t.text "featured_youtube_video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hero_title"
+    t.string "name"
+    t.text "youtube_video_poster_photo_url"
     t.index ["site_id"], name: "index_setting_first_times_on_site_id"
   end
 
@@ -439,6 +487,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
     t.index ["site_id"], name: "index_setting_home_infos_on_site_id"
   end
 
+  create_table "setting_media_appearances_pages", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "hero_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_media_appearances_pages_on_site_id"
+  end
+
+  create_table "setting_podcast_pages", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "hero_title"
+    t.text "title"
+    t.text "podcast_player_src"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_setting_podcast_pages_on_site_id"
+  end
+
   create_table "setting_podcasts", force: :cascade do |t|
     t.bigint "site_id", null: false
     t.text "hero_title"
@@ -465,7 +531,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "subdomain"
+    t.text "domain"
     t.index ["team_id"], name: "index_sites_on_team_id"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.string "taggable_type"
+    t.bigint "taggable_id"
+    t.string "tagger_type"
+    t.bigint "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "taggings_count", default: 0
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "teams", id: :serial, force: :cascade do |t|
@@ -611,6 +709,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"
   add_foreign_key "oauth_stripe_accounts", "users"
+  add_foreign_key "press_kit_entries", "setting_press_kits"
+  add_foreign_key "press_kit_links", "setting_press_kits"
+  add_foreign_key "press_kit_photo_and_headshots", "setting_press_kits"
   add_foreign_key "publisher_accounts", "sites"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts", "teams"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts_collaborators", "memberships"
@@ -626,9 +727,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_205717) do
   add_foreign_key "setting_get_in_contact_contents", "sites"
   add_foreign_key "setting_hire_mes", "sites"
   add_foreign_key "setting_home_infos", "sites"
+  add_foreign_key "setting_media_appearances_pages", "sites"
+  add_foreign_key "setting_podcast_pages", "sites"
   add_foreign_key "setting_podcasts", "sites"
   add_foreign_key "setting_press_kits", "sites"
   add_foreign_key "sites", "teams"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
   add_foreign_key "wallpapers", "sites"
   add_foreign_key "webhooks_outgoing_endpoints", "teams"

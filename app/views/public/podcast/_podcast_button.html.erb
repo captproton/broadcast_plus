@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 67.5">
+  <defs>
+    <style>
+      .logo-circle-white-background, .button-text-3, .button-text-4, .button-arrow {
+        fill: #fff;
+      }
+
+
+      .button-text-3 {
+        font-size: 18px;
+        font-family: Monaco;
+      }
+
+      .button-text-3, .button-text-4 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .button-text-4 {
+        font-size: 24px;
+        font-family: MyriadPro-Regular, Myriad Pro;
+      }
+
+      .logo-height {
+        height: 64px;
+      } 
+
+      .logo-width {
+        width: 55.43px;
+      } 
+      <%= svg_logo_style.to_s.html_safe %>
+
+    </style>
+    <%# if you need to be specific with podcast_logo %>
+    <symbol id="podcast_logo-<%= name %>" data-name="podcast_logo">
+        <%= svg_logo.to_s.html_safe %>
+    </symbol>
+
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="graphics">
+      <g id="pill_with_arrow" data-name="pill with arrow">
+        <g id="pill_with_circle" data-name="pill with circle">
+          <rect x="29.95" y="0.59" width="222.94" height="66.61"/>
+          <circle cx="33.6" cy="33.9" r="33.6"/>
+          <circle cx="254.4" cy="33.6" r="33.6"/>
+          <circle class="logo-circle-white-background" cx="32.55" cy="33.6" r="26.65"/>
+        </g>
+        <path class="button-arrow" d="M252.8,25.16l14.69,8.43L252.8,42Z"/>
+      </g>
+      <g id="logo" >
+        <use  xlink:href="#podcast_logo-<%= name %>"/>
+      </g>
+    </g>
+    <g id="button-text">
+      <text class="button-text-3" text-anchor="middle" transform="translate(150.13 55.44)">on <%= name %></text>
+      <text class="button-text-4" text-anchor="middle" transform="translate(150.68 28.58)"><%= podcast_title %></text>
+    </g>
+  </g>
+</svg>

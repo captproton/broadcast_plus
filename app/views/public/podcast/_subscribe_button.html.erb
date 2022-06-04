@@ -1,0 +1,16 @@
+<%= link_to subscribe_button.url, 
+    rel: "noopener noreferrer", 
+    target: "_blank",
+    class: "podcastbtn img-responsive alignnone wp-image-7295 size-large",
+    style:  "margin-bottom: 3px;"  do %>
+
+    <%= render partial: "podcast_button", 
+        locals: { name: subscribe_button.name,
+                  svg_logo: subscribe_button.svg_logo,
+                  svg_logo_style: subscribe_button.svg_logo_style,
+                  podcast_title: podcast_title
+                }, 
+        :as => :podcast_button 
+    %>
+
+<% end %>

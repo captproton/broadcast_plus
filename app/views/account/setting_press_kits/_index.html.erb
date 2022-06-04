@@ -19,6 +19,7 @@
             <th><%= t('.fields.hero_image.heading') %></th>
             <th><%= t('.fields.name.heading') %></th>
             <th><%= t('.fields.birthplace.heading') %></th>
+            <th><%= t('.fields.birthdate.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
@@ -32,6 +33,7 @@
                 <td><%= render 'shared/attributes/text', attribute: :hero_image %></td>
                 <td><%= render 'shared/attributes/text', attribute: :name %></td>
                 <td><%= render 'shared/attributes/text', attribute: :birthplace %></td>
+                <td><%= render 'shared/attributes/date', attribute: :birthdate %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">

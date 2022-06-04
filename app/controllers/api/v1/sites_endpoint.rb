@@ -10,6 +10,7 @@ class Api::V1::SitesEndpoint < Api::V1::Root
 
     params :site do
       optional :name, type: String, desc: Api.heading(:name)
+      optional :subdomain, type: String, desc: Api.heading(:subdomain)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

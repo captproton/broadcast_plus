@@ -68,6 +68,7 @@ class Account::SettingHireMesController < Account::ApplicationController
       :learn_more_text,
       :body,
       :learn_more_pdf,
+      :hero_image,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

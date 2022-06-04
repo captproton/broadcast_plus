@@ -1,0 +1,1 @@
+json.partial! "setting_media_appearances_pages/setting_media_appearances_page", setting_media_appearances_page: @setting_media_appearances_page

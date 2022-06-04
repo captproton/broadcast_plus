@@ -1,0 +1,68 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :setting_podcast_pages %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless setting_podcast_pages.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if setting_podcast_pages.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.hero_title.heading') %></th>
+            <th><%= t('.fields.hero_image.heading') %></th>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.podcast_player_src.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% setting_podcast_pages.each do |setting_podcast_page| %>
+            <% with_attribute_settings object: setting_podcast_page do %>
+              <tr data-id="<%= setting_podcast_page.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :hero_title, url: [:account, setting_podcast_page] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :hero_image %></td>
+                <td><%= render 'shared/attributes/text', attribute: :title %></td>
+                <td><%= render 'shared/attributes/text', attribute: :podcast_player_src %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, setting_podcast_page %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, setting_podcast_page], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, setting_podcast_page %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, setting_podcast_page], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(setting_podcast_page)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, SettingPodcastPage.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :setting_podcast_page], class: "#{first_button_primary(:setting_podcast_page)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:setting_podcast_page)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

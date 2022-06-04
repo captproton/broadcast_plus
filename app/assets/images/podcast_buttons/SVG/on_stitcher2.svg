@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 67.5">
+  <defs>
+    <style>
+      .stitcher-white {
+        fill: #fff
+      }
+
+      .stitcher-blue {
+        fill: #3590c5;
+      }
+
+      .stitcher-red {
+        fill: #c53827;
+      }
+
+      .stitcher-orange {
+        fill: #ec8b24;
+      }
+
+      .stitcher-yellow {
+        fill: #fbc618;
+      }
+
+      .stitcher-purple {
+        fill: #612268;
+      }
+
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="pill_with_arrow">
+        <g id="pill_with_circle">
+          <rect x="29.95" y="0.59" width="222.94" height="66.61"/>
+          <circle cx="33.6" cy="33.9" r="33.6"/>
+          <circle cx="254.4" cy="33.6" r="33.6"/>
+          <circle class="cls-1" cx="32.55" cy="33.6" r="26.65"/>
+        </g>
+        <path class="cls-1" d="M252.8,25.16l14.69,8.43L252.8,42Z"/>
+      </g>
+    </g>
+    <g id="logo">
+      <g>
+        <path class="stitcher-blue" d="M10.67,28.32h7.66V42.21H10.67Z"/>
+        <path class="stitcher-red" d="M46.77,27.55h7.65v12.8H46.77Z"/>
+        <path class="stitcher-orange" d="M37.8,24.71h7.65V41.34H37.8Z"/>
+        <path class="stitcher-yellow" d="M28.83,27.12h7.65v16H28.83Z"/>
+        <path class="stitcher-purple" d="M19.75,25.8H27.4V41.23H19.75Z"/>
+      </g>
+
+    </g>
+  </g>
+</svg>

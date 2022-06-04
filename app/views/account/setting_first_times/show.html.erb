@@ -10,13 +10,16 @@
 
       <% p.content_for :body do %>
         <% with_attribute_settings object: @setting_first_time, strategy: :label do %>
+          <%= render 'shared/attributes/text', attribute: :hero_title %>
+          <%= render 'shared/attributes/text', attribute: :hero_image %>
           <%= render 'shared/attributes/text', attribute: :first_name %>
           <%= render 'shared/attributes/text', attribute: :last_name %>
+          <%= render 'shared/attributes/html', attribute: :biography %>
+          <%= render 'shared/attributes/text', attribute: :featured_aside_image %>
           <%= render 'shared/attributes/text', attribute: :blurb %>
           <%= render 'shared/attributes/text', attribute: :twitter_handle %>
-          <%= render 'shared/attributes/text', attribute: :featured_image_src %>
           <%= render 'shared/attributes/text', attribute: :featured_youtube_video_url %>
-          <%= render 'shared/attributes/html', attribute: :biography %>
+          <%= render 'shared/attributes/text', attribute: :youtube_video_poster_photo_url %>
           <%# 🚅 super scaffolding will insert new fields above this line. %>
         <% end %>
       <% end %>

@@ -19,7 +19,9 @@ class Api::V1::BlogArticlesEndpointTest < Api::Test
       # Fetch the blog_article in question and prepare to compare it's attributes.
       blog_article = BlogArticle.find(blog_article_data["id"])
 
+      assert_equal blog_article_data['byline'], blog_article.byline
       assert_equal blog_article_data['pinned_value'], blog_article.pinned_value
+      assert_equal blog_article_data['name'], blog_article.name
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal blog_article_data["blog_entry_id"], blog_article.blog_entry_id
@@ -78,7 +80,9 @@ class Api::V1::BlogArticlesEndpointTest < Api::Test
       # Post an attribute update ensure nothing is seriously broken.
       put "/api/v1/blog_articles/#{@blog_article.id}", params: {
         access_token: access_token,
+        byline: 'Alternative String Value',
         pinned_value: 'Alternative String Value',
+        name: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
 
@@ -89,7 +93,9 @@ class Api::V1::BlogArticlesEndpointTest < Api::Test
 
       # But we have to manually assert the value was properly updated.
       @blog_article.reload
+      assert_equal @blog_article.byline, 'Alternative String Value'
       assert_equal @blog_article.pinned_value, 'Alternative String Value'
+      assert_equal @blog_article.name, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 
       # Also ensure we can't do that same action as another user.

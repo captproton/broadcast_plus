@@ -1,0 +1,20 @@
+<%= form_with model: press_kit_link, url: (press_kit_link.persisted? ? [:account, press_kit_link] : [:account, @setting_press_kit, :press_kit_links]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :label, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :url %>
+    <%= render 'shared/fields/text_field', method: :category %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, press_kit_link], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @setting_press_kit, :press_kit_links], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

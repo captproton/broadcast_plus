@@ -1,0 +1,31 @@
+  <div class="ct-widget ct-widget-events theme-black">
+    <h3 class="h1">Upcoming Events</h3><!--  start listing-->
+    <div class="event-listing">
+      <%@upcoming_events.each do |event| %>
+      <div class="clearfix event event-2-col">
+        <%= link_to event.more_info_url, target: "_blank", class: "event-linker" do %>
+        <div class="widget-event-date text-center">
+          <div class="h3 h-welter50">
+            <%=  event.start_date.strftime("%b") %>
+          </div>
+          <div class="h2 h-welter50">
+            <%=  event.start_date.strftime("%d") %>
+          </div>
+        </div>
+        <div class="widget-event-title">
+          <h3 class="event-title"><%= event.title %></h3>
+          <h4 class="event-location"><%= event.location %></h4>
+        </div><%end %>
+        <div class="widget-event-info">
+          <%= link_to event.more_info_url, target: "_blank", class: "event-linker" do %><%end %><%= link_to event.more_info_url,  target: "_blank", class: "btn btn-blue btn-block" do %>Info <%end %>
+        </div>
+      </div><%end %><!--  finish  listing-->
+    </div>
+    <div class="event-widget-footer text-center">
+      <a class="ct-btn ct-btn-blue ct-btn-block"
+           href="#"
+           id="cal-reply-subscribe"
+           target="_blank"
+           title="Subscribe on CalReply">&nbsp;&nbsp;Get Notifications</a>
+    </div>
+  </div>

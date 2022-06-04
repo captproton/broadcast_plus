@@ -1,0 +1,1 @@
+resources :events, only: [:index]

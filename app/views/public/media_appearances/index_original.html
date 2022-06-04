@@ -1,0 +1,45 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Media_appearances</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_media_appearance_path, class: 'btn btn-primary' do %>
+    Add New Media appearance
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Title</th>
+            <th>Published on</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @media_appearances.each do |media_appearance| %>
+        <%= content_tag :tr, id: dom_id(media_appearance), class: dom_class(media_appearance) do %>
+          
+
+                      <td><%= media_appearance.title %></td>
+                      <td><%= media_appearance.published_on %></td>
+          
+          
+            <td><%= link_to 'Show', media_appearance %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

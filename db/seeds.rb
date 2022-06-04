@@ -8,12 +8,14 @@ puts "🌱 Generating global seeds."
 
 load "#{Rails.root}/db/seeds/development.rb" if Rails.env.development?
 
-# find or create team
-@team = Team.first
-# get first site from
-@site = @team.sites.create_or_find_by!(name: "rainbow")
-# initialize PublisherAccount w/o possible duplication
-  publisher_accts = @site.publisher_accounts.create_or_find_by([{ name: 'instagram', url: "http://instagram.com", 
+if Rails.env.development?
+  # find or create team
+  @team = Team.first
+  # get first site from
+  @site = @team.sites.create_or_find_by!(name: "rainbow")
+  # initialize PublisherAccount w/o possible duplication
+  publisher_accts = @site.publisher_accounts.create_or_find_by([
+    { name: 'instagram', url: "http://instagram.com", 
       font_awesome_class: "fab fa-instagram", network_kind: "social", 
       blurb: "Get a glimpse of some of my funnier moments on TikTok" },
 
@@ -84,5 +86,6 @@ load "#{Rails.root}/db/seeds/development.rb" if Rails.env.development?
     { name: 'google-podcasts', url: "https://podcasts.google.com/", 
       font_awesome_class: "fas fa-music", network_kind: "podcast", 
       blurb: "https://podcasts.google.com/" }
-    
+      
     ])
+end

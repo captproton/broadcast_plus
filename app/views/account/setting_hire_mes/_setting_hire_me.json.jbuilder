@@ -4,6 +4,7 @@ json.extract! setting_hire_me,
   :title,
   :learn_more_text,
   :learn_more_pdf,
+  :hero_image,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

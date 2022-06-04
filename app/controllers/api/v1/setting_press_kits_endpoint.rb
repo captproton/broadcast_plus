@@ -14,6 +14,7 @@ class Api::V1::SettingPressKitsEndpoint < Api::V1::Root
       optional :name, type: String, desc: Api.heading(:name)
       optional :birthplace, type: String, desc: Api.heading(:birthplace)
       optional :biography, type: String, desc: Api.heading(:biography)
+      optional :birthdate, type: Date, desc: Api.heading(:birthdate)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

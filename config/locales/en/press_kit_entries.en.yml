@@ -1,0 +1,109 @@
+en:
+  press_kit_entries: &press_kit_entries
+    label: &label Press Kit Entries
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Press Kit Entry
+      create: Create Press Kit Entry
+      edit: Edit Press Kit Entry
+      update: Update Press Kit Entry
+      destroy: Remove Press Kit Entry
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{press_kit_entry_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Press Kit Entry ID
+      setting_press_kit_id:
+        heading: Setting Press Kit ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      article_link:
+        _: &article_link Article Link
+        label: *article_link
+        heading: *article_link
+      publish_on:
+        _: &publish_on Publish On
+        label: *publish_on
+        heading: *publish_on
+      release_at:
+        _: &release_at Release At
+        label: *release_at
+        heading: *release_at
+      article_image:
+        _: &article_image Article Image
+        label: *article_image
+        heading: *article_image
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Press Kit Entries"
+      index: "List Press Kit Entries"
+      create: "Add a New Press Kit Entry"
+      member_actions: "Actions for an Individual Press Kit Entry"
+      show: "Retrieve a Press Kit Entry"
+      update: "Update a Press Kit Entry"
+      destroy: "Delete a Press Kit Entry"
+      fields: *fields
+    index:
+      section: "%{setting_press_kits_possessive} Press Kit Entries"
+      contexts:
+        setting_press_kit:
+          header: Press Kit Entries
+          description: Below is a list of Press Kit Entries that have been added for %{setting_press_kit_name}.
+          description_empty: No Press Kit Entries have been added for %{setting_press_kit_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{press_kit_entry_name}"
+      header: Press Kit Entry Details
+      description: Below are the details we have for %{press_kit_entry_name}.
+      manage_description: You'll also find options for updating these details or removing %{press_kit_entry_name} from %{setting_press_kit_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Press Kit Entry for %{setting_press_kit_name}"
+      header: New Press Kit Entry Details
+      description: Please provide the details of the new Press Kit Entry you'd like to add to %{setting_press_kit_name}.
+      form: *form
+    edit:
+      section: "%{press_kit_entry_name}"
+      header: Edit Press Kit Entry Details
+      description: You can update the details or settings for %{press_kit_entry_name} below.
+      form: *form
+    notifications:
+      created: Press Kit Entry was successfully created.
+      updated: Press Kit Entry was successfully updated.
+      destroyed: Press Kit Entry was successfully destroyed.
+  account:
+    press_kit_entries: *press_kit_entries
+  activerecord:
+    attributes:
+      press_kit_entry:
+        title: *title
+        article_link: *article_link
+        publish_on: *publish_on
+        release_at: *release_at
+        article_image: *article_image
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

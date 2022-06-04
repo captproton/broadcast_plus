@@ -65,6 +65,7 @@ class Account::SitesController < Account::ApplicationController
   def site_params
     strong_params = params.require(:site).permit(
       :name,
+      :subdomain,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )

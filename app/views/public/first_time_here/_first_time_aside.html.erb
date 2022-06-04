@@ -1,0 +1,38 @@
+<div class="col-sm-3 ct-flex-sidebar left-priority">
+   <p>
+      <%= image_tag @first_time.featured_aside_image,
+                     size: "225x352",
+                     class: "wp-image-7896 aligncenter featured-aside-image"
+      %>
+   </p>
+   <h2 class="h1 ct-liner text-center"><%= "#{@first_time.first_name} #{@first_time.last_name}" %> </h2>
+   <p class="text-center">
+      <%= "#{@first_time.blurb}" %>
+   </p>
+
+   <p>
+      <a class="ct-btn ct-btn-tweet ct-btn-block" 
+         href='<%= "https://twitter.com/#{@first_time.twitter_handle}" %>' 
+         target="_blank" 
+         rel="noreferrer">
+         
+         @<%= "#{@first_time.twitter_handle}" %>
+      </a>
+   </p>
+
+   <div id="ct_widgets_socialprops-3" class="ct-widget ct-widget-socialprops clearfix text-center">
+      <div class="sidebar-c-3 sidebar-social-grid"> 
+         <% @sidebar_icons.each do |icon| %>
+            <span >
+               <a alt=""
+               class=" <%= "sp-circle sp-#{icon.name}" %> "
+               href="<%= icon.url %>"
+               target="_blank">
+                  <i class='<%= "fab fa-#{icon.font_awesome_class}" %>'></i>
+               </a>
+            </span>          
+         <% end %>
+      </div>
+   </div>
+
+</div>

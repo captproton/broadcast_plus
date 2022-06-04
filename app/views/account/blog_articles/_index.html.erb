@@ -15,7 +15,9 @@
       <table class="table">
         <thead>
           <tr>
+            <th><%= t('.fields.byline.heading') %></th>
             <th><%= t('.fields.pinned_value.heading') %></th>
+            <th><%= t('.fields.name.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
@@ -25,7 +27,9 @@
           <% blog_articles.each do |blog_article| %>
             <% with_attribute_settings object: blog_article do %>
               <tr data-id="<%= blog_article.id %>">
-                <td><%= render 'shared/attributes/text', attribute: :pinned_value, url: [:account, blog_article] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :byline, url: [:account, blog_article] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :pinned_value %></td>
+                <td><%= render 'shared/attributes/text', attribute: :name %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">

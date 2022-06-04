@@ -66,12 +66,15 @@ class Account::EventsController < Account::ApplicationController
     strong_params = params.require(:event).permit(
       :title,
       :start_date,
+      :finish_date,
       :more_info_url,
       :location,
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
     )
 
+    assign_date(strong_params, :start_date)
+    assign_date(strong_params, :finish_date)
     # 🚅 super scaffolding will insert processing for new fields above this line.
 
     strong_params

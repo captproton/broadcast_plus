@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :public do
+    # get 'blog_entries/index'
+    get 'blog_entries/show'
+    get 'blog_entries/cosmo'
+    get 'blog_entries/houston'
+  end
   # See `config/routes/*.rb` to customize these configurations.
   draw "concerns"
   draw "devise"
@@ -17,6 +23,22 @@ Rails.application.routes.draw do
   scope module: "public" do
     # To keep things organized, we put non-authenticated controllers in the `Public::` namespace.
     # The root `/` path is routed to `Public::HomeController#index` by default.
+    draw "legal"
+    draw "biography"
+    draw "blog"
+    draw "blog_entries"
+    draw "blog_tags"
+    draw "books"
+    draw "events"
+    draw "first_time_here"
+    draw "get_in_touch"
+    draw "hireme"
+    draw "media_appearances"
+    draw "podcast"
+    draw "press_kit"
+    draw "wallpapers"
+    # draw "customer_site"
+
   end
 
   namespace :webhooks do
@@ -90,7 +112,13 @@ Rails.application.routes.draw do
           resources :setting_hire_mes
           resources :setting_event_pages
           resources :setting_podcasts
-          resources :setting_press_kits
+          resources :setting_press_kits do
+            resources :press_kit_entries
+            resources :press_kit_photo_and_headshots
+            resources :press_kit_links
+          end
+          resources :setting_media_appearances_pages
+          resources :setting_podcast_pages
         end
       end
     end

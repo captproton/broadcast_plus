@@ -1,0 +1,12 @@
+  <div class="col-lg-8" id="blogroll">
+    <% @blog_entries.each do |entry| %>    
+      <%#= entry.id %>
+      <%= render partial: "public/blog/entries/entry", locals: { entry: entry }%>
+    <% end %>
+  
+    <% if(!params.has_key?(:tag) )%>
+      <%#= render partial: '/shared/pagy/nav', locals: {pagy: @pagy} %>      
+    <% end %>
+      
+  </div>
+<!-- finish blogroll -->

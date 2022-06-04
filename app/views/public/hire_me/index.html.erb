@@ -1,0 +1,36 @@
+<%= render partial: '/shared/static_billboard', 
+    locals: { image_filename: @hero_image_url,
+              headline:       @hire_me_page.title
+    
+    } %>
+  <div class="ct-content-wrapper">
+    <div class="ct-page-wrapper container">
+      <div class="ct-page-content">
+        <h2 class="h1 ct-liner-half">Services</h2>
+        <%= @hire_me_page.body %>
+        <%# <h5 class="ct-h-slab-caps ct-h-nomargin">Keynote Speaking | Fireside Chat | Q&amp;A</h5>
+        <p>Not afraid to tell it like he sees it, Carl Tanner is an entertaining, thought-provoking full-stack developer rooted in the notion of creating code for the year we live in and betting on one’s strengths to ensure a path to success and happiness. Carl will leave your audience entertained, motivated, and begging for more.</p>
+        <p>If you’re interested in landing Carl for an event, use the form below to send him a message.</p>
+
+        <h5 class="ct-h-slab-caps ct-h-nomargin">Custom #AskCarl Videos and Remote Consulting</h5>
+        <p>With more than five years experience developing full-stack Ruby on Rails applications, Carl can help you improve your code and meet deadlines. Carl applies Object Oriented Principles like:</p>
+        <ul>
+          <li>SOLID (Single-responsibility principle, Open–closed principle, Liskov substitution principle, Interface segregation principle, Dependency inversion principle)</li>
+          <li>DRY (Don't Repeat Yourself)</li>
+          <li>Encapsulation</li>
+          <li>Abstraction</li>
+          <li>Inheritance</li>
+          <li>Polymorphism</li>
+        </ul> %>
+        <p class="text-right">
+          <%= link_to @hire_me_page.learn_more_text, @hire_me_page.learn_more_pdf_link %>
+        </p>
+        <h2 class="h1 ct-liner-half"
+            id="page-contact-form">Want to get in touch with <%= @objective_case%>?</h2>
+        <div class="gf_browser_gecko gform_wrapper"
+             id="gform_wrapper_1">
+          <%# contact form here %><%#= render '/shared/lead_form', lead: @lead %>
+        </div>
+      </div>
+    </div>
+  </div>

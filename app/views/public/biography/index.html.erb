@@ -1,0 +1,18 @@
+  <%= render partial: '/shared/static_billboard', 
+  locals: { image_filename:     @hero_image_url,
+            headline:           @biography_page.title
+  } %>
+
+
+  <div class="ct-content-wrapper no-shadow">
+    <div class="ct-page-wrapper container">
+      <div class="row">
+        <%= render 'biography_text' %>
+
+        <!--aside start -->
+        <%= render partial: '/shared/aside', 
+          locals: { sidebar_icons: @sidebar_icons } %>
+        <!--aside finish -->
+      </div>
+    </div>
+  </div>

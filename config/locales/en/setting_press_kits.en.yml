@@ -43,6 +43,10 @@ en:
         _: &biography Biography
         label: *biography
         heading: *biography
+      birthdate:
+        _: &birthdate Birthdate
+        label: *birthdate
+        heading: *birthdate
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -104,6 +108,7 @@ en:
         name: *name
         birthplace: *birthplace
         biography: *biography
+        birthdate: *birthdate
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

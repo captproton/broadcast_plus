@@ -7,6 +7,7 @@ json.extract! blog_entry,
   :seo_title,
   :seo_description,
   :hero_image,
+  :image,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

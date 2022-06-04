@@ -10,7 +10,8 @@ class Api::V1::EventsEndpoint < Api::V1::Root
 
     params :event do
       optional :title, type: String, desc: Api.heading(:title)
-      optional :start_date, type: String, desc: Api.heading(:start_date)
+      optional :start_date, type: Date, desc: Api.heading(:start_date)
+      optional :finish_date, type: Date, desc: Api.heading(:finish_date)
       optional :more_info_url, type: String, desc: Api.heading(:more_info_url)
       optional :location, type: String, desc: Api.heading(:location)
       # 🚅 super scaffolding will insert new fields above this line.

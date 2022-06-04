@@ -22,6 +22,8 @@ class Site < ApplicationRecord
   has_many :setting_event_pages, dependent: :destroy, enable_updates: true
   has_many :setting_podcasts, dependent: :destroy, enable_updates: true
   has_many :setting_press_kits, dependent: :destroy, enable_updates: true
+  has_many :setting_media_appearances_pages, dependent: :destroy
+  has_many :setting_podcast_pages, dependent: :destroy
   # 🚅 add has_many associations above.
 
   # 🚅 add has_one associations above.
@@ -34,6 +36,8 @@ class Site < ApplicationRecord
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
-
+  def general_info
+    self.setting_general_infos.first
+  end
   # 🚅 add methods above.
 end

@@ -1,0 +1,98 @@
+en:
+  press_kit_links: &press_kit_links
+    label: &label Press Kit Links
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Press Kit Link
+      create: Create Press Kit Link
+      edit: Edit Press Kit Link
+      update: Update Press Kit Link
+      destroy: Remove Press Kit Link
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{press_kit_link_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Press Kit Link ID
+      setting_press_kit_id:
+        heading: Setting Press Kit ID
+      label:
+        _: &label Label
+        label: *label
+        heading: *label
+      url:
+        _: &url Url
+        label: *url
+        heading: *url
+      category:
+        _: &category Category
+        label: *category
+        heading: *category
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Press Kit Links"
+      index: "List Press Kit Links"
+      create: "Add a New Press Kit Link"
+      member_actions: "Actions for an Individual Press Kit Link"
+      show: "Retrieve a Press Kit Link"
+      update: "Update a Press Kit Link"
+      destroy: "Delete a Press Kit Link"
+      fields: *fields
+    index:
+      section: "%{setting_press_kits_possessive} Press Kit Links"
+      contexts:
+        setting_press_kit:
+          header: Press Kit Links
+          description: Below is a list of Press Kit Links that have been added for %{setting_press_kit_name}.
+          description_empty: No Press Kit Links have been added for %{setting_press_kit_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{press_kit_link_name}"
+      header: Press Kit Link Details
+      description: Below are the details we have for %{press_kit_link_name}.
+      manage_description: You'll also find options for updating these details or removing %{press_kit_link_name} from %{setting_press_kit_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Press Kit Link for %{setting_press_kit_name}"
+      header: New Press Kit Link Details
+      description: Please provide the details of the new Press Kit Link you'd like to add to %{setting_press_kit_name}.
+      form: *form
+    edit:
+      section: "%{press_kit_link_name}"
+      header: Edit Press Kit Link Details
+      description: You can update the details or settings for %{press_kit_link_name} below.
+      form: *form
+    notifications:
+      created: Press Kit Link was successfully created.
+      updated: Press Kit Link was successfully updated.
+      destroyed: Press Kit Link was successfully destroyed.
+  account:
+    press_kit_links: *press_kit_links
+  activerecord:
+    attributes:
+      press_kit_link:
+        url: *url
+        category: *category
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

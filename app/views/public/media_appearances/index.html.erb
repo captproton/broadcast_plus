@@ -1,0 +1,18 @@
+<%# billboard_image_filename = "events_hero.jpg" %>
+<%# headline = "Recent Press" %>
+<%= render partial: '/shared/static_billboard', 
+    locals: { image_filename:   @hero_image_url,
+              headline:         @media_appearances_page.hero_title
+    
+    } %>
+
+  <div class="ct-content-wrapper ct-flex-template">
+    <div class="ct-page-content">
+    <!-- ct-page-content -->
+      <div class="container ct-flex-has-sidebar">
+        <%= render 'listing' %>
+        <!-- .container -->
+      </div>
+    </div>
+  </div>
+

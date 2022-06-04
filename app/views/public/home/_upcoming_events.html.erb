@@ -1,0 +1,33 @@
+  <div class="gv-widget gv-widget-events theme-white">
+    <h3 class="gv-h-welter50">Upcoming Events</h3>
+    <div class="event-listing">
+
+      <%@upcoming_events.each do |event| %>
+
+        <%#= render '/shared/upcoming_meetup' %>
+        <div class="clearfix event event-3-col event-listing-grid">
+          <div class="widget-event-date text-center">
+            <div class="h3 ct-h-welter50">
+              <%=  event.start_date.strftime("%b") %>                            
+            </div>
+            <div class="h2 ct-h-welter50">
+              <%=  event.start_date.strftime("%d") %>                            
+            </div>
+          </div>
+          <div class="widget-event-title">
+              <h3 class="event-title"><%= event.title %></h3>
+              <h4 class="event-location"><%= event.location %></h4>
+          </div>
+          <div class="widget-event-info">
+            <%= link_to 'Info', event.more_info_url, target: "_blank", class: "ct-btn ct-btn-blue ct-btn-block" %>
+                            
+          </div>
+        </div>
+    
+      <% end %>
+    </div>
+
+    <div class="event-widget-footer text-right">
+      <%= link_to 'See all events >>', events_path, class:"link-blue link-bold" %>
+    </div>
+  </div>

@@ -18,6 +18,10 @@ class BlogCard < ApplicationRecord
 
   # 🚅 add delegations above.
 
+  def parent_list
+    bl = self.blog_list
+  end
+  
   def parent_entry
     be = self.blog_entry
   end

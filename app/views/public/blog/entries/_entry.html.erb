@@ -1,0 +1,40 @@
+<%# entry = BlogEntry.first %>
+    <article class=
+    "ct-post post-8321 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media tag-content-creation tag-content-distribution tag-content-marketing tag-content-production tag-content-strategy tag-gary-vaynerchuk-social-media-marketing tag-gary-vaynerchuk-social-media-strategy tag-garyvee-content-model tag-garyvee-social-media-marketing tag-garyvee-social-media-strategy tag-social-media tag-social-media-marketing tag-social-media-optimization tag-social-media-strategy"
+             id="post-8321">
+      <div class="ct-post-img">
+      
+        <%= link_to entry do %>
+          <% entry_image = !entry.hero_image.blank? ? entry.hero_image : "https://via.placeholder.com/768x614" %>
+
+          <%= image_tag entry_image, size: "768x614" %>
+        
+        <% end %>
+      </div>
+        <%= render partial: '/shared/article_sharing_bar', locals: { entry: entry } %>
+      <div class="row clearfix">
+        <div class="col-sm-6">
+          <h1 class="ct-ctrl-title ct-post-title ct-liner-simple">
+            <%= link_to entry.title, entry %>
+          </h1>
+        </div>
+        
+        <div class="col-sm-6 text-left">
+          <h5 class="ct-h-slab ct-post-date">
+            <%= time_ago_in_words(entry.publish_at) %> ago&nbsp;
+            <span class="middot">·</span>
+            <%= entry.blog_articles.first.reading_time || 1 %>  min read
+          </h5>
+
+          <p>
+            <%= entry.summary  %>
+          </p>
+
+          <p>
+            <%= link_to entry, class: "ct-post-permalink link-blue" do %>
+                Read More &gt;&gt;
+            <% end %>          
+          </p>
+        </div>
+      </div>
+    </article>

@@ -1,0 +1,21 @@
+<div class="ct-flex-row">
+  <div class="ct-flex--wiki ct-wiki-item clearfix ct-wiki-expandable opened"
+        id="flex-module-2">
+    <h4 class="ct-wiki-title has-ctrl">
+      <a class="ct-wiki-expand-ctrl"
+        href="#flex-module-2|toggle">What you should listen to first
+        <div class="ct-wiki-exp-icon"></div>
+      </a>
+    </h4>
+    <div class="ct-wiki-content">
+      <div class="row form-group">
+        <%# start collection %>
+        <% @recommended_entries.each_with_index do | entry, index | %>
+          <%= render partial: "card", locals: { card: entry, index: index } %>
+        <% end %>
+            
+          <%# finish collection %>
+      </div>
+    </div><!-- gv wiki content w/in post-ref -->
+  </div>
+</div><!-- flex-module wiki -->

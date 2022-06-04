@@ -1,0 +1,94 @@
+en:
+  setting_media_appearances_pages: &setting_media_appearances_pages
+    label: &label Setting Media Appearances Pages
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Setting Media Appearances Page
+      create: Create Setting Media Appearances Page
+      edit: Edit Setting Media Appearances Page
+      update: Update Setting Media Appearances Page
+      destroy: Remove Setting Media Appearances Page
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{setting_media_appearances_page_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Setting Media Appearances Page ID
+      site_id:
+        heading: Site ID
+      hero_title:
+        _: &hero_title Hero Title
+        label: *hero_title
+        heading: *hero_title
+      hero_image:
+        _: &hero_image Hero Image
+        label: *hero_image
+        heading: *hero_image
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Setting Media Appearances Pages"
+      index: "List Setting Media Appearances Pages"
+      create: "Add a New Setting Media Appearances Page"
+      member_actions: "Actions for an Individual Setting Media Appearances Page"
+      show: "Retrieve a Setting Media Appearances Page"
+      update: "Update a Setting Media Appearances Page"
+      destroy: "Delete a Setting Media Appearances Page"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Setting Media Appearances Pages"
+      contexts:
+        site:
+          header: Setting Media Appearances Pages
+          description: Below is a list of Setting Media Appearances Pages that have been added for %{site_name}.
+          description_empty: No Setting Media Appearances Pages have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{setting_media_appearances_page_name}"
+      header: Setting Media Appearances Page Details
+      description: Below are the details we have for %{setting_media_appearances_page_name}.
+      manage_description: You'll also find options for updating these details or removing %{setting_media_appearances_page_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Setting Media Appearances Page for %{site_name}"
+      header: New Setting Media Appearances Page Details
+      description: Please provide the details of the new Setting Media Appearances Page you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{setting_media_appearances_page_name}"
+      header: Edit Setting Media Appearances Page Details
+      description: You can update the details or settings for %{setting_media_appearances_page_name} below.
+      form: *form
+    notifications:
+      created: Setting Media Appearances Page was successfully created.
+      updated: Setting Media Appearances Page was successfully updated.
+      destroyed: Setting Media Appearances Page was successfully destroyed.
+  account:
+    setting_media_appearances_pages: *setting_media_appearances_pages
+  activerecord:
+    attributes:
+      setting_media_appearances_page:
+        hero_title: *hero_title
+        hero_image: *hero_image
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

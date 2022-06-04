@@ -7,6 +7,7 @@ class Api::V1::SettingPressKitSerializer < Api::V1::ApplicationSerializer
     :hero_image,
     :name,
     :birthplace,
+    :birthdate,
     # 🚅 super scaffolding will insert new fields above this line.
     :created_at,
     :updated_at

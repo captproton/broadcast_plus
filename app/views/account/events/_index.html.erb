@@ -15,8 +15,12 @@
       <table class="table">
         <thead>
           <tr>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.start_date.heading') %></th>
+            <th><%= t('.fields.finish_date.heading') %></th>
+            <th><%= t('.fields.more_info_url.heading') %></th>
+            <th><%= t('.fields.location.heading') %></th>
             <%# 🚅 super scaffolding will insert new field headers above this line. %>
-                <th>title </th>
             <th><%= t('.fields.created_at.heading') %></th>
             <th class="text-right"></th>
           </tr>
@@ -25,8 +29,12 @@
           <% events.each do |event| %>
             <% with_attribute_settings object: event do %>
               <tr data-id="<%= event.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :title, url: [:account, event] %></td>
+                <td><%= render 'shared/attributes/date', attribute: :start_date %></td>
+                <td><%= render 'shared/attributes/date', attribute: :finish_date %></td>
+                <td><%= render 'shared/attributes/text', attribute: :more_info_url %></td>
+                <td><%= render 'shared/attributes/text', attribute: :location %></td>
                 <%# 🚅 super scaffolding will insert new fields above this line. %>
-                <td><%= event.title %> </td>
                 <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                 <td class="buttons">
                   <% unless hide_actions %>

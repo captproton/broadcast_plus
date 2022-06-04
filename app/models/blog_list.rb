@@ -11,6 +11,8 @@ class BlogList < ApplicationRecord
   has_one :team, through: :site
   # 🚅 add has_one associations above.
 
+  scope :featured,    -> {where("title = ?", "front door").first}
+  scope :hashtags,    -> {where("description = ?", "hashtag")}
   # 🚅 add scopes above.
 
   validates :title, presence: true

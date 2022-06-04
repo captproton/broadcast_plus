@@ -1,5 +1,14 @@
 default:
   models:
+    SettingFirstTime: read
+    BlogArticle: read
+    PressKitLink: read
+    PressKitPhotoAndHeadshot: read
+    PressKitEntry: read
+    PressKitEntry: read
+    SettingPodcastPage: read
+    SettingMediaAppearancesPage: read
+    Event: read
     SettingPressKit: read
     SettingPressKit: read
     SettingPodcast: read
@@ -70,6 +79,15 @@ admin:
     - admin
     - editor
   models:
+    SettingFirstTime: manage
+    BlogArticle: manage
+    PressKitLink: manage
+    PressKitPhotoAndHeadshot: manage
+    PressKitEntry: manage
+    PressKitEntry: manage
+    SettingPodcastPage: manage
+    SettingMediaAppearancesPage: manage
+    Event: manage
     SettingPressKit: manage
     SettingPressKit: manage
     SettingPodcast: manage

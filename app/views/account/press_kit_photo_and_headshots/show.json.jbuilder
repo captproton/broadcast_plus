@@ -1,0 +1,1 @@
+json.partial! "press_kit_photo_and_headshots/press_kit_photo_and_headshot", press_kit_photo_and_headshot: @press_kit_photo_and_headshot

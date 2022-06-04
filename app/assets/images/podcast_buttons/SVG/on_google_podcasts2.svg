@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 67.5">
+  <defs>
+    <style>
+      .podcast-white {
+        fill: #fff;
+      }
+
+      .google-blue1 {
+        fill: #0066d9;
+      }
+
+      .google-blue2 {
+        fill: #4285f4;
+      }
+
+      .google-red {
+        fill: #ea4335;
+      }
+
+      .google-green {
+        fill: #34a853;
+      }
+
+      .google-gold {
+        fill: #fab908;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="pill_with_arrow">
+        <g id="pill_with_circle">
+          <rect x="29.95" y="0.59" width="222.94" height="66.61"/>
+          <circle cx="33.6" cy="33.9" r="33.6"/>
+          <circle cx="254.4" cy="33.6" r="33.6"/>
+          <circle class="podcast-white" cx="32.55" cy="33.6" r="26.65"/>
+        </g>
+        <path class="cls-1" d="M252.8,25.16l14.69,8.43L252.8,42Z"/>
+      </g>
+    </g>
+    <g id="logo">
+      <g>
+        <path class="google-blue1" d="M14.19,32.23v3.34a3.06,3.06,0,0,1-6.11,0V32.23a3.06,3.06,0,1,1,6.11,0Z"/>
+        <path class="google-blue2" d="M50.9,32.32v-.09a3.06,3.06,0,1,1,6.11,0v.09h0v3.33h0a3.06,3.06,0,0,1-6.11,0h0V32.32Z"/>
+        <path class="google-red" d="M24.76,42.24v3.33a3.06,3.06,0,0,1-6.12,0V42.24a3.06,3.06,0,0,1,6.12,0Zm0-20V33.13h0a3.06,3.06,0,0,1-6.12,0h0V22.22a3.06,3.06,0,0,1,6.12,0Z"/>
+        <path class="google-green" d="M40.33,25.56a3.06,3.06,0,0,0,6.12,0V22.22a3.06,3.06,0,1,0-6.12,0Z"/>
+        <path class="google-gold" d="M29.49,15.82a3.06,3.06,0,1,0,6.11,0V12.49a3.06,3.06,0,1,0-6.11,0Zm0,36.15a3.06,3.06,0,1,1,6.11,0v3.34a3.06,3.06,0,0,1-6.11,0Z"/>
+        <path class="google-green" d="M40.33,34.73a3.06,3.06,0,0,1,6.12,0V45.57a3.06,3.06,0,1,1-6.12,0Z"/>
+        <path class="google-gold" d="M35.6,25V42.79a3.06,3.06,0,1,1-6.11,0V25a3.06,3.06,0,1,1,6.11,0Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

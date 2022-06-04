@@ -1,0 +1,37 @@
+  <div class="ct-content-wrapper">
+    <div class="ct-page-wrapper container">
+      <h1 class="ct-liner">Wallpapers</h1>
+      <div class="ct-page-content">
+        <style>
+        .wallpaper-wrapper{display:flex;justify-content:center;flex-wrap:wrap;}.wallpaper-image{margin:12px;padding:4px;width:225px;height:400px;background:#f3f3f3;box-shadow:0 0 10px 3px rgba(0,0,0,.1);transition:opacity 180ms ease;cursor:pointer}.wallpaper-image:hover{opacity:.8}
+        </style>
+        <style>
+        .wallpaper-wrapper{display:flex;justify-content:center;flex-wrap:wrap;}.wallpaper-image{margin:12px;padding:4px;width:225px;height:400px;background:#f3f3f3;box-shadow:0 0 10px 3px rgba(0,0,0,.1);transition:opacity 180ms ease;cursor:pointer}.wallpaper-image:hover{opacity:.8}
+        </style>
+        <p>
+        <script>
+        var processWallpaperSelection=function(a){ga("send","event","outbound","click",a,{transport:"beacon",hitCallback:function(){document.location=a}}),window.location=a};
+        </script></p>
+        <div class="wallpaper-wrapper">
+
+            <% @wallpapers.each do |wallpaper| %>
+                <% if wallpaper.image.attached? %>
+                    <a><%= image_tag wallpaper.image, 
+                        class: "wallpaper-image" %>
+                    <a>
+                <% else %>
+                    <i class="fas fa-images"></i><br />
+                    <p class= "wallpaper-image">no image available</p>
+                <% end %>
+                
+            <% end  %>
+   
+            <%# <a><img class="wallpaper-image"
+               src="https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20181107225306/WALLPAPERWEDNESDAY_story_110718Artboard-1.jpg"></a> %>
+            <%# <a><img class="wallpaper-image"
+               src="https://s3.amazonaws.com/gv2016wp/wp-content/uploads/20181107231538/GV_Wallpaper_11-07-02.jpg"></a> %>
+               
+        </div>
+      </div>
+    </div>
+  </div>

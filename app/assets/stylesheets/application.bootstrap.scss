@@ -1,0 +1,38 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import 'frontdoor';
+@import 'frontdoor/events';
+@import 'frontdoor/books';
+@import 'frontdoor/biography';
+@import 'frontdoor/press_kit';
+
+
+// .frontdoor {
+//   background-color: orange;
+// }
+.frontdoor {
+  h1,
+  h2,
+  .h1,
+  .h2 {
+    font-family: "LeagueGothic-Regular", "League Gothic", "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-weight: 400;
+    height: auto;
+  }
+
+}
+
+// $navbar-default-bg: #312312;
+// $light-orange: #ff8c00;
+// $navbar-default-color: $light-orange;
+
+
+
+
+// Fixes bootstrap nav-brand container overlap
+// @include media-breakpoint-down(xs) {
+//   .container {
+//     margin-left: 0;
+//     margin-right: 0;
+//   }
+// }

@@ -6,7 +6,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.1"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
@@ -56,6 +56,7 @@ gem 'image_processing', '~> 1.12', '>= 1.12.2'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -85,11 +86,12 @@ gem "devise"
 
 # Core packages.
 gem "bullet_train"
-gem "bullet_train-super_scaffolding"
+# gem "bullet_train-super_scaffolding"
 gem "bullet_train-api"
 gem "bullet_train-outgoing_webhooks"
 gem "bullet_train-incoming_webhooks"
-gem "bullet_train-themes-light"
+gem 'bullet_train-themes', '~> 1.0', '<= 1.0.10'
+gem 'bullet_train-themes-light', '~> 1.0', '<= 1.0.15'
 gem "bullet_train-integrations"
 gem "bullet_train-integrations-stripe"
 
@@ -168,3 +170,14 @@ gem "wine_bouncer", github: "bullet-train-co/wine_bouncer"
 # that you run into a merge conflict in the future.
 
 # 🚅 super scaffolding will insert new oauth providers above this line.
+
+## *** ##
+## Don't forget to add broadcast_plus_theme-gary after public site code is factored into gem
+
+# bundle config local.broadcast_plus_sites /Volumes/Apps/code/ruby/gems/broadcast_plus_sites
+## theme will be factored out into a gem
+
+gem 'chronic', '~> 0.10.2'
+gem "bullet_train-super_scaffolding", git: "https://github.com/bullet-train-co/bullet_train-super_scaffolding.git", branch: "features/test-super-scaffolded-attributes"
+gem 'pagy', '~> 3.9'
+gem "make_taggable", "~> 0.7.5"

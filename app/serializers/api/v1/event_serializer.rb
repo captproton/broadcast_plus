@@ -5,6 +5,7 @@ class Api::V1::EventSerializer < Api::V1::ApplicationSerializer
     :site_id,
     :title,
     :start_date,
+    :finish_date,
     :more_info_url,
     :location,
     # 🚅 super scaffolding will insert new fields above this line.

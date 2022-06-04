@@ -25,6 +25,7 @@ class Api::V1::BlogEntriesEndpointTest < Api::Test
       assert_equal blog_entry_data['seo_title'], blog_entry.seo_title
       assert_equal blog_entry_data['seo_description'], blog_entry.seo_description
       assert_equal blog_entry_data['hero_image'], blog_entry.hero_image
+      assert_equal blog_entry_data['image'], blog_entry.image
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal blog_entry_data["site_id"], blog_entry.site_id

@@ -1,0 +1,67 @@
+<style>
+
+</style>
+
+  <% if(params.has_key?("tag") )%>
+    <%# do nothing %>
+  <% elsif(params.has_key?("page") ) %>
+    <%# do nothing %>
+  <% else %>
+    <%  if @billboard_entry.present? %>
+      <%= render  partial: 'index_billboard', locals: {entry: @billboard_entry}  %>
+    <% else %>
+      <%= render  partial: 'index_billboard_default'  %>
+
+      
+    <% end %>
+  <% end %>
+
+  <div class="ct-content-wrapper no-shadow">
+    <div class="ct-page-wrapper container">
+      <div class="row">
+        <%= render 'blogroll' %>
+        <%= render partial: '/shared/aside', 
+          locals: { sidebar_icons: @sidebar_icons } %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+    <script type="text/javascript">
+        const overlay = document.querySelector('.ct-overlay')
+        const blackOverlay = document.querySelector('.ct-overlay-black')
+
+        function goDoSomething(data_id, data_option){       
+
+            alert("data-id:"+data_id+", data-option:"+data_option);
+        }
+
+    </script>
+    <script type="text/javascript">
+
+      function revealSomething(data_permalink, data_title, data_handle){       
+        const overlay = document.querySelector('#ct-mobile-share')
+        const shareModal = document.querySelector('.social-container')
+
+        if (navigator.share) {
+            navigator.share({
+                title: data_title,
+                url: data_permalink,
+            })
+            .then(() => {
+                console.log('Thanks for sharing!');
+            })
+            .catch(console.error);
+        } else {
+                overlay.classList.add('show-share')
+                shareModal.classList.add('show-share')
+            // alert("data-permlink:"+data_permalink+", \n data-title:"+data_title+", data-handle:"+data_handle);
+            
+
+        }
+
+
+      }
+
+    </script>

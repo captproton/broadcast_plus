@@ -16,6 +16,8 @@
           <%= render 'shared/attributes/text', attribute: :seo_title %>
           <%= render 'shared/attributes/text', attribute: :seo_description %>
           <%= render 'shared/attributes/text', attribute: :hero_image %>
+          <%= render 'shared/attributes/text', attribute: :image %>
+          <%= render 'shared/attributes/html', attribute: :summary %>
           <%# 🚅 super scaffolding will insert new fields above this line. %>
         <% end %>
       <% end %>
@@ -29,5 +31,6 @@
 
     <%= render 'account/blog_articles/index', blog_articles: @blog_entry.blog_articles, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
+    <%= render 'account/blog_lists/index', blog_lists: @blog_entry.blog_lists, hide_back: true %>
   <% end %>
 <% end %>

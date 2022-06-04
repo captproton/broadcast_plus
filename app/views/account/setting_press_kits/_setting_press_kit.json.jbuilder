@@ -5,6 +5,7 @@ json.extract! setting_press_kit,
   :hero_image,
   :name,
   :birthplace,
+  :birthdate,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at
