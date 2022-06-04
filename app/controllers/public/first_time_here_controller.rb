@@ -6,6 +6,10 @@ class Public::FirstTimeHereController < Public::CustomerSite::BaseController
   # GET /first_time_here
   def show
     @sidebar_icons              = PublisherAccount.sidebar_icons(@site).first(5)
+    # what your should read first
+    @blog_list_title        = "first-time-here-bottom"
+    @recommended_entries    = BlogEntry.recommend_entries(@site, @blog_list_title)
+
   end
 
 
