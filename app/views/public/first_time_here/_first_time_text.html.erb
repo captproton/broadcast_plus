@@ -277,21 +277,11 @@ $(document).ready(function(){
     </div>
     <div class="ct-flex-row"
          id="flex-module-3">
-      <div class="ct-billboard-poster">
-        <% 
-        if !@featured_youtube_image_url.blank?
-          video_image_url = @featured_youtube_image_url
-        else
-          video_image_url = "https://via.placeholder.com/727x384.png?text=Featured+YouTube+Video"
-        end
-         %>
-        <%= image_tag video_image_url.to_s, class: "ct-billboard-poster-img" %>
-          <a alt="Open Video"
-            class="video-banner js-trigger-video-modal ct-modal-ctrl ct-billboard-interact all play-btn"
-            href="<%= @first_time.featured_youtube_video_url %>" 
-            data-youtube-id="<%= @youtube_video_id %>"                  
-          >
-          </a>
+<div class="ct-billboard-poster">
+          <%= image_tag @featured_youtube_image_url.to_s, class: "ct-billboard-poster-img" %>
+          <%= link_to "https://www.youtube.com/embed/#{@youtube_video_id}", alt: "Open Video", class: "video-banner js-trigger-video-modal ct-modal-ctrl ct-billboard-interact all play-btn",
+          data: {:youtube_id =>  "#{@youtube_video_id}"}  do %>
+          <% end %>
       </div>
 
     </div>

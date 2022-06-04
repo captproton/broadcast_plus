@@ -18,6 +18,7 @@ class Api::V1::SettingFirstTimesEndpoint < Api::V1::Root
       optional :blurb, type: String, desc: Api.heading(:blurb)
       optional :twitter_handle, type: String, desc: Api.heading(:twitter_handle)
       optional :featured_youtube_video_url, type: String, desc: Api.heading(:featured_youtube_video_url)
+      optional :youtube_video_poster_photo_url, type: String, desc: Api.heading(:youtube_video_poster_photo_url)
       # 🚅 super scaffolding will insert new fields above this line.
       # 🚅 super scaffolding will insert new arrays above this line.
 

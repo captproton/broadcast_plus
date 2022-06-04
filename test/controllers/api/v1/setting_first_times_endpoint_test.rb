@@ -27,6 +27,7 @@ class Api::V1::SettingFirstTimesEndpointTest < Api::Test
       assert_equal setting_first_time_data['blurb'], setting_first_time.blurb
       assert_equal setting_first_time_data['twitter_handle'], setting_first_time.twitter_handle
       assert_equal setting_first_time_data['featured_youtube_video_url'], setting_first_time.featured_youtube_video_url
+      assert_equal setting_first_time_data['youtube_video_poster_photo_url'], setting_first_time.youtube_video_poster_photo_url
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal setting_first_time_data["site_id"], setting_first_time.site_id
@@ -91,6 +92,7 @@ class Api::V1::SettingFirstTimesEndpointTest < Api::Test
         blurb: 'Alternative String Value',
         twitter_handle: 'Alternative String Value',
         featured_youtube_video_url: 'Alternative String Value',
+        youtube_video_poster_photo_url: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
 
@@ -107,6 +109,7 @@ class Api::V1::SettingFirstTimesEndpointTest < Api::Test
       assert_equal @setting_first_time.blurb, 'Alternative String Value'
       assert_equal @setting_first_time.twitter_handle, 'Alternative String Value'
       assert_equal @setting_first_time.featured_youtube_video_url, 'Alternative String Value'
+      assert_equal @setting_first_time.youtube_video_poster_photo_url, 'Alternative String Value'
       # 🚅 super scaffolding will additionally insert new fields above this line.
 
       # Also ensure we can't do that same action as another user.

@@ -59,6 +59,14 @@ en:
         _: &featured_youtube_video_url Featured Youtube Video Url
         label: *featured_youtube_video_url
         heading: *featured_youtube_video_url
+      youtube_video_poster_photo_url:
+        _: &youtube_video_poster_photo_url Youtube Video Poster Photo Url
+        label: *youtube_video_poster_photo_url
+        heading: *youtube_video_poster_photo_url
+      youtube_video_poster_photo_url:
+        _: &youtube_video_poster_photo_url Youtube Video Poster Photo Url
+        label: *youtube_video_poster_photo_url
+        heading: *youtube_video_poster_photo_url
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -124,6 +132,7 @@ en:
         blurb: *blurb
         twitter_handle: *twitter_handle
         featured_youtube_video_url: *featured_youtube_video_url
+        youtube_video_poster_photo_url: *youtube_video_poster_photo_url
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at
