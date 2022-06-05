@@ -12,24 +12,24 @@ if Rails.env.development?
   # find or create team
   @team = Team.first
   # get first site from
-  @site = @team.sites.create_or_find_by!(name: "rainbow")
+  @site = @team.sites.first
   # initialize PublisherAccount w/o possible duplication
   publisher_accts = @site.publisher_accounts.create_or_find_by([
     { name: 'instagram', url: "http://instagram.com", 
       font_awesome_class: "fab fa-instagram", network_kind: "social", 
-      blurb: "Get a glimpse of some of my funnier moments on TikTok" },
+      blurb: "My biggest platform! Motivation, quotes, stories, and more." },
 
     { name: 'youtube', url: "http://youtube.com", 
       font_awesome_class: "fab fa-youtube", network_kind: "social", 
-      blurb: "Get a glimpse of some of my funnier moments on TikTok" },
+      blurb: "Documenting my life." },
 
     { name: 'facebook', url: "http://facebook.com", 
       font_awesome_class: "fab fa-facebook-f", network_kind: "social", 
-      blurb: "Get a glimpse of some of my funnier moments on facebook" },
+      blurb: "Some of my best and most classic content." },
 
     { name: 'twitter', url: "http://twitter.com", 
       font_awesome_class: "fab fa-twitter", network_kind: "social", 
-      blurb: "Get a glimpse of some of my funnier moments on TikTok" },
+      blurb: "One of the most direct ways to reach me - hit me up" },
 
     { name: 'snapchat', url: "http://snapchat.com", 
       font_awesome_class: "fab fa-snapchat-ghost", network_kind: "social", 
