@@ -1,5 +1,7 @@
 default:
   models:
+    LegalText: read
+    LegalText: read
     SettingFirstTime: read
     BlogArticle: read
     PressKitLink: read
@@ -79,6 +81,8 @@ admin:
     - admin
     - editor
   models:
+    LegalText: manage
+    LegalText: manage
     SettingFirstTime: manage
     BlogArticle: manage
     PressKitLink: manage

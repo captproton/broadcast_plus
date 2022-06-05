@@ -1,0 +1,6 @@
+<%= render 'account/shared/page' do |p| %>
+  <% p.content_for :title, t('.section') %>
+  <% p.content_for :body do %>
+    <%= render 'index', legal_texts: @legal_texts %>
+  <% end %>
+<% end %>

@@ -1,0 +1,27 @@
+
+<div class="ct-content-wrapper">
+    <div class="ct-page-wrapper container">
+        <div class="ct-page-content">
+            <h3 class="c19">
+                <strong>
+                    <span class="c1">
+                        <%= @legal_text.title %>
+                    </span>
+                </strong>
+            </h3>
+
+            <p class="c2">
+                <strong>
+                    <span class="c7">
+                        LAST MODIFIED: 
+                        <%= @legal_text.updated_at.strftime("%A, %B %d, %Y") %>.
+                    </span>
+                </strong>
+            </p>
+
+            <div class="legal-text-body">
+                <%= @legal_text.body  %>
+            </div>
+        </div>
+    </div>
+</div>

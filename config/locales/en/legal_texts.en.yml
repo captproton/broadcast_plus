@@ -1,0 +1,94 @@
+en:
+  legal_texts: &legal_texts
+    label: &label Legal Texts
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Legal Text
+      create: Create Legal Text
+      edit: Edit Legal Text
+      update: Update Legal Text
+      destroy: Remove Legal Text
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{legal_text_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Legal Text ID
+      site_id:
+        heading: Site ID
+      title:
+        _: &title Title
+        label: *title
+        heading: *title
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Legal Texts"
+      index: "List Legal Texts"
+      create: "Add a New Legal Text"
+      member_actions: "Actions for an Individual Legal Text"
+      show: "Retrieve a Legal Text"
+      update: "Update a Legal Text"
+      destroy: "Delete a Legal Text"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Legal Texts"
+      contexts:
+        site:
+          header: Legal Texts
+          description: Below is a list of Legal Texts that have been added for %{site_name}.
+          description_empty: No Legal Texts have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{legal_text_name}"
+      header: Legal Text Details
+      description: Below are the details we have for %{legal_text_name}.
+      manage_description: You'll also find options for updating these details or removing %{legal_text_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Legal Text for %{site_name}"
+      header: New Legal Text Details
+      description: Please provide the details of the new Legal Text you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{legal_text_name}"
+      header: Edit Legal Text Details
+      description: You can update the details or settings for %{legal_text_name} below.
+      form: *form
+    notifications:
+      created: Legal Text was successfully created.
+      updated: Legal Text was successfully updated.
+      destroyed: Legal Text was successfully destroyed.
+  account:
+    legal_texts: *legal_texts
+  activerecord:
+    attributes:
+      legal_text:
+        title: *title
+        body: *body
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
