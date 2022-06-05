@@ -1,5 +1,4 @@
 class Public::HomeController < Public::CustomerSite::BaseController
-  before_action :set_home_page
   before_action :set_page_info
   before_action :set_video_info
   layout "frontdoor"
@@ -10,25 +9,15 @@ class Public::HomeController < Public::CustomerSite::BaseController
     @home_info = @site.setting_home_infos.first
   end
 
-
-  def set_home_page
-    @page                = @site.setting_home_infos.first
-    @home_info          = @page
-    # @hero_image_url   = url_for(@page.hero_image)
-    @frontpage_icons    = PublisherAccount.frontpage_icons
-    @site_general_info  = @site.setting_general_infos.first
-  end
-
   def set_page_info
     @page_info          = @site.setting_home_infos.first
     @home_info          = @page_info
-    @frontpage_icons    = PublisherAccount.frontpage_icons    
-    @hero_image_url     = url_for(@page_info.hero_image)
+    @frontpage_icons    = PublisherAccount.frontpage_icons(@site)    
     @site_general_info  = @site.setting_general_infos.first
   end
 
   def set_video_info
-    @featured_youtube_video_url   = @page_info.featured_youtube_video_url
+    @featured_youtube_video_url   = @page_info.watch_this_video_url
     @youtube_video_id             = @featured_youtube_video_url.to_s.split('v=').last 
     @featured_youtube_image_url   = "https://i.ytimg.com/vi/#{@youtube_video_id}/maxresdefault.jpg"
     
