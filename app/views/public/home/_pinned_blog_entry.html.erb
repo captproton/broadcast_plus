@@ -4,42 +4,34 @@
         <div class="row">
             <div class="col-sm-6 col-md-8">
                 <div class="ct-post-img">
-                    <%#= link_to blog_entry_path(entry) do %>
+                    <%= link_to blog_entry_path(entry) do %>
                         <% if entry.hero_image.attached? %>
                             <%= image_tag entry.hero_image %>
                         <% else %>
-                            <img src="" width="280" />
+                            <img src="https://via.placeholder.com/727x384.png?text=Blog+Image" width="280" />
                         <% end %>
 
                     
-                    <%# end %>
-                    
+                    <% end %>
 
                 </div>
             </div>
             
             <div class="col-sm-6 col-md-4">
                 
-                <% if entry.blog_articles.first.present? %>
                     <h1 class="ct-liner-simple">
-                        <a href="/the-garyvee-content-strategy-how-to-grow-and-distribute-your-brands-social-media-content/">
-                            <%= link_to entry.title, blog_entry_path(entry) %>
-                                                </a>
+                            <%= link_to entry.title, blog_entry_path(entry) %>                                                
                     </h1>
                     <h5 class="ct-h-slab ct-post-date">
-                    <%# https://alexanderpaterson.com/posts/showing-estimated-reading-time-on-a-rails-blog-post %>
-                        <%= time_ago_in_words(entry.created_at) %> ago                    
+                        11 months ago                    
                         <span class="middot">·</span>
-                        <%# text = entry.article.body.to_plain_text
-                            @reading_time = (text.scan(/\w+/).length / 150).to_i  
-                        %>
                         <span>
-                            <%#= pluralize(@reading_time, 'minute') %>
+                            <%= reading_minutes =  entry.essay.present? ? 
+                                pluralize(entry.essay.reading_time, 'minute') 
+                                : "unknown minutes" %>
                         </span>               
                     </h5>
-                    <p>
-                        <%#= entry.summary %> &#8230;
-                    </p>
+                    <%= entry.summary %>
                     <div class="text-right">
                         <%= link_to  blog_entry_path(entry), class: "ct-post-permalink link-blue" do %>
                             Read More &gt;&gt;
@@ -47,7 +39,6 @@
                         
                     </div>
                     
-                <% end %>
                 
             </div>
         </div>
