@@ -1,0 +1,8 @@
+<% legal_text ||= @legal_text %>
+<% site ||= @site || legal_text&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :legal_texts] %>
+<% if legal_text&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: legal_text.label_string, url: [:account, legal_text] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'legal_texts' %>

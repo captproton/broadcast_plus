@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_04_001729) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_05_165431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -172,6 +172,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_001729) do
     t.text "message_body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "legal_texts", force: :cascade do |t|
+    t.string "title"
+    t.bigint "site_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_legal_texts_on_site_id"
   end
 
   create_table "media_appearances", force: :cascade do |t|
@@ -695,6 +703,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_001729) do
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "teams"
+  add_foreign_key "legal_texts", "sites"
   add_foreign_key "media_appearances", "sites"
   add_foreign_key "memberships", "invitations"
   add_foreign_key "memberships", "memberships", column: "added_by_id"
