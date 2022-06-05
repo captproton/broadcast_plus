@@ -275,12 +275,14 @@ $(document).ready(function(){
          id="flex-module-2">
       <h2 class="h1 ct-liner-half">Must Watch Video</h2>
     </div>
-  <%= render partial: '/shared/youtube_embed', 
-    locals: { image_url:   @featured_youtube_image_url,
-              video_id:         @youtube_video_id,
-              video_url:        @featured_youtube_video_url
-    } 
-  %>
+    <div class="ct-flex-row" id="flex-module-3">
+      <%= render partial: '/shared/youtube_embed', 
+        locals: { image_url:   @featured_youtube_image_url,
+                  video_id:         @youtube_video_id,
+                  video_url:        @featured_youtube_video_url
+        } 
+      %>
+    </div>
     <div class="ct-flex-row">
       <div class="ct-flex--wiki ct-wiki-item clearfix ct-wiki-expandable opened"
            id="flex-module-4">

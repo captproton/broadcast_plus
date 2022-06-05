@@ -33,8 +33,8 @@ class PublisherAccount < ApplicationRecord
             .select(:name, :url, :font_awesome_class, :network_kind, :blurb)
     end
 
-    def self.frontpage_icons
-        accounts = self.where("frontpage_ranking > ?", 0)
+    def self.frontpage_icons(site)
+        accounts = site.publisher_accounts.where("frontpage_ranking > ?", 0)
             .order(:frontpage_ranking)
             .select(:name, :url, :font_awesome_class, :network_kind, :blurb)
     end
