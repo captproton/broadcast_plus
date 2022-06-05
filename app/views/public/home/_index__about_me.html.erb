@@ -24,16 +24,13 @@ style and script for the watch this modal is on the home index.html.erb
           <div class="ct-billboard-header text-right">
             <h4 class="h3 ct-h-welter50">Watch This</h4>
           </div>
-          <div class="ct-billboard-poster">
-            <%= image_tag @home_info.watch_this_poster_url, class: "ct-billboard-poster-img" %>
-            <% youtube_video_id = @home_info.watch_this_video_url.split('v=').last %>
-              <a alt="Open Video"
-                 class="video-banner js-trigger-video-modal ct-modal-ctrl ct-billboard-interact all play-btn"
-                href="<%= @home_info.watch_this_video_url %>" 
-                data-youtube-id="<%= youtube_video_id %>"                  
-              >
-              </a>
-          </div>
+          <%= render partial: '/shared/youtube_embed', 
+            locals: { image_url:   @featured_youtube_image_url,
+                      video_id:         @youtube_video_id,
+                      video_url:        @featured_youtube_video_url
+            } 
+          %>
+
         </div>
       </div>
     </div>

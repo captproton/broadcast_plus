@@ -275,15 +275,13 @@ $(document).ready(function(){
          id="flex-module-2">
       <h2 class="h1 ct-liner-half">Must Watch Video</h2>
     </div>
-    <div class="ct-flex-row"
-         id="flex-module-3">
-<div class="ct-billboard-poster">
-          <%= image_tag @featured_youtube_image_url.to_s, class: "ct-billboard-poster-img" %>
-          <%= link_to "https://www.youtube.com/embed/#{@youtube_video_id}", alt: "Open Video", class: "video-banner js-trigger-video-modal ct-modal-ctrl ct-billboard-interact all play-btn",
-          data: {:youtube_id =>  "#{@youtube_video_id}"}  do %>
-          <% end %>
-      </div>
-
+    <div class="ct-flex-row" id="flex-module-3">
+      <%= render partial: '/shared/youtube_embed', 
+        locals: { image_url:   @featured_youtube_image_url,
+                  video_id:         @youtube_video_id,
+                  video_url:        @featured_youtube_video_url
+        } 
+      %>
     </div>
     <div class="ct-flex-row">
       <div class="ct-flex--wiki ct-wiki-item clearfix ct-wiki-expandable opened"
