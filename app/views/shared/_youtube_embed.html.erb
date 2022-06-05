@@ -1,0 +1,10 @@
+<div class="ct-flex-row"
+    id="flex-module-3">
+    <div class="ct-billboard-poster">
+    <%= image_tag image_url.to_s, class: "ct-billboard-poster-img" %>
+    <%= link_to "#{video_url}", alt: "Open Video", class: "video-banner js-trigger-video-modal ct-modal-ctrl ct-billboard-interact all play-btn",
+        data: {:youtube_id =>  "#{video_id}"}  do %>
+    <% end %>
+    </div>
+
+</div>
