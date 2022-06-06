@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_05_165431) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_05_225241) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,6 +122,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_165431) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_books_on_site_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "contact_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "subject"
+    t.index ["contact_id"], name: "index_conversations_on_contact_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -304,6 +319,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_165431) do
     t.datetime "updated_at", precision: nil, null: false
     t.index ["uid"], name: "index_oauth_stripe_accounts_on_uid", unique: true
     t.index ["user_id"], name: "index_oauth_stripe_accounts_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.string "author_type", null: false
+    t.bigint "author_id", null: false
+    t.string "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_posts_on_author"
+    t.index ["conversation_id"], name: "index_posts_on_conversation_id"
   end
 
   create_table "press_kit_entries", force: :cascade do |t|
@@ -698,6 +724,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_165431) do
   add_foreign_key "blog_entries", "sites"
   add_foreign_key "blog_lists", "sites"
   add_foreign_key "books", "sites"
+  add_foreign_key "conversations", "contacts"
   add_foreign_key "events", "sites"
   add_foreign_key "images", "sites"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
@@ -718,6 +745,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_165431) do
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"
   add_foreign_key "oauth_stripe_accounts", "users"
+  add_foreign_key "posts", "conversations"
   add_foreign_key "press_kit_entries", "setting_press_kits"
   add_foreign_key "press_kit_links", "setting_press_kits"
   add_foreign_key "press_kit_photo_and_headshots", "setting_press_kits"
