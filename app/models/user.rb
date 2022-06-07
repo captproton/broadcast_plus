@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # 🚅 add concerns above.
 
   # 🚅 add belongs_to associations above.
+    has_many :posts, as: :author
 
   # 🚅 add has_many associations above.
 

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :conversations do
+    resources :posts
+  end
+  resources :contacts
   namespace :public do
     # get 'blog_entries/index'
     get 'blog_entries/show'
