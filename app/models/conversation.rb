@@ -3,4 +3,8 @@ class Conversation < ApplicationRecord
   has_many :posts, :dependent => :destroy
 
   broadcasts_to ->(c) { "conversations" }, inserts_by: :prepend, target: "conversations"
+
+  def authors
+    posts.includes(:author).map(&:author).uniq
+  end
 end
