@@ -10,6 +10,7 @@ layout "customer_support"
 
   # GET /conversations/1 or /conversations/1.json
   def show
+    @posts = @conversation.posts
   end
 
   # GET /conversations/new

@@ -1,0 +1,9 @@
+<%= tag.div id: dom_id(post) do %>
+<div class="author">
+    <%= post.author.name %> <%= post.author.email %>
+</div>
+ <span style="background-color: orange">
+    <%= post.body %>
+</span>   
+<hr>
+<% end %>
