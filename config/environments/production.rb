@@ -1,6 +1,9 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  # Prepare the ingress controller used to receive mail
+  # config.action_mailbox.ingress = :relay
+
   # 🚫 DEFAULT RAILS CONFIGURATION
   # This section represents the default settings for a Rails 6.0.0-rc1 application. Bullet Train's configuration and
   # your own should be specified at the end of the file, not in this section, even if the value you're configuring
