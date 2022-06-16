@@ -1,0 +1,18 @@
+<div id="<%= dom_id contact_message %>_row">
+  <div class="name">
+    <%= contact_message.first_name %>&nbsp;
+    <%= contact_message.last_name %>&nbsp;
+
+  </div>
+  <div class="contact-info">
+    <%= contact_message.phone %> ||
+    <%= contact_message.email %>
+    
+  </div>
+  <p>
+    <strong><%= contact_message.subject %></strong><br>
+    <%= contact_message.body %>
+  </p>
+
+</div>
+<hr>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contact_messages
   resources :conversations do
     resources :posts
   end
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
     draw "blog_entries"
     draw "blog_tags"
     draw "books"
+    draw "contact_messages"
     draw "events"
     draw "first_time_here"
     draw "get_in_touch"

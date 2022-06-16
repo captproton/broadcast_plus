@@ -1,0 +1,15 @@
+<%= turbo_stream_from "contact_messages_list" %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Contact messages</h1>
+<%= turbo_frame_tag "contact_message_form" do %>
+  <%= render "contact_messages/form", contact_message: @contact_message %>
+<% end %>
+
+
+<%#= link_to "New contact message", new_contact_message_path %>
+<%#  %>
+<div id="contact_messages">
+  <%= render @contact_messages %>
+</div>
