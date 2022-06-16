@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_16_014457) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_16_022014) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -133,6 +133,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_014457) do
     t.string "email"
     t.string "phone"
     t.string "subject"
+    t.bigint "site_id", null: false
+    t.index ["site_id"], name: "index_contact_messages_on_site_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -735,6 +737,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_014457) do
   add_foreign_key "blog_entries", "sites"
   add_foreign_key "blog_lists", "sites"
   add_foreign_key "books", "sites"
+  add_foreign_key "contact_messages", "sites"
   add_foreign_key "conversations", "contacts"
   add_foreign_key "events", "sites"
   add_foreign_key "images", "sites"

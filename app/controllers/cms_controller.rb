@@ -70,5 +70,6 @@ class ContactMessagesController < Public::CustomerSite::BaseController
     # Only allow a list of trusted parameters through.
     def contact_message_params
       params.require(:contact_message).permit(:first_name, :last_name, :email, :phone, :subject, :body)
+      
     end
 end

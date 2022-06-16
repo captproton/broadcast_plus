@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :contact_messages
   resources :conversations do
     resources :posts
   end
@@ -11,6 +10,8 @@ Rails.application.routes.draw do
     get 'blog_entries/houston'
   end
   # See `config/routes/*.rb` to customize these configurations.
+  
+  
   draw "concerns"
   draw "devise"
   draw "sidekiq"

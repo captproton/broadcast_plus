@@ -1,1 +1,1 @@
-resources :contact_messages
+resources :books, only: [:index]
