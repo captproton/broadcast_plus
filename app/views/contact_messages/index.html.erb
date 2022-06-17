@@ -1,15 +1,26 @@
 <%= turbo_stream_from "contact_messages_list" %>
 
 <p style="color: green"><%= notice %></p>
-
-<h1>Contact messages</h1>
-<%= turbo_frame_tag "contact_message_form" do %>
-  <%= render "contact_messages/form", contact_message: @contact_message %>
-<% end %>
-
-
-<%#= link_to "New contact message", new_contact_message_path %>
-<%#  %>
-<div id="contact_messages">
-  <%= render @contact_messages %>
+<div class="row">
+    <div class="where-am-i">
+      <p>
+        <strong>app/views/contact_messages</strong>
+      </p>
+    </div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi eum possimus enim fuga, quam officiis, quis voluptate ratione rerum saepe cupiditate a recusandae tenetur ipsum esse earum aliquam nesciunt non.</p>
+    <div class="col-md-5">
+      <h1>Contact messages</h1>
+      <%= turbo_frame_tag "contact_message_form" do %>
+        <%= render "contact_messages/form", contact_message: @contact_message %>
+      <% end %>  
+    </div>
+    <div class="col-md-5">
+      <%#= link_to "New contact message", new_contact_message_path %>
+      <%#  %>
+      <div id="contact_messages_list">
+        <%= render @contact_messages %>
+      </div>
+    </div>
 </div>
+
+

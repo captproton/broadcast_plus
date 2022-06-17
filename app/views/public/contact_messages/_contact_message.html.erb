@@ -1,4 +1,4 @@
-<div id="<%= dom_id contact_message %>_row">
+<div id="<%= dom_id contact_message %>"  class="scaffold_record">
   <div class="name">
     <%= contact_message.first_name %>&nbsp;
     <%= contact_message.last_name %>&nbsp;
@@ -13,6 +13,14 @@
     <strong><%= contact_message.subject %></strong><br>
     <%= contact_message.body %>
   </p>
+  <p>
+    <%#= link_to "Show this message", contact_message %>
+    <%# FIX: edit botton does not work with turbo streams %>
+    <%= button_to "Edit this message", edit_contact_message_path(contact_message), method: :post %>
+    <div class="spacer">&nbsp;</div> 
+    <%= button_to "Destroy this message", contact_message_path(contact_message), method: :delete %>
+  </p>
 
 </div>
 <hr>
+<%#  %>

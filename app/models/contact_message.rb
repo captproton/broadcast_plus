@@ -1,19 +1,18 @@
 class ContactMessage < ApplicationRecord
 
-  after_create_commit lambda { 
-    broadcast_prepend_to "contact_messages_list", target: "contact_messages"
-   }
+  # after_create_commit lambda { 
+  #   broadcast_prepend_to "contact_messages_list", target: "contact_messages"
+  #  }
   
-   after_update_commit lambda { 
-    broadcast_prepend_to "contact_message_list", target: "#{dom_id self}_row"
-  }
+  #  after_update_commit lambda { 
+  #   broadcast_prepend_to "contact_message_list", target: "#{dom_id self}_row"
+  # }
 
   # 🚅 add concerns above.
 
   belongs_to :site
   # 🚅 add belongs_to associations above.
 
-  has_many :merchandise_links, dependent: :destroy, enable_updates: true
   # 🚅 add has_many associations above.
 
   has_one :team, through: :site

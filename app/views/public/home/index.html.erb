@@ -1,3 +1,6 @@
+<%# turbo stream  tags %>
+<%#= turbo_stream_from "contact_messages_list" %>
+<%#  %>
 <style>
   /* Video Modal
   -----------------------------------------*/
@@ -279,22 +282,19 @@
         <%= render 'upcoming_events' %>
       </div>
       <div class="col-lg-6 col-md-push-1">
-      <!-- START INNER -->
 
-                <h3 class="h1 gv-liner-simple">Want to get in touch with <%= @objective_case%>?</h3>
-                <div id="gform_widget-2" class="gform_widget">
-                <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1"><div id="gf_1" class="gform_anchor" tabindex="-1"></div>
-                  <img src="https://via.placeholder.com/625x356?text=Form+goes+here">
-                  <%# contact form here %>
-                  <%= turbo_frame_tag "contact_message_form" do %>
-                    <%= render "contact_messages/form", contact_message: @contact_message %>
-                  <% end %>
-                  <%# lead_form is for hubspot %>
-                  <%#= render '/shared/lead_form', lead: @lead %>
-                  <%#= render '/shared/contact_message_form', contact_message: @contact_message_form %>
-                </div>
-              </div>            
-      <!-- FINISH INNER-->
+        <!-- START INNER -->
+        <h3 class="h1 gv-liner-simple">Want to get in touch with <%= @objective_case%>?</h3>
+        <div id="gform_widget-2" class="gform_widget">
+          <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
+            <%# contact form here %>
+            <%= turbo_frame_tag "contact_message_form" do %>
+              <%#= render "contact_messages/form", contact_message: @contact_message %>
+              <%= render "/public/contact_messages/form", contact_message: @contact_message %>
+            <% end %>
+          </div>
+        </div>            
+        <!-- FINISH INNER-->
 
       </div>
     </div>
