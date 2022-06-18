@@ -174,7 +174,13 @@
           stroke-width="3"
           d="M20,160 A29,29 0 1,0 185,160" />
          <text text-anchor="middle">
-            <textPath xlink:href="#bottom-sector" startOffset="50%" style="font-size: 32px; font-weight:500;"><%= @text_number %></textPath>
+            <textPath xlink:href="#bottom-sector" 
+                        startOffset="50%" 
+                        style="font-family: 'League Gothic', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+                              font-size: 48px; 
+                              font-weight:500;">
+               <%= @text_number %>
+            </textPath>
          </text>
 
     </g>
