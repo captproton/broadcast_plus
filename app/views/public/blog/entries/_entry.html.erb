@@ -23,7 +23,14 @@
           <h5 class="ct-h-slab ct-post-date">
             <%= time_ago_in_words(entry.publish_at) %> ago&nbsp;
             <span class="middot">·</span>
-            <%= entry.blog_articles.first.reading_time || 1 %>  min read
+            <%# temporary conditional because we don't want the content team to crash the site %>
+            <%# if someone forgot to attach the article %>
+            <% if entry.blog_articles.count > 0 %>
+            <%= entry.blog_articles.first.reading_time %> min read
+            <% else %>
+              Reading Time is not available
+            <% end %>
+            
           </h5>
 
           <p>
