@@ -1,8 +1,3 @@
-<div class="where-am-i">
-<p>
-  <strong>form used with homepage</strong>
-</p>
-</div>
 <%= form_with(model: contact_message, id: dom_id(contact_message)) do |form| %>
   <% if contact_message.errors.any? %>
     <div style="color: red">
