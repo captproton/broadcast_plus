@@ -21,7 +21,7 @@
             <%= @press_kit_page.birthplace %></p>
 
             <h6 class="ct-h-slab ct-h-nomargin">Website</h6>
-            <ul>
+            <ul style="list-style-type: none; ">
               <%= render  partial: "weblink", 
                 collection: @press_kit.press_kit_links.website, 
                 as: :weblink %>
@@ -35,7 +35,7 @@
 
 
             <h6 class="ct-h-slab ct-h-nomargin">Companies</h6>
-            <ul>
+            <ul style="list-style-type: none; ">
               <%= render  partial: "weblink", 
                 collection: @press_kit.press_kit_links.company, 
                 as: :weblink %>
