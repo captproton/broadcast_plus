@@ -134,7 +134,9 @@
         z-index: 1000;
       }
     </style>
-    <%= render 'shared/notices' %>
+    <turbo-frame id="flash">
+      <%= render 'shared/notices' %>
+    </turbo-frame>
 
     <%= yield %>
     <%= render 'shared/mobile_share' %>

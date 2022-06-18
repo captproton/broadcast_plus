@@ -288,10 +288,11 @@
         <div id="gform_widget-2" class="gform_widget">
           <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
             <%# contact form here %>
-            <%= turbo_frame_tag "contact_message_form" do %>
-              <%#= render "contact_messages/form", contact_message: @contact_message %>
-              <%= render "/public/contact_messages/form", contact_message: @contact_message %>
-            <% end %>
+            <div id="new_contact_message">
+              <%= render "/public/contact_messages/form", contact_message: @contact_message %>      
+            </div>
+            <p id="contact_message_notice" style="color: green"></p>
+
           </div>
         </div>            
         <!-- FINISH INNER-->

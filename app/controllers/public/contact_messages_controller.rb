@@ -38,7 +38,9 @@ class Public::ContactMessagesController < Public::CustomerSite::BaseController
 
     respond_to do |format|
       if @contact_message.save
+        
         format.turbo_stream do
+          flash.now[:success] = "Contact message successfully sent!"
           render turbo_stream:  [
             turbo_stream.update('new_contact_message', 
                                   partial: "/public/contact_messages/form", 
@@ -49,7 +51,8 @@ class Public::ContactMessagesController < Public::CustomerSite::BaseController
                                   locals: {contact_message: @contact_message}
                                 ),
             turbo_stream.update('contact_message_counter', html: ContactMessage.count.to_s),
-            turbo_stream.update('notice', "Contact message #{@contact_message.id} successfully sent!")
+            turbo_stream.update('contact_message_notice', "Contact message successfully sent!"),
+            turbo_stream.update("flash", partial: "shared/notices")
           ]
         end
         format.html { redirect_to contact_messages_url, notice: "Contact message was successfully sent." }
@@ -77,7 +80,7 @@ class Public::ContactMessagesController < Public::CustomerSite::BaseController
             turbo_stream.update(@contact_message, 
                                 partial: "/public/contact_messages/contact_message", 
                                 locals: {contact_message: @contact_message}),
-            turbo_stream.update('notice', 
+            turbo_stream.update('contact_message_notice', 
                                 "Contact message #{@contact_message.id} successfully updated!")
             
           ] 
@@ -106,7 +109,7 @@ class Public::ContactMessagesController < Public::CustomerSite::BaseController
             turbo_stream.remove(@contact_message),
             turbo_stream.update('contact_message_counter', 
                                   html: ContactMessage.count.to_s),
-            turbo_stream.update('notice', 
+            turbo_stream.update('contact_message_notice', 
                                 "Contact message #{@contact_message.id} successfully deleted!")
           ]
       end
@@ -135,122 +138,3 @@ class Public::ContactMessagesController < Public::CustomerSite::BaseController
 
     end
 end
-# 
-# 
-  # # GET /messages or /messages.json
-  # def index
-  #   @messages = Message.order(created_at: :desc)
-  # end
-
-  # # GET /messages/1 or /messages/1.json
-  # def show
-  # end
-
-  # # GET /messages/new
-  # def new
-  #   @message = Message.new
-  # end
-
-  # # GET /messages/1/edit
-  # def edit
-  #   respond_to do |format|
-  #     format.turbo_stream do 
-  #       render turbo_stream: turbo_stream.update(@message,
-  #                                                partial: "messages/form",
-  #                                                locals: {message: @message})
-  #     end
-  #   end
-  # end
-
-  # # POST /messages or /messages.json
-  # def create
-  #   @message = Message.new(message_params)
-
-  #   respond_to do |format|
-  #     if @message.save
-  #       format.turbo_stream do
-  #         render turbo_stream: [
-  #           turbo_stream.update('new_message',
-  #                               partial: "messages/form",
-  #                               locals: {message: Message.new}),
-  #           turbo_stream.prepend('messages',
-  #                               partial: "messages/message",
-  #                               locals: {message: @message}),
-  #           turbo_stream.update('message_counter', Message.count),
-  #           turbo_stream.update('notice', "Message #{@message.id} created")
-  #           # turbo_stream.update('message_counter', html: Message.count)
-  #           # turbo_stream.update('message_counter', html: "#{Message.count}")
-  #           # turbo_stream.append('messages',
-  #           #                     partial: "messages/message",
-  #           #                     locals: {message: @message})
-  #           ]
-  #       end
-  #       format.html { redirect_to @message, notice: "Message was successfully created." }
-  #       format.json { render :show, status: :created, location: @message }
-  #     else
-  #       format.turbo_stream do
-  #         render turbo_stream: [
-  #           turbo_stream.update('new_message',
-  #                               partial: "messages/form",
-  #                               locals: {message: @message})
-  #           ]
-  #       end
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @message.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # # PATCH/PUT /messages/1 or /messages/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @message.update(message_params)
-  #       format.turbo_stream do 
-  #         render turbo_stream: [
-  #           turbo_stream.update(@message,
-  #                               partial: "messages/message",
-  #                               locals: {message: @message}),
-  #           turbo_stream.update('notice', "Message #{@message.id} updated")
-  #         ]
-  #       end
-  #       format.html { redirect_to @message, notice: "Message was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @message }
-  #     else
-  #       format.turbo_stream do 
-  #         render turbo_stream: turbo_stream.update(@message,
-  #                                                  partial: "messages/form",
-  #                                                  locals: {message: @message})
-  #       end
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @message.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # # DELETE /messages/1 or /messages/1.json
-  # def destroy
-  #   @message.destroy
-  #   respond_to do |format|
-  #     format.turbo_stream do
-  #       render turbo_stream: [
-  #         turbo_stream.remove(@message),
-  #         turbo_stream.update('message_counter', Message.count),
-  #         turbo_stream.update('notice', "Message #{@message.id} deleted")
-  #         ]
-  #     end
-  #     # format.turbo_stream { render turbo_stream: turbo_stream.remove("message_#{@message.id}") }
-  #     format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
-
-  # private
-  #   # Use callbacks to share common setup or constraints between actions.
-  #   def set_message
-  #     @message = Message.find(params[:id])
-  #   end
-
-  #   # Only allow a list of trusted parameters through.
-  #   def message_params
-  #     params.require(:message).permit(:body)
-  #   end
