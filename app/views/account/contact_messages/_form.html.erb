@@ -1,0 +1,23 @@
+<%= form_with model: contact_message, url: (contact_message.persisted? ? [:account, contact_message] : [:account, @site, :contact_messages]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_field', method: :email, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_field', method: :first_name %>
+    <%= render 'shared/fields/text_field', method: :last_name %>
+    <%= render 'shared/fields/text_field', method: :phone %>
+    <%= render 'shared/fields/text_field', method: :subject %>
+    <%= render 'shared/fields/text_area', method: :body %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, contact_message], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :contact_messages], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

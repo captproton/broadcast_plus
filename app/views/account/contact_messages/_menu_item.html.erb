@@ -1,0 +1,10 @@
+<% if can? :read, ContactMessage.new(team: current_team) %>
+  <%= render 'account/shared/menu/item', {
+    url: main_app.polymorphic_path([:account, current_team, :contact_messages]),
+    label: t('contact_messages.navigation.label'),
+  } do |p| %>
+    <% p.content_for :icon do %>
+      <i class="<%= t('contact_messages.navigation.icon') %>"></i>
+    <% end %>
+  <% end %>
+<% end %>

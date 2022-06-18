@@ -127,6 +127,7 @@ Rails.application.routes.draw do
           resources :setting_media_appearances_pages
           resources :setting_podcast_pages
           resources :legal_texts
+          resources :contact_messages
         end
       end
     end

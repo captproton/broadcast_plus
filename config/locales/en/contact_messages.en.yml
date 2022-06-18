@@ -1,0 +1,114 @@
+en:
+  contact_messages: &contact_messages
+    label: &label Contact Messages
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Contact Message
+      create: Create Contact Message
+      edit: Edit Contact Message
+      update: Update Contact Message
+      destroy: Remove Contact Message
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{contact_message_name}? This will also remove it's associated data. This can't be undone.
+    fields: &fields
+      id:
+        heading: Contact Message ID
+      site_id:
+        heading: Site ID
+      email:
+        _: &email Email
+        label: *email
+        heading: *email
+      first_name:
+        _: &first_name First Name
+        label: *first_name
+        heading: *first_name
+      last_name:
+        _: &last_name Last Name
+        label: *last_name
+        heading: *last_name
+      phone:
+        _: &phone Phone
+        label: *phone
+        heading: *phone
+      subject:
+        _: &subject Subject
+        label: *subject
+        heading: *subject
+      body:
+        _: &body Body
+        label: *body
+        heading: *body
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Contact Messages"
+      index: "List Contact Messages"
+      create: "Add a New Contact Message"
+      member_actions: "Actions for an Individual Contact Message"
+      show: "Retrieve a Contact Message"
+      update: "Update a Contact Message"
+      destroy: "Delete a Contact Message"
+      fields: *fields
+    index:
+      section: "%{sites_possessive} Contact Messages"
+      contexts:
+        site:
+          header: Contact Messages
+          description: Below is a list of Contact Messages that have been added for %{site_name}.
+          description_empty: No Contact Messages have been added for %{site_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{contact_message_name}"
+      header: Contact Message Details
+      description: Below are the details we have for %{contact_message_name}.
+      manage_description: You'll also find options for updating these details or removing %{contact_message_name} from %{site_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Contact Message for %{site_name}"
+      header: New Contact Message Details
+      description: Please provide the details of the new Contact Message you'd like to add to %{site_name}.
+      form: *form
+    edit:
+      section: "%{contact_message_name}"
+      header: Edit Contact Message Details
+      description: You can update the details or settings for %{contact_message_name} below.
+      form: *form
+    notifications:
+      created: Contact Message was successfully created.
+      updated: Contact Message was successfully updated.
+      destroyed: Contact Message was successfully destroyed.
+  account:
+    contact_messages: *contact_messages
+  activerecord:
+    attributes:
+      contact_message:
+        email: *email
+        first_name: *first_name
+        last_name: *last_name
+        phone: *phone
+        subject: *subject
+        body: *body
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
