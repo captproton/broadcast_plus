@@ -1,0 +1,13 @@
+<style>
+    .message { color: #FF0000; font-weight: bold }
+</style>
+<%= form_with  model: [conversation, post], id: "form" do |form| %>
+    <div class="errors">
+        <% form.object.errors.full_messages.each do |message| %>
+            <div class="message"><%= message %> </div>
+        <% end %>
+    </div>
+    <%= form.label :body %>
+    <%= form.rich_text_area :body %>
+    <%= form.submit %>
+<% end %>

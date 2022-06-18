@@ -6,7 +6,9 @@ class Public::HomeController < Public::CustomerSite::BaseController
   # GET /
   def index
     # @ = @site.events
-    @home_info = @site.setting_home_infos.first
+    @home_info        = @site.setting_home_infos.first
+    @contact_message  = @site.contact_messages.new
+
   end
 
   def set_page_info

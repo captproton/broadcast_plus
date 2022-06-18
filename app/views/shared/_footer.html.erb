@@ -1,36 +1,34 @@
-<footer id="ct-main-footer" class="ct-widget-wrapper ct-widget-fulllength ct-footer">
-    <div class="container">
-        <div class="form-group row">
-            <div class="col-md-3">
-                <div class="ct-mark-type">
-                    <!--a name="mobile-menu"></a -->
-                    <div id="footer-menu"></div>
-                    <a href="/" class="no-hover"><%= @site.setting_general_infos.first.site_name.to_s.html_safe %></a>
+<footer >
+ 
+<div id="ct-main-footer" class="ct-widget-wrapper ct-widget-fulllength ct-footer">
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <div class="ct-mark-type">
+                            <a href="/" class="no-hover"><%= @site.setting_general_infos.first.site_name.to_s.html_safe %></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-9 ct-nav-footer">
+                        <ul id="menu-footer-menu" class="menu">
+                            <li id="menu-item-2095" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2095"><a href="/" aria-current="page">Home</a></li>
+                            <li id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81"><a href="/blog/">Blog</a></li>
+                            <li id="menu-item-7096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7096"><a href="/podcast/">Podcast</a></li>
+                            <li id="menu-item-87" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87"><a href="/events/">Events</a></li>
+                            <!-- Get some press first:  <li id="menu-item-85" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-85"><a href="/media-appearances/">Recent Press</a></li> -->
+                            <li id="menu-item-82" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-82"><a href="/books/">Books</a></li>
+                            <li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="/hire-<%= @objective_case %>/">Services</a></li>
+                            <li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="/hire-<%= @objective_case %>/">Hire <%= @objective_case %> </a></li>
+                            <li id="menu-item-83" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83"><a href="/biography/"><%= @possesive.capitalize %> Story</a></li>
+                            <li id="menu-item-86" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86"><a href="/press-kit/">Press Kit</a></li>
+                            <li id="menu-item-6528" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6528"><a href="/first-time-here/">First Time Here</a></li>
+                            <li id="menu-item-8066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8066"><a href="/wallpapers/">Wallpapers</a></li>
+                        </ul>                    
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-10 col-lg-9 ct-nav-footer">
-                <ul id="menu-footer-menu" class="menu">
-                    <li id="menu-item-2095" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2095"><a href="/" aria-current="page">Home</a></li>
-                    <li id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81"><a href="/blog/">Blog</a></li>
-                    <li id="menu-item-7096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7096"><a href="/podcast/">Podcast</a></li>
-                    <li id="menu-item-87" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87"><a href="/events/">Events</a></li>
-                    <!-- Get some press first:  <li id="menu-item-85" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-85"><a href="/media-appearances/">Recent Press</a></li> -->
-                    <li id="menu-item-82" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-82"><a href="/books/">Books</a></li>
-                    <li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="/hire-<%= @objective_case %>/">Services</a></li>
-                    <li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="/hire-<%= @objective_case %>/">Hire <%= @objective_case %> </a></li>
-                    <li id="menu-item-83" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83"><a href="/biography/"><%= @possesive.capitalize %> Story</a></li>
-                    <li id="menu-item-86" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86"><a href="/press-kit/">Press Kit</a></li>
-                    <li id="menu-item-6528" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6528"><a href="/first-time-here/">First Time Here</a></li>
-                    <li id="menu-item-8066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8066"><a href="/wallpapers/">Wallpapers</a></li>
-                </ul>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 col-md-3">
-            <h6 class="ct-h-slab ct-h-slab-normal ct-h-grey">Keep in Touch</h6>
-            <div id="gv_widgets_socialprops-4" class="ct-widget ct-widget-socialprops clearfix text-left">
-                <div class="sidebar-c-7">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <h6 class="ct-h-slab ct-h-slab-normal ct-h-grey">Keep in Touch</h6>
+                        <div id="gv_widgets_socialprops-4" class="ct-widget ct-widget-socialprops clearfix text-left"><div class="sidebar-c-8">            
                     <%# social_spots start %>
                     <% @linked_icons_for_footer.each do |icon| %>
                     <span class="wrap-social-item">
@@ -39,39 +37,32 @@
                         <% end %>
 
                     </span>
-                    <%# social_spots finish %>
                     <% end %>
-                </div>
-            </div>                                            
-            </div>
-            <div class="ct-subscribe-to-list">
-                <div class="ct-widget-mailinglist horizontal">
-                    <div class="ct-form">
-                    <form name="ct-mc-horizontal">
-                        <div class="row text-centered">
-                            <h5 class="ct-h-slab ct-h-slab-normal" style="width: 100%;display: flex;align-items: center;justify-content: center;">
-                                Get all <%= @possesive %> best stuff in your inbox.                        
-                            </h5>
-                            <div style="width: 100%;display: flex;align-items: center;justify-content: center;">
+                    <%# social_spots finish %>
+        </div></div>                                            </div>
+                    <div class="col-sm-12 col-md-8 col-md-push-1">
+                                                           <div class="ct-widget-mailinglist horizontal">
+            <div class="ct-form">
+                <div class="ct-widget-alert"><span class="message">Lorem Ipsum Dolor Test</span><a href="#alert:dismiss" class="ct-widget-ctrl close">×</a></div>                <form name="ct-mc-horizontal">
+                    <div class="row">
+                        <h5 class="ct-h-slab ct-h-slab-normal text-center hidden-md">
+                           Get all <%= @possesive %> best stuff in your inbox.                     </h5>
+                        <div style="width: 100%;display: flex;align-items: center;justify-content: center;">
                                 <a href="<%= @newsletter_subscription_url %>" target="_blank" class="ct-btn ct-btn-red">Subscribe</a>
-                            </div>
                         </div>
-                    </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+                                                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-md-6 ct-footer-fineprint">
+                        <p>&copy; <%=  "#{@general_info.plain_text_name}" %> <%= DateTime.current.year %><br>
+                        <a href="/privacy/">Privacy&nbsp;Policy |</a>
+                        <a href="/terms/">&nbsp;Terms of Use</a></p>
+                    </div>
                 </div>
             </div>
-
-            </div>
         </div>
-
-        <div class="row">
-
-            <div class="col-sm-8 col-md-6 ct-footer-fineprint">
-                <p>&copy; <%=  "#{@general_info.plain_text_name}" %> <%= DateTime.current.year %><br>
-                <a href="/privacy/">Privacy&nbsp;Policy |</a>
-                <a href="/terms/">&nbsp;Terms of Use</a></p>
-            </div>
-        </div>
-<%# old inner divs %>
-    </div>
-
 </footer>

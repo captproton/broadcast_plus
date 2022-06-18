@@ -1,0 +1,8 @@
+<% contact_message ||= @contact_message %>
+<% site ||= @site || contact_message&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :contact_messages] %>
+<% if contact_message&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: contact_message.label_string, url: [:account, contact_message] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'contact_messages' %>

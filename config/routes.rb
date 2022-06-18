@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :conversations do
+    resources :posts
+  end
+  resources :contacts
   namespace :public do
     # get 'blog_entries/index'
     get 'blog_entries/show'
@@ -6,6 +10,8 @@ Rails.application.routes.draw do
     get 'blog_entries/houston'
   end
   # See `config/routes/*.rb` to customize these configurations.
+  
+  
   draw "concerns"
   draw "devise"
   draw "sidekiq"
@@ -29,6 +35,7 @@ Rails.application.routes.draw do
     draw "blog_entries"
     draw "blog_tags"
     draw "books"
+    draw "contact_messages"
     draw "events"
     draw "first_time_here"
     draw "get_in_touch"
@@ -120,6 +127,7 @@ Rails.application.routes.draw do
           resources :setting_media_appearances_pages
           resources :setting_podcast_pages
           resources :legal_texts
+          resources :contact_messages
         end
       end
     end

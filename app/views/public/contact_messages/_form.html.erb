@@ -1,0 +1,53 @@
+<%# 
+<div class="where-am-i">
+<p>
+  <strong>form used with homepage</strong>
+</p>
+</div> %>
+<%= form_with(model: contact_message) do |form| %>
+  <% if contact_message.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(contact_message.errors.count, "error") %> prohibited this contact_message from being saved:</h2>
+
+      <ul>
+        <% contact_message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, style: "display: block" %>
+    <%= form.email_field :email, class: "form-control"  %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.phone_field :phone, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :subject, style: "display: block" %>
+    <%= form.text_field :subject, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit  value: "SUBMIT", class: 'ct-btn ct-btn-red', style: "color: #ffff;" %>
+  </div>
+<% end %>

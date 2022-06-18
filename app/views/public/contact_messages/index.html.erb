@@ -1,0 +1,33 @@
+
+<div class="row" style="margin-top:100px" >
+  <div class="where-am-i">
+  <p>
+    <strong>app/views/public/contact_messages</strong>
+    <p id="contact_message_notice" style="color: green"><%= notice %></p>
+
+  </p>
+  </div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi eum possimus enim fuga, quam officiis, quis voluptate ratione rerum saepe cupiditate a recusandae tenetur ipsum esse earum aliquam nesciunt non.</p>
+    <p>
+    <%= Time.now() %>
+    </p>
+    <div class="col-md-5">
+      <h1>Contact messages
+          <span id="contact_message_counter">
+            <%= @site.contact_messages.count %>
+          </span>        
+      </h1>
+      <div id="new_contact_message">
+        <%= render "/public/contact_messages/form", contact_message: @contact_message %>      
+      </div>
+    </div>
+    <div class="col-md-5">
+      <%#= link_to "New contact message", new_contact_message_path %>
+      <%#  %>
+      <div id="contact_messages">
+        <%= render @contact_messages %>
+      </div>
+    </div>
+</div>
+
+

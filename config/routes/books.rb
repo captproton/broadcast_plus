@@ -1,1 +1,1 @@
-resources :books, only: [:index, :show]
+resources :books, only: [:index]

@@ -1,5 +1,6 @@
 default:
   models:
+    ContactMessage: read
     LegalText: read
     LegalText: read
     SettingFirstTime: read
@@ -81,6 +82,7 @@ admin:
     - admin
     - editor
   models:
+    ContactMessage: manage
     LegalText: manage
     LegalText: manage
     SettingFirstTime: manage

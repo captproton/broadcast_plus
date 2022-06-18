@@ -1,0 +1,70 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :contact_messages %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless contact_messages.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if contact_messages.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('.fields.email.heading') %></th>
+            <th><%= t('.fields.first_name.heading') %></th>
+            <th><%= t('.fields.last_name.heading') %></th>
+            <th><%= t('.fields.phone.heading') %></th>
+            <th><%= t('.fields.subject.heading') %></th>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% contact_messages.each do |contact_message| %>
+            <% with_attribute_settings object: contact_message do %>
+              <tr data-id="<%= contact_message.id %>">
+                <td><%= render 'shared/attributes/text', attribute: :email, url: [:account, contact_message] %></td>
+                <td><%= render 'shared/attributes/text', attribute: :first_name %></td>
+                <td><%= render 'shared/attributes/text', attribute: :last_name %></td>
+                <td><%= render 'shared/attributes/text', attribute: :phone %></td>
+                <td><%= render 'shared/attributes/text', attribute: :subject %></td>
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, contact_message %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, contact_message], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, contact_message %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, contact_message], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(contact_message)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, ContactMessage.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :contact_message], class: "#{first_button_primary(:contact_message)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:contact_message)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

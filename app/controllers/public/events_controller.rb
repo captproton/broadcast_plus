@@ -5,7 +5,7 @@ class Public::EventsController < Public::CustomerSite::BaseController
   # GET /books
   # GET /books.json
   def index
-    @events = @site.events
+    @events = @upcoming_events
   end
 
 

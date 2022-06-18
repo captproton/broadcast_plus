@@ -6,6 +6,8 @@ class Public::HireMeController < Public::CustomerSite::BaseController
   # GET /books.json
   def index
     # @ = @site.events
+    @contact_message  = @site.contact_messages.new
+
   end
 
 
