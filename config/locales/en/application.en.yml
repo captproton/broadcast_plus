@@ -4,5 +4,5 @@ en:
     owner: Unidentified Developer
     description: "You can update this description in `config/locales/en/application.en.yml`."
     keywords: broadcast+ seo keywords
-    support_email: change.me@localhost
+    support_email: hello@rainbow.lvh.me
     key: broadcast
