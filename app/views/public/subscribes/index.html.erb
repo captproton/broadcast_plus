@@ -1,0 +1,8 @@
+<h1>subscribes index</h1>
+
+<h2>
+Subscriber status</h2>
+
+<%= render partial: "subscribe", collection: @contacts %>
+
+    <%= button_to 'New subscribe', new_subscribe_path, method: :get, data: { turbo_frame: 'modal' }  %>

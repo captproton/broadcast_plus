@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :contacts
   namespace :public do
+    get 'subscribes/new'
     get 'unsubscribes/show'
     # get 'blog_entries/index'
     get 'blog_entries/show'
@@ -44,8 +45,9 @@ Rails.application.routes.draw do
     draw "media_appearances"
     draw "podcast"
     draw "press_kit"
-    draw "wallpapers"
+    draw "subscribes"
     draw "unsubscribes"
+    draw "wallpapers"
     # draw "customer_site"
 
   end

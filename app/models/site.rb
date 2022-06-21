@@ -6,6 +6,7 @@ class Site < ApplicationRecord
 
   has_many :wallpapers, dependent: :destroy, enable_updates: true
   has_many :books, dependent: :destroy, enable_updates: true
+  has_many :contacts, dependent: :destroy
   has_many :contact_messages, dependent: :destroy, enable_updates: true
   has_many :events, dependent: :destroy, enable_updates: true
   has_many :media_appearances, dependent: :destroy, enable_updates: true

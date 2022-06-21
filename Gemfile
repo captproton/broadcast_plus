@@ -181,3 +181,5 @@ gem 'chronic', '~> 0.10.2'
 gem "bullet_train-super_scaffolding", git: "https://github.com/bullet-train-co/bullet_train-super_scaffolding.git", branch: "features/test-super-scaffolded-attributes"
 gem 'pagy', '~> 3.9'
 gem "make_taggable", "~> 0.7.5"
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.1.3'

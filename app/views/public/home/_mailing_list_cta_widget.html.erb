@@ -1,3 +1,59 @@
+<style>
+  .modal {
+    // padding: 1em;
+    max-width: 50ch;
+    // border: 0;
+    // box-shadow: 0 0 1em rgb(0 0 0 / .3);
+
+    & > * {
+      margin: 0 0 0.5rem 0;
+    }
+  }
+
+  .modal::backdrop {
+    background: rgb(0 0 0 / 0.4);
+  }
+
+  /* extra styling */
+
+  body {
+    min-height: 100vh;
+    margin: 2rem;
+    font-family: system-ui;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--gray-8);
+    // background-image: url('https://images.unsplash.com/photo-1644242629712-943ae5c8c4f3?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0Njc1MjQxNA&ixlib=rb-1.2.1&q=85');
+    // background-size: cover;
+  }
+
+  h1 em {
+    color: var(--cyan-9);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .button {
+    border: 0;
+    cursor: pointer;
+    background: var(--gray-8);
+    color: var(--gray-2);
+    font-weight: 700;
+    padding: var(--size-2) var(--size-4);
+  }
+
+  .button:hover,
+  .button:focus {
+    background: var(--cyan-9);
+  }
+
+  form {
+    display: grid;
+    gap: 1em;
+  }
+
+</style>
+
   <div class="ct-widget-wrapper ct-widget-bg ct-widget-fulllength mailing-list-cta-widget">
     <div class="ct-widget clearfix">
       <div class="container">
@@ -20,7 +76,25 @@
                          href="https://connect.gocarlgo.com/connect-with-go-carl-go"
                          target="_blank">Subscribe</a -->
                     <a href="<%= @newsletter_subscription_url %>" target="_blank" class="ct-btn ct-btn-red">Subscribe</a>
+                    <%= link_to "#", class: "ct-btn ct-btn-red", data: { toggle: "ctamodal", target: "#newSubscriptionModal" } do %>
+                      Subscribe!
+                    <% end %>
+                    <div class="popup">
 
+                      <button class="button open-button">open ctamodal</button>
+                      <dialog class="ctamodal" id="ctamodal">
+                        <h2>An interesting title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum esse nisi, laboriosam illum temporibus ipsam?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quo.</p>
+                        <button class="button close-button">close ctamodal</button>
+                        <form class="form" method="dialog">
+                          <label>Your name <input type="text"></label>
+                          <label>Your email <input type="email"></label>
+                          <button class="button" type="submit">submit form</button>
+                        </form>
+
+                      </dialog> 
+                    </div>
                   </div>
                 </div>
               </form>

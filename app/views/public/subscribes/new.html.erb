@@ -1,0 +1,9 @@
+<%= turbo_frame_tag :modal do %>
+    <h1>New contact for 
+    <%= @site.subdomain %>
+    </h1>
+  <%= render "form", contact: @contact %>
+
+  <%= link_to "Back to subscribes", subscribes_path %>
+
+<%# end %>
