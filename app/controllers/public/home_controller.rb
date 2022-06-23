@@ -8,6 +8,7 @@ class Public::HomeController < Public::CustomerSite::BaseController
     # @ = @site.events
     @home_info        = @site.setting_home_infos.first
     @contact_message  = @site.contact_messages.new
+    @contact          = Contact.new
 
   end
 

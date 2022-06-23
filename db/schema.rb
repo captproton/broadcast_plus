@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_21_021648) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_21_184033) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -142,7 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_021648) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "email_subscriber"
+    t.boolean "email_subscriber", default: false
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -582,6 +582,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_021648) do
     t.string "subdomain"
     t.text "domain"
     t.index ["team_id"], name: "index_sites_on_team_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|

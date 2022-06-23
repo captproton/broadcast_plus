@@ -15,13 +15,15 @@ layout "customer_support"
   
   # POST /contacts or /contacts.json
   def create
-        @contact = Contact.new(contact_params)
+    @contact = Contact.new(contact_params)
+    @contact.email_subscriber = true
 
 
     respond_to do |format|
       if @contact.save
         format.html { redirect_to "/", notice: "Subscription was successfully created." }
       else
+        format.turbo_stream
         format.html { render :new, status: :unprocessable_entity }
       end
     end

@@ -1,0 +1,44 @@
+<%= form_with(model: contact, id: dom_id(Contact.new)) do |form| %>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Start your Subscription</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <% if contact.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(contact.errors.count, "error") %> prohibited this subscription from starting:</h2>
+
+        <ul>
+          <% contact.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :email, style: "display: block" %>
+      <%= form.text_field :email %>
+    </div>
+    <%= form.hidden_field :email_subscriber, value: 1 %>
+
+  </div>
+  
+    <div class="modal-footer">
+      <% if contact.persisted? %>
+        <div class="float-right">
+          &nbsp;
+        </div>
+      <% end %>
+
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      <%= form.submit class: 'btn btn-primary', value: "Subscribe" %>
+    </div>
+    <% end %>
