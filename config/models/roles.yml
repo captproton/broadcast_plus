@@ -1,5 +1,6 @@
 default:
   models:
+    Newsletter: read
     ContactMessage: read
     LegalText: read
     LegalText: read
@@ -82,6 +83,7 @@ admin:
     - admin
     - editor
   models:
+    Newsletter: manage
     ContactMessage: manage
     LegalText: manage
     LegalText: manage

@@ -108,7 +108,7 @@ gem "bullet_train-obfuscates_id"
 
 group :development do
   # Open any sent emails in your browser instead of having to setup an SMTP trap.
-  gem "letter_opener"
+gem 'letter_opener', '~> 1.8', '>= 1.8.1', group: "development"
 
   # Ruby formatter. Try `standardrb --fix`.
   gem "standard"
@@ -182,4 +182,7 @@ gem "bullet_train-super_scaffolding", git: "https://github.com/bullet-train-co/b
 gem 'pagy', '~> 3.9'
 gem "make_taggable", "~> 0.7.5"
 gem 'jquery-rails'
-gem 'bootstrap', '~> 5.1.3'
+
+# app-specific gems
+gem "mailboxer", git: "https://github.com/captproton/mailboxer", branch: "develop"
+gem "premailer-rails", "~> 1.11"

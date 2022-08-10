@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_21_184033) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_10_024730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -211,6 +211,60 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_184033) do
     t.index ["site_id"], name: "index_legal_texts_on_site_id"
   end
 
+  create_table "mailboxer_conversation_opt_outs", id: :serial, force: :cascade do |t|
+    t.string "unsubscriber_type"
+    t.integer "unsubscriber_id"
+    t.integer "conversation_id"
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
+  end
+
+  create_table "mailboxer_conversations", id: :serial, force: :cascade do |t|
+    t.string "subject", default: ""
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "mailboxer_notifications", id: :serial, force: :cascade do |t|
+    t.string "type"
+    t.text "body"
+    t.string "subject", default: ""
+    t.string "sender_type"
+    t.integer "sender_id"
+    t.integer "conversation_id"
+    t.boolean "draft", default: false
+    t.string "notification_code"
+    t.string "notified_object_type"
+    t.integer "notified_object_id"
+    t.string "attachment"
+    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.boolean "global", default: false
+    t.datetime "expires", precision: nil
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
+    t.index ["notified_object_type", "notified_object_id"], name: "mailboxer_notifications_notified_object"
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
+    t.index ["type"], name: "index_mailboxer_notifications_on_type"
+  end
+
+  create_table "mailboxer_receipts", id: :serial, force: :cascade do |t|
+    t.string "receiver_type"
+    t.integer "receiver_id"
+    t.integer "notification_id", null: false
+    t.boolean "is_read", default: false
+    t.boolean "trashed", default: false
+    t.boolean "deleted", default: false
+    t.string "mailbox_type", limit: 25
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.boolean "is_delivered", default: false
+    t.string "delivery_method"
+    t.string "message_id"
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
+  end
+
   create_table "media_appearances", force: :cascade do |t|
     t.bigint "site_id", null: false
     t.string "title"
@@ -279,6 +333,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_184033) do
     t.integer "podcast_ranking", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "newsletters", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "title"
+    t.text "mailing_group"
+    t.text "sender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_newsletters_on_site_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -753,6 +817,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_184033) do
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "teams"
   add_foreign_key "legal_texts", "sites"
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "media_appearances", "sites"
   add_foreign_key "memberships", "invitations"
   add_foreign_key "memberships", "memberships", column: "added_by_id"
@@ -763,6 +830,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_184033) do
   add_foreign_key "memberships_reassignments_assignments", "memberships_reassignments_scaffolding_completely_concrete_tangi", column: "scaffolding_completely_concrete_tangible_things_reassignments_i"
   add_foreign_key "memberships_reassignments_scaffolding_completely_concrete_tangi", "memberships"
   add_foreign_key "merchandise_links", "books"
+  add_foreign_key "newsletters", "sites"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"

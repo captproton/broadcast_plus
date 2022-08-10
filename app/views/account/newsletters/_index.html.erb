@@ -1,0 +1,62 @@
+<% site = @site || @site %>
+<% context ||= site %>
+<% collection ||= :newsletters %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<%= render 'account/shared/box' do |p| %>
+  <% p.content_for :title, t(".contexts.#{context.class.name.underscore}.header") %>
+  <% p.content_for :description do %>
+    <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless newsletters.any?}") %>
+  <% end %>
+
+  <% p.content_for :table do %>
+    <% if newsletters.any? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <%# 🚅 super scaffolding will insert new field headers above this line. %>
+            <th><%= t('.fields.title.heading') %></th>
+            <th><%= t('.fields.created_at.heading') %></th>
+            <th class="text-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% newsletters.each do |newsletter| %>
+            <% with_attribute_settings object: newsletter do %>
+              <tr data-id="<%= newsletter.id %>">
+                <%# 🚅 super scaffolding will insert new fields above this line. %>
+                <td><%= render 'shared/attributes/text', attribute: :title %></td>
+                <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+                <td class="buttons">
+                  <% unless hide_actions %>
+                    <% if can? :edit, newsletter %>
+                      <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, newsletter], class: 'button-secondary button-smaller' %>
+                    <% end %>
+                    <% if can? :destroy, newsletter %>
+                      <%= button_to t('.buttons.shorthand.destroy'), [:account, newsletter], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(newsletter)) }, class: 'button-secondary button-smaller' %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% p.content_for :actions do %>
+    <% unless hide_actions %>
+      <% if context == site %>
+        <% if can? :create, Newsletter.new(site: site) %>
+          <%= link_to t('.buttons.new'), [:new, :account, site, :newsletter], class: "#{first_button_primary(:newsletter)} new" %>
+        <% end %>
+      <% end %>
+
+      <% unless hide_back %>
+        <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:newsletter)} back" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

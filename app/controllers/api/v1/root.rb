@@ -30,6 +30,7 @@ class Api::V1::Root < Api::Base
   mount Api::V1::PressKitLinksEndpoint
   mount Api::V1::LegalTextsEndpoint
   mount Api::V1::ContactMessagesEndpoint
+  mount Api::V1::NewslettersEndpoint
   # 🚅 super scaffolding will mount new endpoints above this line.
 
   handle_not_found

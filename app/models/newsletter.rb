@@ -1,33 +1,22 @@
-class User < ApplicationRecord
-  include Users::Base
-
-  acts_as_messageable
+class Newsletter < ApplicationRecord
   # 🚅 add concerns above.
 
+  belongs_to :site
   # 🚅 add belongs_to associations above.
-    has_many :posts, as: :author
 
   # 🚅 add has_many associations above.
 
-  # 🚅 add oauth providers above.
-
+  has_one :team, through: :site
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
+  validates :title, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
-
-  def mailboxer_email(object)
-    return email
-  end
-
-  def mailboxer_name
-    self.name
-  end
 
   # 🚅 add methods above.
 end

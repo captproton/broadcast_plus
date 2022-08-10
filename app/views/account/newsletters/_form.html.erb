@@ -1,0 +1,20 @@
+<%= form_with model: newsletter, url: (newsletter.persisted? ? [:account, newsletter] : [:account, @site, :newsletters]), local: true, class: 'form' do |form| %>
+  <%= render 'account/shared/forms/errors', form: form %>
+
+  <% with_field_settings form: form do %>
+    <%= render 'shared/fields/text_area', method: :title, options: {autofocus: true} %>
+    <%= render 'shared/fields/text_area', method: :mailing_group %>
+    <%= render 'shared/fields/text_area', method: :sender %>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+  <% end %>
+
+  <div class="buttons">
+    <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+    <% if form.object.persisted? %>
+    <%= link_to t('global.buttons.cancel'), [:account, newsletter], class: "button-secondary" %>
+    <% else %>
+    <%= link_to t('global.buttons.cancel'), [:account, @site, :newsletters], class: "button-secondary" %>
+    <% end %>
+  </div>
+
+<% end %>

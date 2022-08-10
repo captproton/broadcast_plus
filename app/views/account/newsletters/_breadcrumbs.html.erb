@@ -1,0 +1,8 @@
+<% newsletter ||= @newsletter %>
+<% site ||= @site || newsletter&.site %>
+<%= render 'account/sites/breadcrumbs', site: site %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, site, :newsletters] %>
+<% if newsletter&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: newsletter.label_string, url: [:account, newsletter] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'newsletters' %>
